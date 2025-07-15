@@ -158,202 +158,6 @@ const ScuoleMaterialiDidattici = (props) => {
                               provId={province?.id}
                               provName={province?.nome}
                             ></Provincedocuments>
-                            <React.Fragment>
-                              <React.Fragment>
-                                (function() {'{'}
-                                'use strict'; /** * Groups educational materials
-                                by organization name within each province * and
-                                sorts organizations alphabetically */ function
-                                groupAndSortDocumentsByOrganization() {'{'}
-                                // Get all province sections const
-                                provinceArticles =
-                                document.querySelectorAll('article[id="materiali-didattici-provincia"]');
-                                provinceArticles.forEach(provinceArticle =&gt;{' '}
-                                {'{'}
-                                const provinceName =
-                                provinceArticle.querySelector('#nome-provincia').textContent.trim();
-                                console.log(\`Processing province: \${'{'}
-                                provinceName{'}'}\`); // Get the container that
-                                holds all CEAS organizations for this province
-                                const provinceContainer =
-                                provinceArticle.querySelector('.provincedocuments-container');
-                                if (!provinceContainer) {'{'}
-                                console.warn(\`No container found for province:
-                                \${'{'}provinceName{'}'}\`); return;
-                                {'}'}
-                                // Get all CEAS elements within this province
-                                const ceasElements =
-                                Array.from(provinceContainer.querySelectorAll('[data-ceas-name]'));
-                                if (ceasElements.length === 0) {'{'}
-                                console.log(\`No CEAS elements found for
-                                province: \${'{'}provinceName{'}'}\`); return;
-                                {'}'}
-                                // Group CEAS elements by organization name
-                                const groupedByOrg = {'{'}
-                                {'}'}; ceasElements.forEach(ceasElement =&gt;{' '}
-                                {'{'}
-                                const orgName =
-                                ceasElement.getAttribute('data-ceas-name'); if
-                                (!orgName || orgName === '\$orgName') {'{'}
-                                // Skip template elements or elements without
-                                proper org name return;
-                                {'}'}
-                                if (!groupedByOrg[orgName]) {'{'}
-                                groupedByOrg[orgName] = [];
-                                {'}'}
-                                groupedByOrg[orgName].push(ceasElement);
-                                {'}'}); // Sort organization names
-                                alphabetically const sortedOrgNames =
-                                Object.keys(groupedByOrg).sort((a, b) =&gt;{' '}
-                                {'{'}
-                                return a.localeCompare(b, 'it', {'{'}{' '}
-                                sensitivity: 'base' {'}'});
-                                {'}'}); console.log(\`Sorted organizations for
-                                \${'{'}provinceName{'}'}:\`, sortedOrgNames); //
-                                Clear the container provinceContainer.innerHTML
-                                = ''; // Re-add elements grouped by organization
-                                and sorted alphabetically
-                                sortedOrgNames.forEach(orgName =&gt; {'{'}
-                                const orgElements = groupedByOrg[orgName]; // If
-                                there are multiple elements for the same
-                                organization, merge them if (orgElements.length
-                                &gt; 1) {'{'}
-                                const mergedElement =
-                                mergeOrganizationElements(orgElements, orgName);
-                                provinceContainer.appendChild(mergedElement);
-                                {'}'} else {'{'}
-                                provinceContainer.appendChild(orgElements[0]);
-                                {'}'}
-                                {'}'}); // Add empty placeholder if no valid
-                                organizations found if (sortedOrgNames.length
-                                === 0) {'{'}
-                                const emptyPlaceholder =
-                                createEmptyPlaceholder();
-                                provinceContainer.appendChild(emptyPlaceholder);
-                                {'}'}
-                                {'}'});
-                                {'}'}
-                                /** * Merges multiple CEAS elements for the same
-                                organization */ function
-                                mergeOrganizationElements(elements, orgName){' '}
-                                {'{'}
-                                // Use the first element as base const
-                                baseElement = elements[0].cloneNode(true); //
-                                Find the documents container in the base element
-                                const baseDocumentsContainer =
-                                baseElement.querySelector('.container-documenti');
-                                if (!baseDocumentsContainer) {'{'}
-                                return baseElement;
-                                {'}'}
-                                // Collect all document links (including parent{' '}
-                                <a>
-                                  {' '}
-                                  tags) from all elements const allDocumentLinks
-                                  = []; elements.forEach(element =&gt; {'{'}
-                                  // Look for the complete link structure:{' '}
-                                </a>
-                                <a>
-                                  <div className="filelisting-filelisting">
-                                    ...
-                                  </div>
-                                </a>
-                                const documentLinks =
-                                element.querySelectorAll('a[href]
-                                .filelisting-filelisting');
-                                documentLinks.forEach(linkDiv =&gt; {'{'}
-                                // Get the parent{' '}
-                                <a>
-                                  {' '}
-                                  tag which contains the actual link const
-                                  parentLink = linkDiv.closest('a[href]'); if
-                                  (parentLink) {'{'}
-                                  allDocumentLinks.push(parentLink.cloneNode(true));
-                                  {'}'}
-                                  {'}'});
-                                  {'}'}); // Remove duplicate documents based on
-                                  file name and URL const uniqueDocuments = [];
-                                  const seenDocuments = new Set();
-                                  allDocumentLinks.forEach(linkElement =&gt;{' '}
-                                  {'{'}
-                                  const fileName =
-                                  linkElement.querySelector('.file-name')?.textContent?.trim();
-                                  const href = linkElement.getAttribute('href');
-                                  const uniqueKey = \`\${'{'}fileName{'}'}-\$
-                                  {'{'}href{'}'}\`; if (fileName && href &&
-                                  !seenDocuments.has(uniqueKey)) {'{'}
-                                  seenDocuments.add(uniqueKey);
-                                  uniqueDocuments.push(linkElement);
-                                  {'}'}
-                                  {'}'}); // Clear existing documents in base
-                                  container (remove both{' '}
-                                </a>
-                                <a>
-                                  {' '}
-                                  tags and any orphaned elements) const
-                                  existingLinks =
-                                  baseDocumentsContainer.querySelectorAll('a[href]');
-                                  existingLinks.forEach(link =&gt;
-                                  link.remove()); // Also remove any orphaned
-                                  filelisting elements const orphanedElements =
-                                  baseDocumentsContainer.querySelectorAll('.filelisting-filelisting');
-                                  orphanedElements.forEach(element =&gt; {'{'}
-                                  if (!element.closest('a[href]')) {'{'}
-                                  element.remove();
-                                  {'}'}
-                                  {'}'}); // Add all unique documents (complete{' '}
-                                </a>
-                                <a>
-                                  {' '}
-                                  tags with their content)
-                                  uniqueDocuments.forEach(linkElement =&gt;{' '}
-                                  {'{'}
-                                  baseDocumentsContainer.appendChild(linkElement);
-                                  {'}'}); return baseElement;
-                                  {'}'}
-                                  /** * Creates an empty placeholder element */
-                                  function createEmptyPlaceholder() {'{'}
-                                  const placeholder =
-                                  document.createElement('div');
-                                  placeholder.className =
-                                  'empty-placeholder-container';
-                                  placeholder.innerHTML = \`
-                                  <span className="empty-placeholder-text1 paragraph_xl">
-                                    <span className="provincedocuments-text5 paragraph_xl">
-                                      <span>
-                                        Nessun documento disponibile per questa
-                                        provincia
-                                      </span>
-                                      <br />
-                                    </span>
-                                  </span>
-                                  <span className="paragraph_xl">
-                                    <span className="provincedocuments-text2 paragraph_xl">
-                                      <span>--</span>
-                                      <br />
-                                    </span>
-                                  </span>
-                                  \`; return placeholder;
-                                  {'}'}
-                                  /** * Initialize the grouping and sorting when
-                                  DOM is ready */ function initialize() {'{'}
-                                  if (document.readyState === 'loading') {'{'}
-                                  document.addEventListener('DOMContentLoaded',
-                                  groupAndSortDocumentsByOrganization);
-                                  {'}'} else {'{'}
-                                  groupAndSortDocumentsByOrganization();
-                                  {'}'}
-                                  {'}'}
-                                  // Initialize the function initialize(); //
-                                  Expose function globally for manual triggering
-                                  if needed
-                                  window.groupAndSortDocumentsByOrganization =
-                                  groupAndSortDocumentsByOrganization;
-                                  console.log('Document grouping and sorting
-                                  function initialized');
-                                  {'}'})();
-                                </a>
-                              </React.Fragment>
-                            </React.Fragment>
                           </Fragment>
                         )}
                       />
@@ -369,6 +173,200 @@ const ScuoleMaterialiDidattici = (props) => {
         </section>
         <LoghiSponsor rootClassName="loghi-sponsorroot-class-name10"></LoghiSponsor>
         <Footer rootClassName="footerroot-class-name11"></Footer>
+        <div>
+          <div className="scuole-materiali-didattici-container7">
+            <React.Fragment>
+              <Script>{`
+(function() {
+    'use strict';
+    
+    /**
+     * Groups educational materials by organization name within each province
+     * and sorts organizations alphabetically
+     */
+    function groupAndSortDocumentsByOrganization() {
+        // Get all province sections
+        const provinceArticles = document.querySelectorAll('article[id="materiali-didattici-provincia"]');
+        
+        provinceArticles.forEach(provinceArticle => {
+            const provinceName = provinceArticle.querySelector('#nome-provincia').textContent.trim();
+            console.log(\`Processing province: \${provinceName}\`);
+            
+            // Get the container that holds all CEAS organizations for this province
+            const provinceContainer = provinceArticle.querySelector('.provincedocuments-container');
+            
+            if (!provinceContainer) {
+                console.warn(\`No container found for province: \${provinceName}\`);
+                return;
+            }
+            
+            // Get all CEAS elements within this province
+            const ceasElements = Array.from(provinceContainer.querySelectorAll('[data-ceas-name]'));
+            
+            if (ceasElements.length === 0) {
+                console.log(\`No CEAS elements found for province: \${provinceName}\`);
+                return;
+            }
+            
+            // Group CEAS elements by organization name
+            const groupedByOrg = {};
+            
+            ceasElements.forEach(ceasElement => {
+                const orgName = ceasElement.getAttribute('data-ceas-name');
+                
+                if (!orgName || orgName === '\$orgName') {
+                    // Skip template elements or elements without proper org name
+                    return;
+                }
+                
+                if (!groupedByOrg[orgName]) {
+                    groupedByOrg[orgName] = [];
+                }
+                
+                groupedByOrg[orgName].push(ceasElement);
+            });
+            
+            // Sort organization names alphabetically
+            const sortedOrgNames = Object.keys(groupedByOrg).sort((a, b) => {
+                return a.localeCompare(b, 'it', { sensitivity: 'base' });
+            });
+            
+            console.log(\`Sorted organizations for \${provinceName}:\`, sortedOrgNames);
+            
+            // Clear the container
+            provinceContainer.innerHTML = '';
+            
+            // Re-add elements grouped by organization and sorted alphabetically
+            sortedOrgNames.forEach(orgName => {
+                const orgElements = groupedByOrg[orgName];
+                
+                // If there are multiple elements for the same organization, merge them
+                if (orgElements.length > 1) {
+                    const mergedElement = mergeOrganizationElements(orgElements, orgName);
+                    provinceContainer.appendChild(mergedElement);
+                } else {
+                    provinceContainer.appendChild(orgElements[0]);
+                }
+            });
+            
+            // Add empty placeholder if no valid organizations found
+            if (sortedOrgNames.length === 0) {
+                const emptyPlaceholder = createEmptyPlaceholder();
+                provinceContainer.appendChild(emptyPlaceholder);
+            }
+        });
+    }
+    
+    /**
+     * Merges multiple CEAS elements for the same organization
+     */
+    function mergeOrganizationElements(elements, orgName) {
+        // Use the first element as base
+        const baseElement = elements[0].cloneNode(true);
+        
+        // Find the documents container in the base element
+        const baseDocumentsContainer = baseElement.querySelector('.container-documenti');
+        
+        if (!baseDocumentsContainer) {
+            return baseElement;
+        }
+        
+        // Collect all document links (including parent <a> tags) from all elements
+        const allDocumentLinks = [];
+        
+        elements.forEach(element => {
+            // Look for the complete link structure: <a><div class="filelisting-filelisting">...</div></a>
+            const documentLinks = element.querySelectorAll('a[href] .filelisting-filelisting');
+            documentLinks.forEach(linkDiv => {
+                // Get the parent <a> tag which contains the actual link
+                const parentLink = linkDiv.closest('a[href]');
+                if (parentLink) {
+                    allDocumentLinks.push(parentLink.cloneNode(true));
+                }
+            });
+        });
+        
+        // Remove duplicate documents based on file name and URL
+        const uniqueDocuments = [];
+        const seenDocuments = new Set();
+        
+        allDocumentLinks.forEach(linkElement => {
+            const fileName = linkElement.querySelector('.file-name')?.textContent?.trim();
+            const href = linkElement.getAttribute('href');
+            const uniqueKey = \`\${fileName}-\${href}\`;
+            
+            if (fileName && href && !seenDocuments.has(uniqueKey)) {
+                seenDocuments.add(uniqueKey);
+                uniqueDocuments.push(linkElement);
+            }
+        });
+        
+        // Clear existing documents in base container (remove both <a> tags and any orphaned elements)
+        const existingLinks = baseDocumentsContainer.querySelectorAll('a[href]');
+        existingLinks.forEach(link => link.remove());
+        
+        // Also remove any orphaned filelisting elements
+        const orphanedElements = baseDocumentsContainer.querySelectorAll('.filelisting-filelisting');
+        orphanedElements.forEach(element => {
+            if (!element.closest('a[href]')) {
+                element.remove();
+            }
+        });
+        
+        // Add all unique documents (complete <a> tags with their content)
+        uniqueDocuments.forEach(linkElement => {
+            baseDocumentsContainer.appendChild(linkElement);
+        });
+        
+        return baseElement;
+    }
+    
+    /**
+     * Creates an empty placeholder element
+     */
+    function createEmptyPlaceholder() {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'empty-placeholder-container';
+        placeholder.innerHTML = \`
+            <span class="empty-placeholder-text1 paragraph_xl">
+                <span class="provincedocuments-text5 paragraph_xl">
+                    <span>Nessun documento disponibile per questa provincia</span>
+                    <br>
+                </span>
+            </span>
+            <span class="paragraph_xl">
+                <span class="provincedocuments-text2 paragraph_xl">
+                    <span>--</span>
+                    <br>
+                </span>
+            </span>
+        \`;
+        return placeholder;
+    }
+    
+    /**
+     * Initialize the grouping and sorting when DOM is ready
+     */
+    function initialize() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', groupAndSortDocumentsByOrganization);
+        } else {
+            groupAndSortDocumentsByOrganization();
+        }
+    }
+    
+    // Initialize the function
+    initialize();
+    
+    // Expose function globally for manual triggering if needed
+    window.groupAndSortDocumentsByOrganization = groupAndSortDocumentsByOrganization;
+    
+    console.log('Document grouping and sorting function initialized');
+})();
+`}</Script>
+            </React.Fragment>
+          </div>
+        </div>
       </main>
       <style jsx>
         {`
@@ -440,6 +438,9 @@ const ScuoleMaterialiDidattici = (props) => {
             width: 100%;
             display: flex;
             flex-direction: column;
+          }
+          .scuole-materiali-didattici-container7 {
+            display: contents;
           }
         `}
       </style>
