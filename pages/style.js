@@ -1349,38 +1349,33 @@ const Style = (props) => {
               <span className="style-text275">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="style-text276">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="style-text277">Register</span>
+              <span className="style-text276">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="style-text278">A proposito di INFEAS</span>
+              <span className="style-text277">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="style-text279">Cerca</span>
+              <span className="style-text278">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name"
         ></NavbarInteractive>
         <div className="style-font31">
-          <span className="style-text280">I Prossimi appuntamenti</span>
+          <span className="style-text279">I Prossimi appuntamenti</span>
         </div>
         <div className="style-container192">
           <div className="style-two-colrightimage">
             <div className="style-container193">
-              <span className="style-text281 heading2">
+              <span className="style-text280 heading2">
                 I Prossimi Appuntamenti
               </span>
-              <span className="style-text282 paragraph_xl">
+              <span className="style-text281 paragraph_xl">
                 Non perdere i prossimi eventi e iniziative promossi da INFEAS!
                 Scopri date, luoghi e dettagli delle attività dedicate
                 all’educazione alla sostenibilità.
@@ -1419,14 +1414,14 @@ const Style = (props) => {
           </div>
         </div>
         <div className="style-font32">
-          <span className="style-text283">Ricerca risultati</span>
+          <span className="style-text282">Ricerca risultati</span>
         </div>
         <div className="style-dettaglioceas1">
           <div className="style-dettaglio-sx1">
             <div className="style-container199">
               <div className="style-filtra-per1">
                 <div className="style-container200">
-                  <span className="style-text284">Keyword di ricerca</span>
+                  <span className="style-text283">Keyword di ricerca</span>
                 </div>
               </div>
               <div className="style-container201">
@@ -1440,7 +1435,7 @@ const Style = (props) => {
             <div className="style-container202">
               <div className="style-filtra-per2">
                 <div className="style-container203">
-                  <span className="style-text285">Filtra per</span>
+                  <span className="style-text284">Filtra per</span>
                 </div>
               </div>
               <div className="style-container204">
@@ -1454,7 +1449,7 @@ const Style = (props) => {
             <div className="style-container205">
               <div className="style-filtra-per3">
                 <div className="style-container206">
-                  <span className="style-text286">Filtra per</span>
+                  <span className="style-text285">Filtra per</span>
                 </div>
               </div>
               <div className="style-container207">
@@ -1466,7 +1461,7 @@ const Style = (props) => {
               </div>
             </div>
             <div className="style-container208">
-              <span className="style-text287">TAG Selezionato</span>
+              <span className="style-text286">TAG Selezionato</span>
               <div className="style-container209">
                 <Tag></Tag>
                 <Tag></Tag>
@@ -1554,18 +1549,18 @@ const Style = (props) => {
           </div>
         </div>
         <div className="style-font33">
-          <span className="style-text291">Paragrafo tematiche</span>
+          <span className="style-text290">Paragrafo tematiche</span>
         </div>
         <div className="style-paragrafodettaglioceas">
           <ParagrafoDettaglioCeas
             text3={
               <Fragment>
-                <span className="style-text292">Obiettivi e compiti</span>
+                <span className="style-text291">Obiettivi e compiti</span>
               </Fragment>
             }
             text4={
               <Fragment>
-                <span className="style-text293 paragraph_xl">
+                <span className="style-text292 paragraph_xl">
                   <span>
                     Il CEAS, ubicato nel compendio naturale della laguna di
                     Nora, ha tra i suoi obiettivi quello di aumentare la
@@ -1600,25 +1595,25 @@ const Style = (props) => {
             }
             text5={
               <Fragment>
-                <span className="style-text297">OFFERTA FORMATIVA</span>
+                <span className="style-text296">OFFERTA FORMATIVA</span>
               </Fragment>
             }
             text6={
               <Fragment>
-                <span className="style-text298">
+                <span className="style-text297">
                   Le attività didattiche rivolte al pubblico
                 </span>
               </Fragment>
             }
             text9={
               <Fragment>
-                <span className="style-text299">Ultimo aggiornamento:</span>
+                <span className="style-text298">Ultimo aggiornamento:</span>
               </Fragment>
             }
           ></ParagrafoDettaglioCeas>
         </div>
         <div className="style-font34">
-          <span className="style-text300">
+          <span className="style-text299">
             Dashboard Ceas | Dettaglio membri rete infeas
           </span>
         </div>
@@ -1627,7 +1622,7 @@ const Style = (props) => {
             <div className="style-container230">
               <div className="style-filtra-per4">
                 <div className="style-container231">
-                  <span className="style-text301">Keyword di ricerca</span>
+                  <span className="style-text300">Keyword di ricerca</span>
                 </div>
               </div>
               <div className="style-container232">
@@ -1641,7 +1636,7 @@ const Style = (props) => {
             <div className="style-container233">
               <div className="style-filtra-per5">
                 <div className="style-container234">
-                  <span className="style-text302">Filtra per</span>
+                  <span className="style-text301">Filtra per</span>
                 </div>
               </div>
               <div className="style-container235">
@@ -1655,7 +1650,7 @@ const Style = (props) => {
             <div className="style-container236">
               <div className="style-filtra-per6">
                 <div className="style-container237">
-                  <span className="style-text303">Filtra per</span>
+                  <span className="style-text302">Filtra per</span>
                 </div>
               </div>
               <div className="style-container238">
@@ -1667,7 +1662,7 @@ const Style = (props) => {
               </div>
             </div>
             <div className="style-container239">
-              <span className="style-text304">TAG Selezionato</span>
+              <span className="style-text303">TAG Selezionato</span>
               <div className="style-container240">
                 <Tag></Tag>
                 <Tag></Tag>
@@ -1701,7 +1696,7 @@ const Style = (props) => {
           </div>
         </div>
         <div className="style-font35">
-          <span className="style-text306">Padding Container</span>
+          <span className="style-text305">Padding Container</span>
         </div>
         <div className="padding-container style-container248"></div>
       </div>
@@ -4395,9 +4390,6 @@ const Style = (props) => {
           .style-text278 {
             display: inline-block;
           }
-          .style-text279 {
-            display: inline-block;
-          }
           .style-font31 {
             flex: 0 0 auto;
             width: 100%;
@@ -4410,7 +4402,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text280 {
+          .style-text279 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4453,12 +4445,12 @@ const Style = (props) => {
             padding-bottom: 0px;
             justify-content: center;
           }
-          .style-text281 {
+          .style-text280 {
             align-self: flex-start;
             font-style: normal;
             font-weight: 400;
           }
-          .style-text282 {
+          .style-text281 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -4523,7 +4515,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text283 {
+          .style-text282 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4566,7 +4558,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text284 {
+          .style-text283 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -4608,7 +4600,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text285 {
+          .style-text284 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -4650,7 +4642,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text286 {
+          .style-text285 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -4679,7 +4671,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .style-text287 {
+          .style-text286 {
             font-style: normal;
             font-weight: 700;
           }
@@ -4918,7 +4910,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text291 {
+          .style-text290 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4933,19 +4925,19 @@ const Style = (props) => {
             flex-direction: row;
             background-color: #efeff2;
           }
+          .style-text291 {
+            display: inline-block;
+          }
           .style-text292 {
             display: inline-block;
           }
-          .style-text293 {
+          .style-text296 {
             display: inline-block;
           }
           .style-text297 {
             display: inline-block;
           }
           .style-text298 {
-            display: inline-block;
-          }
-          .style-text299 {
             display: inline-block;
           }
           .style-font34 {
@@ -4960,7 +4952,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text300 {
+          .style-text299 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -5003,7 +4995,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text301 {
+          .style-text300 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -5045,7 +5037,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text302 {
+          .style-text301 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -5087,7 +5079,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text303 {
+          .style-text302 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -5116,7 +5108,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .style-text304 {
+          .style-text303 {
             font-style: normal;
             font-weight: 700;
           }
@@ -5212,7 +5204,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text306 {
+          .style-text305 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;

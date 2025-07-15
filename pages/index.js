@@ -30,6 +30,10 @@ const Home = (props) => {
         <Head>
           <title>INFEAS Website</title>
           <meta property="og:title" content="INFEAS Website" />
+          <meta
+            property="og:image"
+            content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/6870e192-5a0c-4ce0-92db-78cbb3e943f6/3bf4d4f9-5f38-49b6-95ee-853fd0fba1ca?org_if_sml=1&amp;force_format=original"
+          />
         </Head>
         <DataProvider
           fetchData={(params) =>
@@ -98,24 +102,19 @@ const Home = (props) => {
                     <span className="home-text19">Materiali didattici</span>
                   </Fragment>
                 }
-                text142={
-                  <Fragment>
-                    <span className="home-text20">Notizie</span>
-                  </Fragment>
-                }
                 register={
                   <Fragment>
-                    <span className="home-text21">Register</span>
+                    <span className="home-text20">Register</span>
                   </Fragment>
                 }
                 text1121={
                   <Fragment>
-                    <span className="home-text22">A proposito di INFEAS</span>
+                    <span className="home-text21">A proposito di INFEAS</span>
                   </Fragment>
                 }
                 register1={
                   <Fragment>
-                    <span className="home-text23">Cerca</span>
+                    <span className="home-text22">Cerca</span>
                   </Fragment>
                 }
                 rootClassName="navbar-interactiveroot-class-name1"
@@ -126,10 +125,10 @@ const Home = (props) => {
                 className="home-header padding-container"
               >
                 <div className="home-container11 thq-section-max-width">
-                  <h1 className="home-text24 heading1">
+                  <h1 className="home-text23 heading1">
                     Bentornati su INFEAS Sardegna
                   </h1>
-                  <h4 className="home-text25 heading4">
+                  <h4 className="home-text24 heading4">
                     Impariamo dalla natura, diffondiamo conoscenza, costruiamo
                     sostenibilità per la nostra comunità.
                   </h4>
@@ -178,10 +177,10 @@ const Home = (props) => {
                       aria-labelledby="Attivita - formiamo competenze"
                       className="home-card-attivita1 info-card"
                     >
-                      <span className="home-text26 paragraph_md">
+                      <span className="home-text25 paragraph_md">
                         Formiamo competenze
                       </span>
-                      <p className="home-text27 paragraph_sm">
+                      <p className="home-text26 paragraph_sm">
                         Supporto e crescita per operatori e comunità
                       </p>
                     </article>
@@ -191,10 +190,10 @@ const Home = (props) => {
                       aria-labelledby="Facilitiamo collaborazione e innovazione"
                       className="home-card-attivita2 info-card"
                     >
-                      <span className="home-text28 paragraph_md">
+                      <span className="home-text27 paragraph_md">
                         Facilitiamo collabotazione e innovazione
                       </span>
-                      <p className="home-text29 paragraph_sm">
+                      <p className="home-text28 paragraph_sm">
                         Idee e soluzioni condivise per un territorie sostenibile
                       </p>
                     </article>
@@ -204,10 +203,10 @@ const Home = (props) => {
                       aria-labelledby="Educhiamo e sensibilizziamo"
                       className="home-card-attivita3 info-card"
                     >
-                      <span className="home-text30 paragraph_md">
+                      <span className="home-text29 paragraph_md">
                         Educhiamo e sensibilizziamo
                       </span>
-                      <p className="home-text31 paragraph_sm">
+                      <p className="home-text30 paragraph_sm">
                         Percorsi e attività per diffondere la cultua della
                         sostenibiltà
                       </p>
@@ -218,10 +217,10 @@ const Home = (props) => {
                       aria-labelledby="Stimoliamo la partecipazione"
                       className="home-card-attivita4 info-card"
                     >
-                      <span className="home-text32 paragraph_md">
+                      <span className="home-text31 paragraph_md">
                         Stimoliamo la partecipazione
                       </span>
-                      <p className="home-text33 paragraph_sm">
+                      <p className="home-text32 paragraph_sm">
                         Coinvolgere cittadini e scuole nei progetti
                       </p>
                     </article>
@@ -297,10 +296,10 @@ const Home = (props) => {
                 <div className="home-a-chi-si-rivolge thq-section-max-width">
                   <div className="home-titolo-paragraph">
                     <div className="home-container19">
-                      <h2 className="home-text36 heading2">
+                      <h2 className="home-text35 heading2">
                         A chi si rivolge?
                       </h2>
-                      <p className="home-text37 paragraph_xl">
+                      <p className="home-text36 paragraph_xl">
                         Sviluppando programmi formativi e incoraggiando la
                         cooperazione tra organizzazioni, comunità locali e
                         istituzioni per un domani più verde.
@@ -402,7 +401,7 @@ const Home = (props) => {
                     />
                   </div>
                   <div className="home-container25">
-                    <p className="home-text39 paragraph_xl">
+                    <p className="home-text38 paragraph_xl">
                       I progetti di rete sono iniziative collaborative su temi
                       condivisi, che coinvolgono CEAS, istituzioni e comunità
                       locali per promuovere sostenibilità e innovazione.
@@ -424,10 +423,10 @@ const Home = (props) => {
               <section className="home-eventi1 padding-container">
                 <div className="home-container26 thq-section-max-width">
                   <div className="home-container27">
-                    <h2 className="home-text40 heading2">
+                    <h2 className="home-text39 heading2">
                       I Prossimi Appuntamenti
                     </h2>
-                    <p className="home-text41 paragraph_xl">
+                    <p className="home-text40 paragraph_xl">
                       Non perdere i prossimi eventi e iniziative promossi da
                       INFEAS! Scopri date, luoghi e dettagli delle attività
                       dedicate all’educazione alla sostenibilità.
@@ -528,8 +527,8 @@ const Home = (props) => {
               <section className="home-notizie1 padding-container">
                 <div className="home-container33 thq-section-max-width">
                   <div className="home-container34">
-                    <h2 className="home-text42 heading2">Notizie della rete</h2>
-                    <p className="home-text43 paragraph_xl">
+                    <h2 className="home-text41 heading2">Notizie della rete</h2>
+                    <p className="home-text42 paragraph_xl">
                       Esplora le ultime notizie riguardanti la rete Infeas,
                       inclusi bandi, scadenze importanti e presentazioni di
                       progetti innovativi. Rimani aggiornato sulle opportunità e
@@ -611,7 +610,7 @@ const Home = (props) => {
               >
                 <div className="thq-section-max-width">
                   <div className="home-container37">
-                    <h2 className="home-text44 heading2">
+                    <h2 className="home-text43 heading2">
                       Scopri la community INFEAS
                     </h2>
                     <Gallery rootClassName="galleryroot-class-name1"></Gallery>
@@ -623,7 +622,7 @@ const Home = (props) => {
                 className="home-come-funziona-infeas padding-container"
               >
                 <div className="home-container38 thq-section-max-width">
-                  <h2 className="home-text45 heading2">
+                  <h2 className="home-text44 heading2">
                     Come funziona Infeas?
                   </h2>
                   <Link href="/sistema-regionale-infeas">
@@ -727,7 +726,7 @@ const Home = (props) => {
                 </div>
                 <div className="home-container42">
                   <div className="home-container43">
-                    <p className="home-text47 paragraph_xxl">
+                    <p className="home-text46 paragraph_xxl">
                       Scopri il nostro Press Kit con materiali e risorse utili
                       per approfondire le attività e i progetti di INFEAS.
                       Visita la sezione dedicata per scaricare documenti,
@@ -804,9 +803,6 @@ const Home = (props) => {
           .home-text22 {
             display: inline-block;
           }
-          .home-text23 {
-            display: inline-block;
-          }
           .home-header {
             gap: var(--dl-layout-space-fourunits);
             width: 100%;
@@ -826,10 +822,10 @@ const Home = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .home-text24 {
+          .home-text23 {
             text-align: center;
           }
-          .home-text25 {
+          .home-text24 {
             color: #252330;
             align-self: center;
             font-style: normal;
@@ -891,13 +887,13 @@ const Home = (props) => {
             left: -10%;
             max-width: 35%;
           }
-          .home-text26 {
+          .home-text25 {
             fill: var(--dl-color-theme-secondary2);
             color: var(--dl-color-theme-secondary2);
             font-style: normal;
             font-weight: 500;
           }
-          .home-text27 {
+          .home-text26 {
             fill: var(--dl-color-theme-primary1);
             color: var(--dl-color-theme-primary1);
             line-height: 130%;
@@ -918,13 +914,13 @@ const Home = (props) => {
             padding-bottom: var(--dl-layout-space-unit);
             background-color: white;
           }
-          .home-text28 {
+          .home-text27 {
             fill: var(--dl-color-theme-secondary2);
             color: var(--dl-color-theme-secondary2);
             font-style: normal;
             font-weight: 500;
           }
-          .home-text29 {
+          .home-text28 {
             fill: var(--dl-color-theme-primary1);
             color: var(--dl-color-theme-primary1);
             line-height: 130%;
@@ -945,11 +941,11 @@ const Home = (props) => {
             padding-bottom: var(--dl-layout-space-unit);
             background-color: white;
           }
-          .home-text30 {
+          .home-text29 {
             color: var(--dl-color-theme-secondary2);
             font-weight: 500;
           }
-          .home-text31 {
+          .home-text30 {
             fill: var(--dl-color-theme-primary1);
             color: var(--dl-color-theme-primary1);
             line-height: 130%;
@@ -970,13 +966,13 @@ const Home = (props) => {
             padding-bottom: var(--dl-layout-space-unit);
             background-color: white;
           }
-          .home-text32 {
+          .home-text31 {
             fill: var(--dl-color-theme-secondary2);
             color: var(--dl-color-theme-secondary2);
             font-style: normal;
             font-weight: 500;
           }
-          .home-text33 {
+          .home-text32 {
             fill: var(--dl-color-theme-primary1);
             color: var(--dl-color-theme-primary1);
             line-height: 130%;
@@ -1075,10 +1071,10 @@ const Home = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .home-text36 {
+          .home-text35 {
             color: #ffffff;
           }
-          .home-text37 {
+          .home-text36 {
             color: #ffffff;
             text-align: center;
           }
@@ -1147,7 +1143,7 @@ const Home = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .home-text39 {
+          .home-text38 {
             fill: #252330;
             color: rgb(26, 26, 26);
             height: auto;
@@ -1186,11 +1182,11 @@ const Home = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .home-text40 {
+          .home-text39 {
             font-style: normal;
             font-weight: 400;
           }
-          .home-text41 {
+          .home-text40 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -1258,11 +1254,11 @@ const Home = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .home-text42 {
+          .home-text41 {
             font-style: normal;
             font-weight: 400;
           }
-          .home-text43 {
+          .home-text42 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -1300,7 +1296,7 @@ const Home = (props) => {
             flex-direction: column;
             padding-bottom: var(--dl-layout-space-sixunits);
           }
-          .home-text44 {
+          .home-text43 {
             align-self: center;
           }
           .home-come-funziona-infeas {
@@ -1321,7 +1317,7 @@ const Home = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .home-text45 {
+          .home-text44 {
             fill: white;
             color: white;
           }
@@ -1402,7 +1398,7 @@ const Home = (props) => {
             flex-direction: column;
             padding-bottom: 0px;
           }
-          .home-text47 {
+          .home-text46 {
             text-align: center;
           }
           .home-link25 {
@@ -1438,7 +1434,7 @@ const Home = (props) => {
             .home-container19 {
               width: 80%;
             }
-            .home-text36 {
+            .home-text35 {
               text-align: center;
             }
             .home-container21 {
@@ -1589,7 +1585,7 @@ const Home = (props) => {
             .home-header {
               width: 100%;
             }
-            .home-text24 {
+            .home-text23 {
               text-align: center;
             }
             .home-bottoni {
@@ -1616,7 +1612,7 @@ const Home = (props) => {
               padding: var(--dl-layout-space-halfunit);
               max-width: 45%;
             }
-            .home-text29 {
+            .home-text28 {
               line-height: 130%;
             }
             .home-card-attivita3 {
@@ -1661,7 +1657,7 @@ const Home = (props) => {
               padding-left: 0px;
               padding-right: 0px;
             }
-            .home-text37 {
+            .home-text36 {
               width: auto;
             }
             .home-container20 {
@@ -1684,7 +1680,7 @@ const Home = (props) => {
             .home-come-funziona-infeas {
               flex-direction: column;
             }
-            .home-text45 {
+            .home-text44 {
               fill: white;
               color: white;
             }

@@ -2,12 +2,13 @@ import React, { Fragment } from 'react'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
+import Script from 'dangerous-html/react'
 import { useTranslations } from 'next-intl'
 
 import NavbarInteractive from '../components/navbar-interactive'
 import Headertipologiatarget from '../components/headertipologiatarget'
 import FilterbyProvince from '../components/filterby-province'
-import Filelisting from '../components/filelisting'
+import Provincedocuments from '../components/provincedocuments'
 import LoghiSponsor from '../components/loghi-sponsor'
 import Footer from '../components/footer'
 
@@ -92,28 +93,23 @@ const ScuoleMaterialiDidattici = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="scuole-materiali-didattici-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="scuole-materiali-didattici-text21">
+              <span className="scuole-materiali-didattici-text20">
                 Register
               </span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="scuole-materiali-didattici-text22">
+              <span className="scuole-materiali-didattici-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="scuole-materiali-didattici-text23">Cerca</span>
+              <span className="scuole-materiali-didattici-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name11"
@@ -128,7 +124,7 @@ const ScuoleMaterialiDidattici = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="scuole-materiali-didattici-text24">
+                  <span className="scuole-materiali-didattici-text23">
                     Filtra per
                   </span>
                 </Fragment>
@@ -156,55 +152,12 @@ const ScuoleMaterialiDidattici = (props) => {
                     <div className="scuole-materiali-didattici-container5">
                       <Repeater
                         items={params}
-                        renderItem={(documenti) => (
+                        renderItem={(province) => (
                           <Fragment>
-                            <article
-                              id="materiali-didattici-provincia"
-                              tabindex="0"
-                              aria-labelledby="Elenco dei materiali didattici per la provicia"
-                              className="scuole-materiali-didattici-container6"
-                            >
-                              <h4
-                                id="nome-provincia"
-                                data-province={
-                                  documenti?.organizzazione?.provincia?.nome
-                                }
-                                className="province_name heading4"
-                              >
-                                Text
-                              </h4>
-                              <div className="scuole-materiali-didattici-container7">
-                                <span
-                                  id="nome_ceas"
-                                  data-ceas={documenti?.organizzazione?.nome}
-                                  className="scuole-materiali-didattici-text26 nome_ceas heading4"
-                                >
-                                  Seremida – Sini
-                                  <span
-                                    dangerouslySetInnerHTML={{
-                                      __html: ' ',
-                                    }}
-                                  />
-                                </span>
-                              </div>
-                              <article
-                                id="materiali-didattici-ceas"
-                                tabindex="0"
-                                aria-labelledby="Materiali didattici di un CEAS"
-                                className="scuole-materiali-didattici-cardprovincia"
-                              >
-                                <div className="scuole-materiali-didattici-container8">
-                                  <span className="scuole-materiali-didattici-text27 paragraph_xl">
-                                    Documenti utili
-                                  </span>
-                                  <Filelisting
-                                    rootClassName="filelistingroot-class-name22"
-                                    fileListingUrl={documenti?.file?.url}
-                                    className="scuole-materiali-didattici-component4"
-                                  ></Filelisting>
-                                </div>
-                              </article>
-                            </article>
+                            <Provincedocuments
+                              provId={province?.id}
+                              provName={province?.nome}
+                            ></Provincedocuments>
                           </Fragment>
                         )}
                       />
@@ -215,6 +168,199 @@ const ScuoleMaterialiDidattici = (props) => {
                   locale: props?.locale ?? '',
                 }}
               />
+              <div>
+                <div className="scuole-materiali-didattici-container7">
+                  <React.Fragment>
+                    <Script>{`
+(function() {
+    
+    /**
+     * Groups educational materials by organization name within each province
+     * and sorts organizations alphabetically
+     */
+    function groupAndSortDocumentsByOrganization() {
+        // Get all province sections
+        const provinceArticles = document.querySelectorAll('article[id="materiali-didattici-provincia"]');
+        
+        provinceArticles.forEach(provinceArticle => {
+            const provinceName = provinceArticle.querySelector('#nome-provincia').textContent.trim();
+            console.log(\`Processing province: \${provinceName}\`);
+            
+            // Get the container that holds all CEAS organizations for this province
+            const provinceContainer = provinceArticle.querySelector('.provincedocuments-container');
+            
+            if (!provinceContainer) {
+                console.warn(\`No container found for province: \${provinceName}\`);
+                return;
+            }
+            
+            // Get all CEAS elements within this province
+            const ceasElements = Array.from(provinceContainer.querySelectorAll('[data-ceas-name]'));
+            
+            if (ceasElements.length === 0) {
+                console.log(\`No CEAS elements found for province: \${provinceName}\`);
+                return;
+            }
+            
+            // Group CEAS elements by organization name
+            const groupedByOrg = {};
+            
+            ceasElements.forEach(ceasElement => {
+                const orgName = ceasElement.getAttribute('data-ceas-name');
+                
+                if (!orgName || orgName === '\$orgName') {
+                    // Skip template elements or elements without proper org name
+                    return;
+                }
+                
+                if (!groupedByOrg[orgName]) {
+                    groupedByOrg[orgName] = [];
+                }
+                
+                groupedByOrg[orgName].push(ceasElement);
+            });
+            
+            // Sort organization names alphabetically
+            const sortedOrgNames = Object.keys(groupedByOrg).sort((a, b) => {
+                return a.localeCompare(b, 'it', { sensitivity: 'base' });
+            });
+            
+            console.log(\`Sorted organizations for \${provinceName}:\`, sortedOrgNames);
+            
+            // Clear the container
+            provinceContainer.innerHTML = '';
+            
+            // Re-add elements grouped by organization and sorted alphabetically
+            sortedOrgNames.forEach(orgName => {
+                const orgElements = groupedByOrg[orgName];
+                
+                // If there are multiple elements for the same organization, merge them
+                if (orgElements.length > 1) {
+                    const mergedElement = mergeOrganizationElements(orgElements, orgName);
+                    provinceContainer.appendChild(mergedElement);
+                } else {
+                    provinceContainer.appendChild(orgElements[0]);
+                }
+            });
+            
+            // Add empty placeholder if no valid organizations found
+            if (sortedOrgNames.length === 0) {
+                const emptyPlaceholder = createEmptyPlaceholder();
+                provinceContainer.appendChild(emptyPlaceholder);
+            }
+        });
+    }
+    
+    /**
+     * Merges multiple CEAS elements for the same organization
+     */
+    function mergeOrganizationElements(elements, orgName) {
+        // Use the first element as base
+        const baseElement = elements[0].cloneNode(true);
+        
+        // Find the documents container in the base element
+        const baseDocumentsContainer = baseElement.querySelector('.container-documenti');
+        
+        if (!baseDocumentsContainer) {
+            return baseElement;
+        }
+        
+        // Collect all document links (including parent <a> tags) from all elements
+        const allDocumentLinks = [];
+        
+        elements.forEach(element => {
+            // Look for the complete link structure: <a><div class="filelisting-filelisting">...</div></a>
+            const documentLinks = element.querySelectorAll('a[href] .filelisting-filelisting');
+            documentLinks.forEach(linkDiv => {
+                // Get the parent <a> tag which contains the actual link
+                const parentLink = linkDiv.closest('a[href]');
+                if (parentLink) {
+                    allDocumentLinks.push(parentLink.cloneNode(true));
+                }
+            });
+        });
+        
+        // Remove duplicate documents based on file name and URL
+        const uniqueDocuments = [];
+        const seenDocuments = new Set();
+        
+        allDocumentLinks.forEach(linkElement => {
+            const fileName = linkElement.querySelector('.file-name')?.textContent?.trim();
+            const href = linkElement.getAttribute('href');
+            const uniqueKey = \`\${fileName}-\${href}\`;
+            
+            if (fileName && href && !seenDocuments.has(uniqueKey)) {
+                seenDocuments.add(uniqueKey);
+                uniqueDocuments.push(linkElement);
+            }
+        });
+        
+        // Clear existing documents in base container (remove both <a> tags and any orphaned elements)
+        const existingLinks = baseDocumentsContainer.querySelectorAll('a[href]');
+        existingLinks.forEach(link => link.remove());
+        
+        // Also remove any orphaned filelisting elements
+        const orphanedElements = baseDocumentsContainer.querySelectorAll('.filelisting-filelisting');
+        orphanedElements.forEach(element => {
+            if (!element.closest('a[href]')) {
+                element.remove();
+            }
+        });
+        
+        // Add all unique documents (complete <a> tags with their content)
+        uniqueDocuments.forEach(linkElement => {
+            baseDocumentsContainer.appendChild(linkElement);
+        });
+        
+        return baseElement;
+    }
+    
+    /**
+     * Creates an empty placeholder element
+     */
+    function createEmptyPlaceholder() {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'empty-placeholder-container';
+        placeholder.innerHTML = \`
+            <span class="empty-placeholder-text1 paragraph_xl">
+                <span class="provincedocuments-text5 paragraph_xl">
+                    <span>Nessun documento disponibile per questa provincia</span>
+                    <br>
+                </span>
+            </span>
+            <span class="paragraph_xl">
+                <span class="provincedocuments-text2 paragraph_xl">
+                    <span>--</span>
+                    <br>
+                </span>
+            </span>
+        \`;
+        return placeholder;
+    }
+    
+    /**
+     * Initialize the grouping and sorting when DOM is ready
+     */
+    function initialize() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', groupAndSortDocumentsByOrganization);
+        } else {
+            groupAndSortDocumentsByOrganization();
+        }
+    }
+    
+    // Initialize the function
+    initialize();
+    
+    // Expose function globally for manual triggering if needed
+    window.groupAndSortDocumentsByOrganization = groupAndSortDocumentsByOrganization;
+    
+    console.log('Document grouping and sorting function initialized');
+})();
+`}</Script>
+                  </React.Fragment>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -269,9 +415,6 @@ const ScuoleMaterialiDidattici = (props) => {
           .scuole-materiali-didattici-text22 {
             display: inline-block;
           }
-          .scuole-materiali-didattici-text23 {
-            display: inline-block;
-          }
           .scuole-materiali-didattici-container3 {
             gap: var(--dl-layout-space-fiveunits);
             width: 100%;
@@ -279,7 +422,7 @@ const ScuoleMaterialiDidattici = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .scuole-materiali-didattici-text24 {
+          .scuole-materiali-didattici-text23 {
             display: inline-block;
           }
           .scuole-materiali-didattici-container4 {
@@ -295,78 +438,8 @@ const ScuoleMaterialiDidattici = (props) => {
             display: flex;
             flex-direction: column;
           }
-          .scuole-materiali-didattici-container6 {
-            gap: var(--dl-layout-space-threeunits);
-            width: 100%;
-            display: flex;
-            position: relative;
-            align-items: flex-start;
-            flex-direction: column;
-          }
           .scuole-materiali-didattici-container7 {
-            width: auto;
-            display: flex;
-            align-self: center;
-            align-items: center;
-            flex-direction: row;
-          }
-          .scuole-materiali-didattici-text26 {
-            display: flex;
-          }
-          .scuole-materiali-didattici-cardprovincia {
-            flex: 0 0 auto;
-            width: 100%;
-            display: flex;
-            padding: var(--dl-layout-space-threeunits);
-            position: relative;
-            box-shadow: 5px 5px 10px 0px #d4d4d4;
-            background-color: #ffffff;
-          }
-          .scuole-materiali-didattici-container8 {
-            gap: var(--dl-layout-space-halfunit);
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-          }
-          .scuole-materiali-didattici-text27 {
-            font-style: normal;
-            font-weight: 700;
-          }
-          .scuole-materiali-didattici-component4 {
-            text-decoration: none;
-          }
-          @media (max-width: 1200px) {
-            .scuole-materiali-didattici-container7 {
-              display: flex;
-            }
-            .scuole-materiali-didattici-container8 {
-              width: 100%;
-              flex-direction: column;
-            }
-          }
-          @media (max-width: 991px) {
-            .scuole-materiali-didattici-cardprovincia {
-              grid-template-columns: 1fr 1fr;
-            }
-          }
-          @media (max-width: 767px) {
-            .scuole-materiali-didattici-cardprovincia {
-              display: flex;
-              flex-direction: column;
-            }
-          }
-          @media (max-width: 479px) {
-            .scuole-materiali-didattici-container7 {
-              width: auto;
-            }
-            .scuole-materiali-didattici-cardprovincia {
-              gap: var(--dl-layout-space-twounits);
-              align-items: flex-start;
-              flex-direction: column;
-            }
-            .scuole-materiali-didattici-container8 {
-              width: auto;
-            }
+            display: contents;
           }
         `}
       </style>

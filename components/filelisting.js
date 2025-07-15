@@ -12,17 +12,13 @@ const Filelisting = (props) => {
         rel="noreferrer noopener"
         className="filelisting-link"
       >
-        <article
-          id="nome-file"
-          tabindex="0"
-          className={`filelisting-filelisting ${props.rootClassName} `}
-        >
+        <div tabindex="0" className="filelisting-filelisting file-item">
           <img
             alt="document icon"
             src="/icondocument.svg"
             className="filelisting-image1"
           />
-          <span id="nome-file" className="paragraph_xl filelisting-text">
+          <span className="file-name paragraph_xl filelisting-text">
             {props.fileName}
           </span>
           <img
@@ -30,7 +26,7 @@ const Filelisting = (props) => {
             src="/icondownload.svg"
             className="filelisting-image2"
           />
-        </article>
+        </div>
       </a>
       <style jsx>
         {`
@@ -87,6 +83,7 @@ const Filelisting = (props) => {
               width: 100%;
             }
           }
+
           @media (max-width: 479px) {
             .filelisting-filelisting {
               width: auto;

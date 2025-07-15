@@ -92,26 +92,21 @@ const SistemaRegionaleInfeas = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="sistema-regionale-infeas-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="sistema-regionale-infeas-text21">Register</span>
+              <span className="sistema-regionale-infeas-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="sistema-regionale-infeas-text22">
+              <span className="sistema-regionale-infeas-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="sistema-regionale-infeas-text23">Cerca</span>
+              <span className="sistema-regionale-infeas-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name9"
@@ -242,9 +237,6 @@ const SistemaRegionaleInfeas = (props) => {
             display: inline-block;
           }
           .sistema-regionale-infeas-text22 {
-            display: inline-block;
-          }
-          .sistema-regionale-infeas-text23 {
             display: inline-block;
           }
           .sistema-regionale-infeas-container2 {

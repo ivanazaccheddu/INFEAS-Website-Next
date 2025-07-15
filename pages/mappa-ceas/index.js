@@ -13,7 +13,7 @@ import Headertipologiatarget from '../../components/headertipologiatarget'
 import FilterbyProvince from '../../components/filterby-province'
 import Cardprovince from '../../components/cardprovince'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqAtResource from '../../resources/organizzazioni-page-initial-props-tq_at'
+import organizzazioniPageInitialPropsTqAcResource from '../../resources/organizzazioni-page-initial-props-tq_ac'
 
 const Organizzazioni1 = (props) => {
   const router = useRouter()
@@ -86,26 +86,21 @@ const Organizzazioni1 = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="organizzazioni1-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="organizzazioni1-text21">Register</span>
+              <span className="organizzazioni1-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="organizzazioni1-text22">
+              <span className="organizzazioni1-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="organizzazioni1-text23">Cerca</span>
+              <span className="organizzazioni1-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name22"
@@ -140,7 +135,7 @@ const Organizzazioni1 = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="organizzazioni1-text24">Filtra per</span>
+                  <span className="organizzazioni1-text23">Filtra per</span>
                 </Fragment>
               }
             ></FilterbyProvince>
@@ -229,9 +224,6 @@ const Organizzazioni1 = (props) => {
           .organizzazioni1-text22 {
             display: inline-block;
           }
-          .organizzazioni1-text23 {
-            display: inline-block;
-          }
           .organizzazioni1-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -257,7 +249,7 @@ const Organizzazioni1 = (props) => {
           .organizzazioni1-container6 {
             display: contents;
           }
-          .organizzazioni1-text24 {
+          .organizzazioni1-text23 {
             display: inline-block;
           }
           .organizzazioni1-container7 {
@@ -304,7 +296,7 @@ export default Organizzazioni1
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqAtResource({
+    const response = await organizzazioniPageInitialPropsTqAcResource({
       ...context?.params,
     })
     if (!response) {

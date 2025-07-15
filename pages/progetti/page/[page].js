@@ -10,8 +10,8 @@ import NavbarInteractive from '../../../components/navbar-interactive'
 import Headertipologiatarget from '../../../components/headertipologiatarget'
 import Cardwithphoto from '../../../components/cardwithphoto'
 import Footer from '../../../components/footer'
-import progettiPageInitialPropsTqOyResource from '../../../resources/progetti-page-initial-props-tq_oy'
-import progettiPageInitialPathsTqEvResource from '../../../resources/progetti-page-initial-paths-tq_ev'
+import progettiPageInitialPropsTqIxResource from '../../../resources/progetti-page-initial-props-tq_ix'
+import progettiPageInitialPathsTqOwResource from '../../../resources/progetti-page-initial-paths-tq_ow'
 
 const Progetti1 = (props) => {
   return (
@@ -72,24 +72,19 @@ const Progetti1 = (props) => {
               <span className="progetti1-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="progetti1-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="progetti1-text21">Register</span>
+              <span className="progetti1-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="progetti1-text22">A proposito di INFEAS</span>
+              <span className="progetti1-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="progetti1-text23">Cerca</span>
+              <span className="progetti1-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name23"
@@ -189,9 +184,6 @@ const Progetti1 = (props) => {
           .progetti1-text22 {
             display: inline-block;
           }
-          .progetti1-text23 {
-            display: inline-block;
-          }
           .progetti1-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -229,7 +221,7 @@ export default Progetti1
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettiPageInitialPropsTqOyResource({
+    const response = await progettiPageInitialPropsTqIxResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -255,7 +247,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await progettiPageInitialPathsTqEvResource({})
+    const response = await progettiPageInitialPathsTqOwResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {

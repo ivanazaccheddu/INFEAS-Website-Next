@@ -81,26 +81,21 @@ const GeneralRicerca = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="general-ricerca-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="general-ricerca-text21">Register</span>
+              <span className="general-ricerca-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="general-ricerca-text22">
+              <span className="general-ricerca-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="general-ricerca-text23">Cerca</span>
+              <span className="general-ricerca-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name2"
@@ -116,7 +111,7 @@ const GeneralRicerca = (props) => {
               <div className="general-ricerca-container12">
                 <div className="general-ricerca-filtra-per1">
                   <div className="general-ricerca-container13">
-                    <label className="general-ricerca-text24">
+                    <label className="general-ricerca-text23">
                       Keyword di ricerca
                     </label>
                   </div>
@@ -132,7 +127,7 @@ const GeneralRicerca = (props) => {
               <div className="general-ricerca-container15">
                 <div className="general-ricerca-filtra-per2">
                   <div className="general-ricerca-container16">
-                    <label className="general-ricerca-text25">Filtra per</label>
+                    <label className="general-ricerca-text24">Filtra per</label>
                   </div>
                 </div>
                 <div className="general-ricerca-container17">
@@ -146,7 +141,7 @@ const GeneralRicerca = (props) => {
               <div className="general-ricerca-container18">
                 <div className="general-ricerca-filtra-per3">
                   <div className="general-ricerca-container19">
-                    <label className="general-ricerca-text26">Filtra per</label>
+                    <label className="general-ricerca-text25">Filtra per</label>
                   </div>
                 </div>
                 <div className="general-ricerca-container20">
@@ -158,7 +153,7 @@ const GeneralRicerca = (props) => {
                 </div>
               </div>
               <div className="general-ricerca-container21">
-                <label className="general-ricerca-text27">
+                <label className="general-ricerca-text26">
                   TAG Selezionato
                 </label>
                 <div className="general-ricerca-container22">
@@ -297,9 +292,6 @@ const GeneralRicerca = (props) => {
           .general-ricerca-text22 {
             display: inline-block;
           }
-          .general-ricerca-text23 {
-            display: inline-block;
-          }
           .general-ricerca-container11 {
             display: block;
             border-width: 0px;
@@ -341,7 +333,7 @@ const GeneralRicerca = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .general-ricerca-text24 {
+          .general-ricerca-text23 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -383,7 +375,7 @@ const GeneralRicerca = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .general-ricerca-text25 {
+          .general-ricerca-text24 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -425,7 +417,7 @@ const GeneralRicerca = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .general-ricerca-text26 {
+          .general-ricerca-text25 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -454,7 +446,7 @@ const GeneralRicerca = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .general-ricerca-text27 {
+          .general-ricerca-text26 {
             font-style: normal;
             font-weight: 700;
           }

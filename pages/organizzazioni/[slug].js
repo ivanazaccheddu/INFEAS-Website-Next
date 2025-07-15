@@ -13,8 +13,8 @@ import Logoceasdettaglio from '../../components/logoceasdettaglio'
 import Filelisting from '../../components/filelisting'
 import Ultimoaggiornamento from '../../components/ultimoaggiornamento'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqCcResource from '../../resources/organizzazioni-page-initial-props-tq_cc'
-import organizzazioniPageInitialPathsTq1nResource from '../../resources/organizzazioni-page-initial-paths-tq_1n'
+import organizzazioniPageInitialPropsTqSrResource from '../../resources/organizzazioni-page-initial-props-tq_sr'
+import organizzazioniPageInitialPathsTqIeResource from '../../resources/organizzazioni-page-initial-paths-tq_ie'
 
 const Organizzazioni = (props) => {
   return (
@@ -81,26 +81,21 @@ const Organizzazioni = (props) => {
               <span className="organizzazioni-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="organizzazioni-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="organizzazioni-text21">Register</span>
+              <span className="organizzazioni-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="organizzazioni-text22">
+              <span className="organizzazioni-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="organizzazioni-text23">Cerca</span>
+              <span className="organizzazioni-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name21"
@@ -170,7 +165,7 @@ const Organizzazioni = (props) => {
                               data-thq="accordion-summary"
                               className="organizzazioni-summary"
                             >
-                              <span className="organizzazioni-text24 heading4">
+                              <span className="organizzazioni-text23 heading4">
                                 Documenti Utili
                               </span>
                               <div
@@ -234,7 +229,7 @@ const Organizzazioni = (props) => {
                                         renderEmpty={() => (
                                           <Fragment>
                                             <div className="organizzazioni-container18">
-                                              <span className="organizzazioni-text25">
+                                              <span className="organizzazioni-text24">
                                                 Nessun documento caricato
                                               </span>
                                             </div>
@@ -319,9 +314,6 @@ const Organizzazioni = (props) => {
           .organizzazioni-text22 {
             display: inline-block;
           }
-          .organizzazioni-text23 {
-            display: inline-block;
-          }
           .organizzazioni-container11 {
             flex: 0 0 auto;
             display: flex;
@@ -392,7 +384,7 @@ const Organizzazioni = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .organizzazioni-text24 {
+          .organizzazioni-text23 {
             fill: var(--dl-color-theme-neutral-light);
             color: var(--dl-color-theme-neutral-light);
           }
@@ -420,7 +412,7 @@ const Organizzazioni = (props) => {
             display: flex;
             align-items: flex-start;
           }
-          .organizzazioni-text25 {
+          .organizzazioni-text24 {
             padding-top: var(--dl-layout-space-unit);
             padding-bottom: var(--dl-layout-space-unit);
           }
@@ -447,7 +439,7 @@ const Organizzazioni = (props) => {
             .organizzazioni-trigger {
               background-color: var(--dl-color-theme-secondary1);
             }
-            .organizzazioni-text24 {
+            .organizzazioni-text23 {
               fill: var(--dl-color-theme-neutral-light);
               color: var(--dl-color-theme-neutral-light);
             }
@@ -475,7 +467,7 @@ export default Organizzazioni
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqCcResource({
+    const response = await organizzazioniPageInitialPropsTqSrResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -500,7 +492,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTq1nResource({})
+    const response = await organizzazioniPageInitialPathsTqIeResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

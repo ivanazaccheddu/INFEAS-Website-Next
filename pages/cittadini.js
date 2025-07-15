@@ -96,26 +96,21 @@ const CittadiniPerICittadini = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="cittadini-per-i-cittadini-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="cittadini-per-i-cittadini-text21">Register</span>
+              <span className="cittadini-per-i-cittadini-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="cittadini-per-i-cittadini-text22">
+              <span className="cittadini-per-i-cittadini-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="cittadini-per-i-cittadini-text23">Cerca</span>
+              <span className="cittadini-per-i-cittadini-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name12"
@@ -141,7 +136,7 @@ const CittadiniPerICittadini = (props) => {
             src="/icon_mappa.svg"
             className="cittadini-per-i-cittadini-image"
           />
-          <h3 className="cittadini-per-i-cittadini-text24 heading3">
+          <h3 className="cittadini-per-i-cittadini-text23 heading3">
             Mappa Ceas
           </h3>
           <Link href="/mappa-ceas">
@@ -162,10 +157,10 @@ const CittadiniPerICittadini = (props) => {
         >
           <div className="cittadini-per-i-cittadini-container2 thq-section-max-width">
             <div className="cittadini-per-i-cittadini-container3">
-              <span className="cittadini-per-i-cittadini-text25 heading2">
+              <span className="cittadini-per-i-cittadini-text24 heading2">
                 I Prossimi Appuntamenti
               </span>
-              <span className="cittadini-per-i-cittadini-text26 paragraph_xl">
+              <span className="cittadini-per-i-cittadini-text25 paragraph_xl">
                 Non perdere i prossimi eventi e iniziative promossi da INFEAS!
                 Scopri date, luoghi e dettagli delle attività dedicate
                 all’educazione alla sostenibilità.
@@ -248,7 +243,7 @@ const CittadiniPerICittadini = (props) => {
         <section id="sezione-notizie-cittadini" className="padding-container">
           <div className="cittadini-per-i-cittadini-container6 thq-section-max-width">
             <div className="cittadini-per-i-cittadini-container7">
-              <span className="cittadini-per-i-cittadini-text27 heading2">
+              <span className="cittadini-per-i-cittadini-text26 heading2">
                 Notizie
                 <span
                   dangerouslySetInnerHTML={{
@@ -256,7 +251,7 @@ const CittadiniPerICittadini = (props) => {
                   }}
                 />
               </span>
-              <span className="cittadini-per-i-cittadini-text28 paragraph_xl">
+              <span className="cittadini-per-i-cittadini-text27 paragraph_xl">
                 <span>
                   Rimani aggiornato su eventi, programmi e iniziative dedicati a
                   scuole e università.
@@ -314,7 +309,7 @@ const CittadiniPerICittadini = (props) => {
                             <EmptyPlaceholder
                               testo={
                                 <Fragment>
-                                  <span className="cittadini-per-i-cittadini-text32 paragraph_xl">
+                                  <span className="cittadini-per-i-cittadini-text31 paragraph_xl">
                                     <span>
                                       Torna a trovarci presto per restare
                                       aggiornato con le ultime novità e
@@ -326,7 +321,7 @@ const CittadiniPerICittadini = (props) => {
                               }
                               titolo={
                                 <Fragment>
-                                  <span className="cittadini-per-i-cittadini-text35 paragraph_xl">
+                                  <span className="cittadini-per-i-cittadini-text34 paragraph_xl">
                                     <span>
                                       Nessuna notizia disponibile al momento
                                     </span>
@@ -408,9 +403,6 @@ const CittadiniPerICittadini = (props) => {
           .cittadini-per-i-cittadini-text22 {
             display: inline-block;
           }
-          .cittadini-per-i-cittadini-text23 {
-            display: inline-block;
-          }
           .cittadini-per-i-cittadini-mappa-ceas {
             gap: var(--dl-layout-space-twounits);
             flex: 0 0 auto;
@@ -434,7 +426,7 @@ const CittadiniPerICittadini = (props) => {
             width: var(--dl-layout-size-large);
             object-fit: cover;
           }
-          .cittadini-per-i-cittadini-text24 {
+          .cittadini-per-i-cittadini-text23 {
             color: #ffffff;
             font-style: normal;
             text-align: center;
@@ -477,12 +469,12 @@ const CittadiniPerICittadini = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .cittadini-per-i-cittadini-text25 {
+          .cittadini-per-i-cittadini-text24 {
             align-self: flex-start;
             font-style: normal;
             font-weight: 400;
           }
-          .cittadini-per-i-cittadini-text26 {
+          .cittadini-per-i-cittadini-text25 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -519,11 +511,11 @@ const CittadiniPerICittadini = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .cittadini-per-i-cittadini-text27 {
+          .cittadini-per-i-cittadini-text26 {
             font-style: normal;
             font-weight: 400;
           }
-          .cittadini-per-i-cittadini-text28 {
+          .cittadini-per-i-cittadini-text27 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -536,10 +528,10 @@ const CittadiniPerICittadini = (props) => {
             position: relative;
             flex-wrap: wrap;
           }
-          .cittadini-per-i-cittadini-text32 {
+          .cittadini-per-i-cittadini-text31 {
             display: inline-block;
           }
-          .cittadini-per-i-cittadini-text35 {
+          .cittadini-per-i-cittadini-text34 {
             display: inline-block;
             font-weight: 600;
           }
@@ -598,7 +590,7 @@ const CittadiniPerICittadini = (props) => {
             .cittadini-per-i-cittadini-container3 {
               width: auto;
             }
-            .cittadini-per-i-cittadini-text25 {
+            .cittadini-per-i-cittadini-text24 {
               width: auto;
             }
             .cittadini-per-i-cittadini-container4 {

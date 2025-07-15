@@ -10,8 +10,8 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import Tag from '../../components/tag'
 import Footer from '../../components/footer'
-import dettaglionotiziePageInitialPropsTq49Resource from '../../resources/dettaglionotizie-page-initial-props-tq_49'
-import dettaglionotiziePageInitialPathsTqYResource from '../../resources/dettaglionotizie-page-initial-paths-tq__y'
+import dettaglionotiziePageInitialPropsTqXfResource from '../../resources/dettaglionotizie-page-initial-props-tq_xf'
+import dettaglionotiziePageInitialPathsTqLcResource from '../../resources/dettaglionotizie-page-initial-paths-tq_lc'
 
 const DettaglioNotizie = (props) => {
   return (
@@ -89,26 +89,21 @@ const DettaglioNotizie = (props) => {
                     </span>
                   </Fragment>
                 }
-                text142={
-                  <Fragment>
-                    <span className="dettaglio-notizie-text20">Notizie</span>
-                  </Fragment>
-                }
                 register={
                   <Fragment>
-                    <span className="dettaglio-notizie-text21">Register</span>
+                    <span className="dettaglio-notizie-text20">Register</span>
                   </Fragment>
                 }
                 text1121={
                   <Fragment>
-                    <span className="dettaglio-notizie-text22">
+                    <span className="dettaglio-notizie-text21">
                       A proposito di INFEAS
                     </span>
                   </Fragment>
                 }
                 register1={
                   <Fragment>
-                    <span className="dettaglio-notizie-text23">Cerca</span>
+                    <span className="dettaglio-notizie-text22">Cerca</span>
                   </Fragment>
                 }
                 rootClassName="navbar-interactiveroot-class-name20"
@@ -209,9 +204,6 @@ const DettaglioNotizie = (props) => {
           .dettaglio-notizie-text22 {
             display: inline-block;
           }
-          .dettaglio-notizie-text23 {
-            display: inline-block;
-          }
           .dettaglio-notizie-container2 {
             gap: 12px;
             width: 100%;
@@ -289,7 +281,7 @@ export default DettaglioNotizie
 
 export async function getStaticProps(context) {
   try {
-    const response = await dettaglionotiziePageInitialPropsTq49Resource({
+    const response = await dettaglionotiziePageInitialPropsTqXfResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -314,7 +306,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await dettaglionotiziePageInitialPathsTqYResource({})
+    const response = await dettaglionotiziePageInitialPathsTqLcResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

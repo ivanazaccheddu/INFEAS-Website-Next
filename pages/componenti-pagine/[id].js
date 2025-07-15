@@ -14,8 +14,8 @@ import Headertipologiatarget from '../../components/headertipologiatarget'
 import Focusareacomponent from '../../components/focusareacomponent'
 import EmptyContainer from '../../components/empty-container'
 import Footer from '../../components/footer'
-import componentiPaginePageInitialPropsTqCnResource from '../../resources/componenti-pagine-page-initial-props-tq_cn'
-import componentiPaginePageInitialPathsTqQeResource from '../../resources/componenti-pagine-page-initial-paths-tq_qe'
+import componentiPaginePageInitialPropsTqV4Resource from '../../resources/componenti-pagine-page-initial-props-tq_v4'
+import componentiPaginePageInitialPathsTqFfResource from '../../resources/componenti-pagine-page-initial-paths-tq_ff'
 
 const ComponentiPagine = (props) => {
   return (
@@ -87,26 +87,21 @@ const ComponentiPagine = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="componenti-pagine-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="componenti-pagine-text21">Register</span>
+              <span className="componenti-pagine-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="componenti-pagine-text22">
+              <span className="componenti-pagine-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="componenti-pagine-text23">Cerca</span>
+              <span className="componenti-pagine-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name38"
@@ -211,9 +206,6 @@ const ComponentiPagine = (props) => {
           .componenti-pagine-text22 {
             display: inline-block;
           }
-          .componenti-pagine-text23 {
-            display: inline-block;
-          }
           .componenti-pagine-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -250,7 +242,7 @@ export default ComponentiPagine
 
 export async function getStaticProps(context) {
   try {
-    const response = await componentiPaginePageInitialPropsTqCnResource({
+    const response = await componentiPaginePageInitialPropsTqV4Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -275,7 +267,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await componentiPaginePageInitialPathsTqQeResource({})
+    const response = await componentiPaginePageInitialPathsTqFfResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

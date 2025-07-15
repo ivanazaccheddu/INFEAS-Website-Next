@@ -84,26 +84,21 @@ const ReteNotizieDellaRete = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="rete-notizie-della-rete-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="rete-notizie-della-rete-text21">Register</span>
+              <span className="rete-notizie-della-rete-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="rete-notizie-della-rete-text22">
+              <span className="rete-notizie-della-rete-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="rete-notizie-della-rete-text23">Cerca</span>
+              <span className="rete-notizie-della-rete-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name3"
@@ -118,7 +113,7 @@ const ReteNotizieDellaRete = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="rete-notizie-della-rete-text24">
+                  <span className="rete-notizie-della-rete-text23">
                     Filtra per
                   </span>
                 </Fragment>
@@ -225,9 +220,6 @@ const ReteNotizieDellaRete = (props) => {
           .rete-notizie-della-rete-text22 {
             display: inline-block;
           }
-          .rete-notizie-della-rete-text23 {
-            display: inline-block;
-          }
           .rete-notizie-della-rete-container2 {
             gap: var(--dl-layout-space-fourunits);
             flex: 0 0 auto;
@@ -235,7 +227,7 @@ const ReteNotizieDellaRete = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .rete-notizie-della-rete-text24 {
+          .rete-notizie-della-rete-text23 {
             display: inline-block;
           }
           .rete-notizie-della-rete-container3 {

@@ -3,15 +3,10 @@ import { normalize } from '@teleporthq/cms-mappers/strapi'
 export default async function (params = {}) {
   let urlParams = {
     'pagination[limit]': 30,
-    'filters[categoria_documento][id][$eq]': '1',
-    'populate[file][populate]': '*',
-    'populate[provincia][populate]': '*',
-    'populate[tipologia][populate]': '*',
-    'populate[organizzazione][populate]': '*',
-    'populate[categoria_documento][populate]': '*',
+    populate: '*',
   }
   let data = await fetch(
-    `${process.env.CMS_URL}/api/Documenti?${new URLSearchParams(urlParams)}`,
+    `${process.env.CMS_URL}/api/Province?${new URLSearchParams(urlParams)}`,
     {
       method: 'GET',
       headers: {
@@ -22,15 +17,10 @@ export default async function (params = {}) {
   if (data.status !== 200) {
     urlParams = {
       'pagination[limit]': 30,
-      'filters[categoria_documento][id][$eq]': '1',
-      'populate[file][populate]': '*',
-      'populate[provincia][populate]': '*',
-      'populate[tipologia][populate]': '*',
-      'populate[organizzazione][populate]': '*',
-      'populate[categoria_documento][populate]': '*',
+      populate: '*',
     }
     data = await fetch(
-      `${process.env.CMS_URL}/api/Documenti?${new URLSearchParams(urlParams)}`,
+      `${process.env.CMS_URL}/api/Province?${new URLSearchParams(urlParams)}`,
       {
         method: 'GET',
         headers: {

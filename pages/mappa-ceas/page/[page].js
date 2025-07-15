@@ -13,8 +13,8 @@ import Headertipologiatarget from '../../../components/headertipologiatarget'
 import FilterbyProvince from '../../../components/filterby-province'
 import Cardprovince from '../../../components/cardprovince'
 import Footer from '../../../components/footer'
-import organizzazioniPageInitialPropsTqTyResource from '../../../resources/organizzazioni-page-initial-props-tq_ty'
-import organizzazioniPageInitialPathsTqWoResource from '../../../resources/organizzazioni-page-initial-paths-tq_wo'
+import organizzazioniPageInitialPropsTqGvResource from '../../../resources/organizzazioni-page-initial-props-tq_gv'
+import organizzazioniPageInitialPathsTqO0Resource from '../../../resources/organizzazioni-page-initial-paths-tq_o0'
 
 const Organizzazioni11 = (props) => {
   const router = useRouter()
@@ -87,26 +87,21 @@ const Organizzazioni11 = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="organizzazioni11-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="organizzazioni11-text21">Register</span>
+              <span className="organizzazioni11-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="organizzazioni11-text22">
+              <span className="organizzazioni11-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="organizzazioni11-text23">Cerca</span>
+              <span className="organizzazioni11-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name22"
@@ -141,7 +136,7 @@ const Organizzazioni11 = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="organizzazioni11-text24">Filtra per</span>
+                  <span className="organizzazioni11-text23">Filtra per</span>
                 </Fragment>
               }
             ></FilterbyProvince>
@@ -230,9 +225,6 @@ const Organizzazioni11 = (props) => {
           .organizzazioni11-text22 {
             display: inline-block;
           }
-          .organizzazioni11-text23 {
-            display: inline-block;
-          }
           .organizzazioni11-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -258,7 +250,7 @@ const Organizzazioni11 = (props) => {
           .organizzazioni11-container6 {
             display: contents;
           }
-          .organizzazioni11-text24 {
+          .organizzazioni11-text23 {
             display: inline-block;
           }
           .organizzazioni11-container7 {
@@ -305,7 +297,7 @@ export default Organizzazioni11
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqTyResource({
+    const response = await organizzazioniPageInitialPropsTqGvResource({
       ...context?.params,
       start: (context.params.page - 1) * 20,
     })
@@ -331,7 +323,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTqWoResource({})
+    const response = await organizzazioniPageInitialPathsTqO0Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 20)
     return {

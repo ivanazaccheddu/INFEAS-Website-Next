@@ -69,24 +69,19 @@ const PressKit = (props) => {
               <span className="press-kit-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="press-kit-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="press-kit-text21">Register</span>
+              <span className="press-kit-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="press-kit-text22">A proposito di INFEAS</span>
+              <span className="press-kit-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="press-kit-text23">Cerca</span>
+              <span className="press-kit-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name8"
@@ -209,9 +204,6 @@ const PressKit = (props) => {
             display: inline-block;
           }
           .press-kit-text22 {
-            display: inline-block;
-          }
-          .press-kit-text23 {
             display: inline-block;
           }
           .press-kit-container2 {

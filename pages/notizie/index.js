@@ -13,7 +13,7 @@ import FilterbyProvince from '../../components/filterby-province'
 import NewsListingCard from '../../components/news-listing-card'
 import LoghiSponsor from '../../components/loghi-sponsor'
 import Footer from '../../components/footer'
-import notiziePageInitialPropsTqRvResource from '../../resources/notizie-page-initial-props-tq_rv'
+import notiziePageInitialPropsTqNFResource from '../../resources/notizie-page-initial-props-tq_n-f'
 
 const Notizie = (props) => {
   const router = useRouter()
@@ -75,24 +75,19 @@ const Notizie = (props) => {
               <span className="notizie-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="notizie-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="notizie-text21">Register</span>
+              <span className="notizie-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="notizie-text22">A proposito di INFEAS</span>
+              <span className="notizie-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="notizie-text23">Cerca</span>
+              <span className="notizie-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name18"
@@ -110,7 +105,7 @@ const Notizie = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="notizie-text24">Filtra per</span>
+                  <span className="notizie-text23">Filtra per</span>
                 </Fragment>
               }
             ></FilterbyProvince>
@@ -201,9 +196,6 @@ const Notizie = (props) => {
           .notizie-text22 {
             display: inline-block;
           }
-          .notizie-text23 {
-            display: inline-block;
-          }
           .notizie-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -215,7 +207,7 @@ const Notizie = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .notizie-text24 {
+          .notizie-text23 {
             display: inline-block;
           }
           .notizie-container4 {
@@ -261,7 +253,7 @@ export default Notizie
 
 export async function getStaticProps(context) {
   try {
-    const response = await notiziePageInitialPropsTqRvResource({
+    const response = await notiziePageInitialPropsTqNFResource({
       ...context?.params,
     })
     if (!response) {

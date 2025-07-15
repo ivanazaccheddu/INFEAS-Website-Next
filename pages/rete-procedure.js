@@ -75,26 +75,21 @@ const ReteProcedure = (props) => {
               <span className="rete-procedure-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="rete-procedure-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="rete-procedure-text21">Register</span>
+              <span className="rete-procedure-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="rete-procedure-text22">
+              <span className="rete-procedure-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="rete-procedure-text23">Cerca</span>
+              <span className="rete-procedure-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name36"
@@ -236,9 +231,6 @@ const ReteProcedure = (props) => {
             display: inline-block;
           }
           .rete-procedure-text22 {
-            display: inline-block;
-          }
-          .rete-procedure-text23 {
             display: inline-block;
           }
           .rete-procedure-container2 {

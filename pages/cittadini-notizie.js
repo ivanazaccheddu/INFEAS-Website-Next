@@ -82,26 +82,21 @@ const CittadiniTuttiNews = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="cittadini-tutti-news-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="cittadini-tutti-news-text21">Register</span>
+              <span className="cittadini-tutti-news-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="cittadini-tutti-news-text22">
+              <span className="cittadini-tutti-news-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="cittadini-tutti-news-text23">Cerca</span>
+              <span className="cittadini-tutti-news-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name27"
@@ -116,7 +111,7 @@ const CittadiniTuttiNews = (props) => {
           className="cittadini-tutti-news-sezione-filtri-notizie padding-container"
         >
           <div className="cittadini-tutti-news-container2 thq-section-max-width">
-            <span className="cittadini-tutti-news-text24 paragraph_xl">
+            <span className="cittadini-tutti-news-text23 paragraph_xl">
               <span>
                 Rimani aggiornato su eventi, programmi e iniziative dedicati a
                 scuole e università.
@@ -136,7 +131,7 @@ const CittadiniTuttiNews = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="cittadini-tutti-news-text28">
+                  <span className="cittadini-tutti-news-text27">
                     Filtra per
                   </span>
                 </Fragment>
@@ -224,9 +219,6 @@ const CittadiniTuttiNews = (props) => {
           .cittadini-tutti-news-text22 {
             display: inline-block;
           }
-          .cittadini-tutti-news-text23 {
-            display: inline-block;
-          }
           .cittadini-tutti-news-sezione-filtri-notizie {
             flex: 0 0 auto;
             display: flex;
@@ -238,13 +230,13 @@ const CittadiniTuttiNews = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .cittadini-tutti-news-text24 {
+          .cittadini-tutti-news-text23 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
             text-align: center;
           }
-          .cittadini-tutti-news-text28 {
+          .cittadini-tutti-news-text27 {
             display: inline-block;
           }
           .cittadini-tutti-news-container3 {

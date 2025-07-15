@@ -72,26 +72,21 @@ const PrivacyPolicy = (props) => {
               <span className="privacy-policy-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="privacy-policy-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="privacy-policy-text21">Register</span>
+              <span className="privacy-policy-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="privacy-policy-text22">
+              <span className="privacy-policy-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="privacy-policy-text23">Cerca</span>
+              <span className="privacy-policy-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name33"
@@ -107,7 +102,7 @@ const PrivacyPolicy = (props) => {
           className="privacy-policy-container2 padding-container"
         >
           <div className="privacy-policy-container3 thq-section-max-width">
-            <span className="paragraph_xl privacy-policy-text24">
+            <span className="paragraph_xl privacy-policy-text23">
               <span>
                 I contenuti all’interno del sito, siano essi testi, suoni,
                 fotografie, filmati, grafica e software, sono protetti ai sensi
@@ -142,8 +137,8 @@ const PrivacyPolicy = (props) => {
               </span>
               <br></br>
               <br></br>
-              <br className="privacy-policy-text37"></br>
-              <span className="privacy-policy-text38">Utilizzo del sito</span>
+              <br className="privacy-policy-text36"></br>
+              <span className="privacy-policy-text37">Utilizzo del sito</span>
               <br></br>
               <br></br>
               <span>
@@ -172,7 +167,7 @@ const PrivacyPolicy = (props) => {
               <br></br>
               <br></br>
               <br></br>
-              <span className="privacy-policy-text51">Segnalazione errori</span>
+              <span className="privacy-policy-text50">Segnalazione errori</span>
               <br></br>
               <br></br>
               <span>
@@ -190,7 +185,7 @@ const PrivacyPolicy = (props) => {
               <br></br>
               <br></br>
               <br></br>
-              <span className="privacy-policy-text62">
+              <span className="privacy-policy-text61">
                 Accesso a siti esterni collegati
               </span>
               <br></br>
@@ -213,7 +208,7 @@ const PrivacyPolicy = (props) => {
               <br></br>
               <br></br>
               <br></br>
-              <span className="privacy-policy-text72">Privacy Policy</span>
+              <span className="privacy-policy-text71">Privacy Policy</span>
               <br></br>
               <br></br>
               <span>
@@ -256,7 +251,7 @@ const PrivacyPolicy = (props) => {
               <br></br>
               <br></br>
               <br></br>
-              <span className="privacy-policy-text88">Download</span>
+              <span className="privacy-policy-text87">Download</span>
               <br></br>
               <br></br>
               <span>
@@ -270,7 +265,7 @@ const PrivacyPolicy = (props) => {
               <br></br>
               <br></br>
               <br></br>
-              <span className="privacy-policy-text95">Virus informatici</span>
+              <span className="privacy-policy-text94">Virus informatici</span>
               <br></br>
               <br></br>
               <span>
@@ -332,9 +327,6 @@ const PrivacyPolicy = (props) => {
           .privacy-policy-text22 {
             display: inline-block;
           }
-          .privacy-policy-text23 {
-            display: inline-block;
-          }
           .privacy-policy-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -345,29 +337,29 @@ const PrivacyPolicy = (props) => {
             display: flex;
             align-items: flex-start;
           }
+          .privacy-policy-text36 {
+            font-weight: 700;
+          }
           .privacy-policy-text37 {
             font-weight: 700;
           }
-          .privacy-policy-text38 {
+          .privacy-policy-text50 {
             font-weight: 700;
           }
-          .privacy-policy-text51 {
+          .privacy-policy-text61 {
             font-weight: 700;
           }
-          .privacy-policy-text62 {
+          .privacy-policy-text71 {
             font-weight: 700;
           }
-          .privacy-policy-text72 {
+          .privacy-policy-text87 {
             font-weight: 700;
           }
-          .privacy-policy-text88 {
-            font-weight: 700;
-          }
-          .privacy-policy-text95 {
+          .privacy-policy-text94 {
             font-weight: 700;
           }
           @media (max-width: 479px) {
-            .privacy-policy-text24 {
+            .privacy-policy-text23 {
               width: 100%;
             }
           }

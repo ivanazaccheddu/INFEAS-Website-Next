@@ -13,8 +13,8 @@ import FilterbyProvince from '../../../components/filterby-province'
 import NewsListingCard from '../../../components/news-listing-card'
 import LoghiSponsor from '../../../components/loghi-sponsor'
 import Footer from '../../../components/footer'
-import notiziePageInitialPropsTqYsResource from '../../../resources/notizie-page-initial-props-tq_ys'
-import notiziePageInitialPathsTqHDResource from '../../../resources/notizie-page-initial-paths-tq_h-d'
+import notiziePageInitialPropsTqK0Resource from '../../../resources/notizie-page-initial-props-tq_k0'
+import notiziePageInitialPathsTqQkResource from '../../../resources/notizie-page-initial-paths-tq_qk'
 
 const Notizie1 = (props) => {
   const router = useRouter()
@@ -76,24 +76,19 @@ const Notizie1 = (props) => {
               <span className="notizie1-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="notizie1-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="notizie1-text21">Register</span>
+              <span className="notizie1-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="notizie1-text22">A proposito di INFEAS</span>
+              <span className="notizie1-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="notizie1-text23">Cerca</span>
+              <span className="notizie1-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name18"
@@ -111,7 +106,7 @@ const Notizie1 = (props) => {
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="notizie1-text24">Filtra per</span>
+                  <span className="notizie1-text23">Filtra per</span>
                 </Fragment>
               }
             ></FilterbyProvince>
@@ -202,9 +197,6 @@ const Notizie1 = (props) => {
           .notizie1-text22 {
             display: inline-block;
           }
-          .notizie1-text23 {
-            display: inline-block;
-          }
           .notizie1-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -216,7 +208,7 @@ const Notizie1 = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .notizie1-text24 {
+          .notizie1-text23 {
             display: inline-block;
           }
           .notizie1-container4 {
@@ -262,7 +254,7 @@ export default Notizie1
 
 export async function getStaticProps(context) {
   try {
-    const response = await notiziePageInitialPropsTqYsResource({
+    const response = await notiziePageInitialPropsTqK0Resource({
       ...context?.params,
       start: (context.params.page - 1) * 12,
     })
@@ -288,7 +280,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await notiziePageInitialPathsTqHDResource({})
+    const response = await notiziePageInitialPathsTqQkResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 12)
     return {

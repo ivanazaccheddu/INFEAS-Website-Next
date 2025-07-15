@@ -11,8 +11,8 @@ import ProgectDetails from '../../components/progect-details'
 import NewsSimple from '../../components/news-simple'
 import CardEvento from '../../components/card-evento'
 import Footer from '../../components/footer'
-import progettoDettaglioPageInitialPropsTq6tResource from '../../resources/progetto-dettaglio-page-initial-props-tq_6t'
-import progettoDettaglioPageInitialPathsTqMiResource from '../../resources/progetto-dettaglio-page-initial-paths-tq_mi'
+import progettoDettaglioPageInitialPropsTqM0Resource from '../../resources/progetto-dettaglio-page-initial-props-tq_m0'
+import progettoDettaglioPageInitialPathsTqImResource from '../../resources/progetto-dettaglio-page-initial-paths-tq_im'
 
 const ProgettoDettaglio = (props) => {
   return (
@@ -87,26 +87,21 @@ const ProgettoDettaglio = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="progetto-dettaglio-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="progetto-dettaglio-text21">Register</span>
+              <span className="progetto-dettaglio-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="progetto-dettaglio-text22">
+              <span className="progetto-dettaglio-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="progetto-dettaglio-text23">Cerca</span>
+              <span className="progetto-dettaglio-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name24"
@@ -134,10 +129,10 @@ const ProgettoDettaglio = (props) => {
               >
                 <div className="progetto-dettaglio-container14 thq-section-max-width">
                   <div className="progetto-dettaglio-container15">
-                    <h2 className="progetto-dettaglio-text24 heading2">
+                    <h2 className="progetto-dettaglio-text23 heading2">
                       Notizie dal Progetto
                     </h2>
-                    <p className="progetto-dettaglio-text25 paragraph_xl">
+                    <p className="progetto-dettaglio-text24 paragraph_xl">
                       Resta aggiornato con le ultime news che riguardano questo
                       progetto
                       <span
@@ -174,10 +169,10 @@ const ProgettoDettaglio = (props) => {
               >
                 <div className="progetto-dettaglio-container18 thq-section-max-width">
                   <div className="progetto-dettaglio-container19">
-                    <h2 className="progetto-dettaglio-text26 heading2">
+                    <h2 className="progetto-dettaglio-text25 heading2">
                       Eventi del Progetto
                     </h2>
-                    <p className="progetto-dettaglio-text27 paragraph_xl">
+                    <p className="progetto-dettaglio-text26 paragraph_xl">
                       Tutti gli appuntamenti da non perdere dedicati al
                       progetto.
                       <span
@@ -269,9 +264,6 @@ const ProgettoDettaglio = (props) => {
           .progetto-dettaglio-text22 {
             display: inline-block;
           }
-          .progetto-dettaglio-text23 {
-            display: inline-block;
-          }
           .progetto-dettaglio-container11 {
             gap: 12px;
             width: 100%;
@@ -303,11 +295,11 @@ const ProgettoDettaglio = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .progetto-dettaglio-text24 {
+          .progetto-dettaglio-text23 {
             font-style: normal;
             font-weight: 400;
           }
-          .progetto-dettaglio-text25 {
+          .progetto-dettaglio-text24 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -338,11 +330,11 @@ const ProgettoDettaglio = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .progetto-dettaglio-text26 {
+          .progetto-dettaglio-text25 {
             font-style: normal;
             font-weight: 400;
           }
-          .progetto-dettaglio-text27 {
+          .progetto-dettaglio-text26 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -386,7 +378,7 @@ export default ProgettoDettaglio
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettoDettaglioPageInitialPropsTq6tResource({
+    const response = await progettoDettaglioPageInitialPropsTqM0Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -411,7 +403,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await progettoDettaglioPageInitialPathsTqMiResource({})
+    const response = await progettoDettaglioPageInitialPathsTqImResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

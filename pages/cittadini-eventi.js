@@ -84,26 +84,21 @@ const CittadiniTuttiEventi = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="cittadini-tutti-eventi-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="cittadini-tutti-eventi-text21">Register</span>
+              <span className="cittadini-tutti-eventi-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="cittadini-tutti-eventi-text22">
+              <span className="cittadini-tutti-eventi-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="cittadini-tutti-eventi-text23">Cerca</span>
+              <span className="cittadini-tutti-eventi-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name26"
@@ -120,24 +115,24 @@ const CittadiniTuttiEventi = (props) => {
           <FilterbyEventi
             text={
               <Fragment>
-                <span className="cittadini-tutti-eventi-text24">
+                <span className="cittadini-tutti-eventi-text23">
                   Dedicato a
                 </span>
               </Fragment>
             }
             text1={
               <Fragment>
-                <span className="cittadini-tutti-eventi-text25">Tipologia</span>
+                <span className="cittadini-tutti-eventi-text24">Tipologia</span>
               </Fragment>
             }
             text2={
               <Fragment>
-                <span className="cittadini-tutti-eventi-text26">Durata</span>
+                <span className="cittadini-tutti-eventi-text25">Durata</span>
               </Fragment>
             }
             text3={
               <Fragment>
-                <span className="cittadini-tutti-eventi-text27">Luogo</span>
+                <span className="cittadini-tutti-eventi-text26">Luogo</span>
               </Fragment>
             }
             rootClassName="filterby-eventiroot-class-name2"
@@ -149,7 +144,7 @@ const CittadiniTuttiEventi = (props) => {
         >
           <div className="thq-section-max-width">
             <div className="cittadini-tutti-eventi-container3">
-              <span className="cittadini-tutti-eventi-text28 paragraph_xl">
+              <span className="cittadini-tutti-eventi-text27 paragraph_xl">
                 Non perdere i prossimi eventi e iniziative promossi da INFEAS!
                 Scopri date, luoghi e dettagli delle attività dedicate
                 all’educazione alla sostenibilità.
@@ -275,15 +270,15 @@ const CittadiniTuttiEventi = (props) => {
           .cittadini-tutti-eventi-text22 {
             display: inline-block;
           }
-          .cittadini-tutti-eventi-text23 {
-            display: inline-block;
-          }
           .cittadini-tutti-eventi-sezione-filtri-cittadini {
             width: 100%;
             display: flex;
             align-items: center;
             flex-direction: column;
             background-color: #ffffff;
+          }
+          .cittadini-tutti-eventi-text23 {
+            display: inline-block;
           }
           .cittadini-tutti-eventi-text24 {
             display: inline-block;
@@ -292,9 +287,6 @@ const CittadiniTuttiEventi = (props) => {
             display: inline-block;
           }
           .cittadini-tutti-eventi-text26 {
-            display: inline-block;
-          }
-          .cittadini-tutti-eventi-text27 {
             display: inline-block;
           }
           .cittadini-tutti-eventi-eventi-cittadini {
@@ -323,7 +315,7 @@ const CittadiniTuttiEventi = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .cittadini-tutti-eventi-text28 {
+          .cittadini-tutti-eventi-text27 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;

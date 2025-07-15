@@ -93,26 +93,21 @@ const ScuoleScuoleEUniversit = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="scuole-scuole-e-universit-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="scuole-scuole-e-universit-text21">Register</span>
+              <span className="scuole-scuole-e-universit-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="scuole-scuole-e-universit-text22">
+              <span className="scuole-scuole-e-universit-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="scuole-scuole-e-universit-text23">Cerca</span>
+              <span className="scuole-scuole-e-universit-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name10"
@@ -149,7 +144,7 @@ const ScuoleScuoleEUniversit = (props) => {
             </div>
             <div className="scuole-scuole-e-universit-container14">
               <div className="scuole-scuole-e-universit-container15">
-                <p className="scuole-scuole-e-universit-text25 paragraph_xxl">
+                <p className="scuole-scuole-e-universit-text24 paragraph_xxl">
                   Offriamo risorse, programmi e strumenti educativi rivolti a
                   scuole e università per approfondire i temi ambientali e della
                   sostenibilità. I materiali includono guide, attività pratiche,
@@ -178,10 +173,10 @@ const ScuoleScuoleEUniversit = (props) => {
         >
           <div className="scuole-scuole-e-universit-container16 thq-section-max-width">
             <div className="scuole-scuole-e-universit-container17">
-              <span className="scuole-scuole-e-universit-text26 heading2">
+              <span className="scuole-scuole-e-universit-text25 heading2">
                 I Prossimi Appuntamenti
               </span>
-              <span className="scuole-scuole-e-universit-text27 paragraph_xl">
+              <span className="scuole-scuole-e-universit-text26 paragraph_xl">
                 Non perdere i prossimi eventi e iniziative promossi da INFEAS!
                 Scopri date, luoghi e dettagli delle attività dedicate
                 all’educazione alla sostenibilità.
@@ -267,7 +262,7 @@ const ScuoleScuoleEUniversit = (props) => {
         >
           <div className="scuole-scuole-e-universit-container21 thq-section-max-width">
             <div className="scuole-scuole-e-universit-container22">
-              <span className="scuole-scuole-e-universit-text28 heading2">
+              <span className="scuole-scuole-e-universit-text27 heading2">
                 Notizie
                 <span
                   dangerouslySetInnerHTML={{
@@ -275,7 +270,7 @@ const ScuoleScuoleEUniversit = (props) => {
                   }}
                 />
               </span>
-              <span className="scuole-scuole-e-universit-text29 paragraph_xl">
+              <span className="scuole-scuole-e-universit-text28 paragraph_xl">
                 <span>
                   Rimani aggiornato su eventi, programmi e iniziative dedicati a
                   scuole e università.
@@ -340,7 +335,7 @@ const ScuoleScuoleEUniversit = (props) => {
                             <EmptyPlaceholder
                               testo={
                                 <Fragment>
-                                  <span className="scuole-scuole-e-universit-text33 paragraph_xl">
+                                  <span className="scuole-scuole-e-universit-text32 paragraph_xl">
                                     <span>
                                       Torna a trovarci presto per restare
                                       aggiornato con le ultime novità e
@@ -352,7 +347,7 @@ const ScuoleScuoleEUniversit = (props) => {
                               }
                               titolo={
                                 <Fragment>
-                                  <span className="scuole-scuole-e-universit-text36 paragraph_xl">
+                                  <span className="scuole-scuole-e-universit-text35 paragraph_xl">
                                     <span>
                                       Nessuna notizia disponibile al momento
                                     </span>
@@ -434,9 +429,6 @@ const ScuoleScuoleEUniversit = (props) => {
           .scuole-scuole-e-universit-text22 {
             display: inline-block;
           }
-          .scuole-scuole-e-universit-text23 {
-            display: inline-block;
-          }
           .scuole-scuole-e-universit-programmi-didattici {
             gap: var(--dl-layout-space-fourunits);
             flex: 1;
@@ -501,7 +493,7 @@ const ScuoleScuoleEUniversit = (props) => {
             flex-direction: column;
             padding-bottom: 0px;
           }
-          .scuole-scuole-e-universit-text25 {
+          .scuole-scuole-e-universit-text24 {
             text-align: center;
           }
           .scuole-scuole-e-universit-link1 {
@@ -541,12 +533,12 @@ const ScuoleScuoleEUniversit = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .scuole-scuole-e-universit-text26 {
+          .scuole-scuole-e-universit-text25 {
             align-self: flex-start;
             font-style: normal;
             font-weight: 400;
           }
-          .scuole-scuole-e-universit-text27 {
+          .scuole-scuole-e-universit-text26 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -580,11 +572,11 @@ const ScuoleScuoleEUniversit = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .scuole-scuole-e-universit-text28 {
+          .scuole-scuole-e-universit-text27 {
             font-style: normal;
             font-weight: 400;
           }
-          .scuole-scuole-e-universit-text29 {
+          .scuole-scuole-e-universit-text28 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -600,10 +592,10 @@ const ScuoleScuoleEUniversit = (props) => {
           .scuole-scuole-e-universit-component3 {
             text-decoration: none;
           }
-          .scuole-scuole-e-universit-text33 {
+          .scuole-scuole-e-universit-text32 {
             display: inline-block;
           }
-          .scuole-scuole-e-universit-text36 {
+          .scuole-scuole-e-universit-text35 {
             display: inline-block;
             font-weight: 600;
           }
@@ -670,7 +662,7 @@ const ScuoleScuoleEUniversit = (props) => {
             .scuole-scuole-e-universit-container17 {
               width: auto;
             }
-            .scuole-scuole-e-universit-text26 {
+            .scuole-scuole-e-universit-text25 {
               width: auto;
             }
             .scuole-scuole-e-universit-container18 {

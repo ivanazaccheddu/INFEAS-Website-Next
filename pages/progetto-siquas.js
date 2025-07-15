@@ -73,24 +73,19 @@ const ReteSIQUAS = (props) => {
               <span className="rete-siquas-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="rete-siquas-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="rete-siquas-text21">Register</span>
+              <span className="rete-siquas-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="rete-siquas-text22">A proposito di INFEAS</span>
+              <span className="rete-siquas-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="rete-siquas-text23">Cerca</span>
+              <span className="rete-siquas-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name34"
@@ -192,9 +187,6 @@ const ReteSIQUAS = (props) => {
             display: inline-block;
           }
           .rete-siquas-text22 {
-            display: inline-block;
-          }
-          .rete-siquas-text23 {
             display: inline-block;
           }
           .rete-siquas-container2 {

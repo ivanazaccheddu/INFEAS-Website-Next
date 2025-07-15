@@ -87,26 +87,21 @@ const ReteInfoELineeGuida = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="rete-info-e-linee-guida-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="rete-info-e-linee-guida-text21">Register</span>
+              <span className="rete-info-e-linee-guida-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="rete-info-e-linee-guida-text22">
+              <span className="rete-info-e-linee-guida-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="rete-info-e-linee-guida-text23">Cerca</span>
+              <span className="rete-info-e-linee-guida-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name5"
@@ -151,7 +146,7 @@ const ReteInfoELineeGuida = (props) => {
                           data-thq="accordion-summary"
                           className="rete-info-e-linee-guida-summary1"
                         >
-                          <span className="rete-info-e-linee-guida-text24 heading4">
+                          <span className="rete-info-e-linee-guida-text23 heading4">
                             {info_regionali?.nome}
                           </span>
                           <div
@@ -280,7 +275,7 @@ const ReteInfoELineeGuida = (props) => {
                           data-thq="accordion-summary"
                           className="rete-info-e-linee-guida-summary2"
                         >
-                          <span className="rete-info-e-linee-guida-text27 heading4">
+                          <span className="rete-info-e-linee-guida-text26 heading4">
                             {info_nazionali?.nome}
                           </span>
                           <div
@@ -409,7 +404,7 @@ const ReteInfoELineeGuida = (props) => {
                           data-thq="accordion-summary"
                           className="rete-info-e-linee-guida-summary3"
                         >
-                          <span className="rete-info-e-linee-guida-text30 heading4">
+                          <span className="rete-info-e-linee-guida-text29 heading4">
                             {altri_documenti?.nome}
                           </span>
                           <div
@@ -626,9 +621,6 @@ const ReteInfoELineeGuida = (props) => {
           .rete-info-e-linee-guida-text22 {
             display: inline-block;
           }
-          .rete-info-e-linee-guida-text23 {
-            display: inline-block;
-          }
           .rete-info-e-linee-guida-container11 {
             flex: 0 0 auto;
             display: flex;
@@ -668,7 +660,7 @@ const ReteInfoELineeGuida = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .rete-info-e-linee-guida-text24 {
+          .rete-info-e-linee-guida-text23 {
             fill: #464957;
             color: rgb(70, 73, 87);
           }
@@ -757,7 +749,7 @@ const ReteInfoELineeGuida = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .rete-info-e-linee-guida-text27 {
+          .rete-info-e-linee-guida-text26 {
             fill: #464957;
             color: rgb(70, 73, 87);
           }
@@ -846,7 +838,7 @@ const ReteInfoELineeGuida = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .rete-info-e-linee-guida-text30 {
+          .rete-info-e-linee-guida-text29 {
             fill: #464957;
             color: rgb(70, 73, 87);
           }

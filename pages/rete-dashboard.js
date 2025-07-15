@@ -82,26 +82,21 @@ const ReteDashboardInfeas = (props) => {
               </span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="rete-dashboard-infeas-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="rete-dashboard-infeas-text21">Register</span>
+              <span className="rete-dashboard-infeas-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="rete-dashboard-infeas-text22">
+              <span className="rete-dashboard-infeas-text21">
                 A proposito di INFEAS
               </span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="rete-dashboard-infeas-text23">Cerca</span>
+              <span className="rete-dashboard-infeas-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name4"
@@ -152,7 +147,7 @@ const ReteDashboardInfeas = (props) => {
             </article>
             <div className="rete-dashboard-infeas-comunicati-bandi-e-notizie">
               <div className="rete-dashboard-infeas-container5">
-                <h3 className="rete-dashboard-infeas-text24 heading3">
+                <h3 className="rete-dashboard-infeas-text23 heading3">
                   Comunicati Bandi e notizie
                 </h3>
               </div>
@@ -254,9 +249,6 @@ const ReteDashboardInfeas = (props) => {
           .rete-dashboard-infeas-text22 {
             display: inline-block;
           }
-          .rete-dashboard-infeas-text23 {
-            display: inline-block;
-          }
           .rete-dashboard-infeas-container3 {
             gap: var(--dl-layout-space-threeunits);
             display: flex;
@@ -302,7 +294,7 @@ const ReteDashboardInfeas = (props) => {
             border-right-width: 0px;
             border-bottom-width: 5px;
           }
-          .rete-dashboard-infeas-text24 {
+          .rete-dashboard-infeas-text23 {
             font-style: normal;
             font-weight: 400;
           }

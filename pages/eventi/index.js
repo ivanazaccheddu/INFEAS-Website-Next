@@ -73,24 +73,19 @@ const Eventi = (props) => {
               <span className="eventi-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="eventi-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="eventi-text21">Register</span>
+              <span className="eventi-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="eventi-text22">A proposito di INFEAS</span>
+              <span className="eventi-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="eventi-text23">Cerca</span>
+              <span className="eventi-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name19"
@@ -198,9 +193,6 @@ const Eventi = (props) => {
             display: inline-block;
           }
           .eventi-text22 {
-            display: inline-block;
-          }
-          .eventi-text23 {
             display: inline-block;
           }
           .eventi-container2 {

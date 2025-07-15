@@ -11,8 +11,8 @@ import DettaglioEventiCompleto from '../../components/dettaglio-eventi-completo'
 import Galleriaimmagginislot from '../../components/galleriaimmagginislot'
 import Imagecontainercomponent from '../../components/imagecontainercomponent'
 import Footer from '../../components/footer'
-import eventiPageInitialPropsTqMrResource from '../../resources/eventi-page-initial-props-tq_mr'
-import eventiPageInitialPathsTqMeResource from '../../resources/eventi-page-initial-paths-tq_me'
+import eventiPageInitialPropsTqIResource from '../../resources/eventi-page-initial-props-tq_-i'
+import eventiPageInitialPathsTqOaResource from '../../resources/eventi-page-initial-paths-tq_oa'
 
 const Eventi11 = (props) => {
   return (
@@ -73,24 +73,19 @@ const Eventi11 = (props) => {
               <span className="eventi11-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="eventi11-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="eventi11-text21">Register</span>
+              <span className="eventi11-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="eventi11-text22">A proposito di INFEAS</span>
+              <span className="eventi11-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="eventi11-text23">Cerca</span>
+              <span className="eventi11-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name30"
@@ -197,9 +192,6 @@ const Eventi11 = (props) => {
           .eventi11-text22 {
             display: inline-block;
           }
-          .eventi11-text23 {
-            display: inline-block;
-          }
           .eventi11-container2 {
             gap: var(--dl-layout-space-sixunits);
             flex: 0 0 auto;
@@ -232,7 +224,7 @@ export default Eventi11
 
 export async function getStaticProps(context) {
   try {
-    const response = await eventiPageInitialPropsTqMrResource({
+    const response = await eventiPageInitialPropsTqIResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -257,7 +249,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await eventiPageInitialPathsTqMeResource({})
+    const response = await eventiPageInitialPathsTqOaResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

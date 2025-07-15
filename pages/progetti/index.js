@@ -10,7 +10,7 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import Cardwithphoto from '../../components/cardwithphoto'
 import Footer from '../../components/footer'
-import progettiPageInitialPropsTqDbResource from '../../resources/progetti-page-initial-props-tq_db'
+import progettiPageInitialPropsTq7uResource from '../../resources/progetti-page-initial-props-tq_7u'
 
 const Progetti = (props) => {
   return (
@@ -71,24 +71,19 @@ const Progetti = (props) => {
               <span className="progetti-text19">Materiali didattici</span>
             </Fragment>
           }
-          text142={
-            <Fragment>
-              <span className="progetti-text20">Notizie</span>
-            </Fragment>
-          }
           register={
             <Fragment>
-              <span className="progetti-text21">Register</span>
+              <span className="progetti-text20">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="progetti-text22">A proposito di INFEAS</span>
+              <span className="progetti-text21">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="progetti-text23">Cerca</span>
+              <span className="progetti-text22">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name23"
@@ -188,9 +183,6 @@ const Progetti = (props) => {
           .progetti-text22 {
             display: inline-block;
           }
-          .progetti-text23 {
-            display: inline-block;
-          }
           .progetti-container2 {
             flex: 0 0 auto;
             display: flex;
@@ -228,7 +220,7 @@ export default Progetti
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettiPageInitialPropsTqDbResource({
+    const response = await progettiPageInitialPropsTq7uResource({
       ...context?.params,
     })
     if (!response) {

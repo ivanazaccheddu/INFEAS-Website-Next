@@ -49,7 +49,7 @@ const NavbarInteractive = (props) => {
                     <span>
                       {props.text5 ?? (
                         <Fragment>
-                          <span className="navbar-interactive-text36">
+                          <span className="navbar-interactive-text35">
                             Seguici su
                           </span>
                         </Fragment>
@@ -290,7 +290,7 @@ const NavbarInteractive = (props) => {
                 <span className="navbar-interactive-text13">
                   {props.text ?? (
                     <Fragment>
-                      <span className="navbar-interactive-text33">
+                      <span className="navbar-interactive-text32">
                         Per scuole e Università
                       </span>
                     </Fragment>
@@ -326,7 +326,7 @@ const NavbarInteractive = (props) => {
                 <span className="navbar-interactive-text17">
                   {props.text4 ?? (
                     <Fragment>
-                      <span className="navbar-interactive-text37">
+                      <span className="navbar-interactive-text36">
                         Press Kit
                       </span>
                     </Fragment>
@@ -350,7 +350,7 @@ const NavbarInteractive = (props) => {
                     <span>
                       {props.register ?? (
                         <Fragment>
-                          <span className="navbar-interactive-text34">
+                          <span className="navbar-interactive-text33">
                             Register
                           </span>
                         </Fragment>
@@ -362,7 +362,7 @@ const NavbarInteractive = (props) => {
                   <span>
                     {props.text51 ?? (
                       <Fragment>
-                        <span className="navbar-interactive-text35">
+                        <span className="navbar-interactive-text34">
                           Seguici su
                         </span>
                       </Fragment>
@@ -450,8 +450,11 @@ const NavbarInteractive = (props) => {
                   I prossimi appuntamenti
                 </a>
               </Link>
+              <Link href="/cittadini-notizie">
+                <a className="navbar-interactive-link22">Notizie</a>
+              </Link>
               <Link href="/sistema-regionale-infeas">
-                <a className="navbar-interactive-link21">
+                <a className="navbar-interactive-link23">
                   A proposito di INFEAS
                 </a>
               </Link>
@@ -479,7 +482,7 @@ const NavbarInteractive = (props) => {
                   role="menuitem"
                   tabindex="0"
                   aria-label="Per le Scuole e Università"
-                  className="navbar-interactive-link22"
+                  className="navbar-interactive-link24"
                 >
                   <span>INFEAS per l</span>
                   <span>e scuole e università</span>
@@ -491,7 +494,7 @@ const NavbarInteractive = (props) => {
                   role="menuitem"
                   tabindex="0"
                   aria-label="Materiali didattici"
-                  className="navbar-interactive-link23"
+                  className="navbar-interactive-link25"
                 >
                   {props.text122 ?? (
                     <Fragment>
@@ -508,13 +511,9 @@ const NavbarInteractive = (props) => {
                   role="menuitem"
                   tabindex="0"
                   aria-label="Notizie"
-                  className="navbar-interactive-link25"
+                  className="navbar-interactive-link27"
                 >
-                  {props.text142 ?? (
-                    <Fragment>
-                      <span className="navbar-interactive-text31">Notizie</span>
-                    </Fragment>
-                  )}
+                  Notizie
                 </a>
               </Link>
               <Link href="/scuole-universita-eventi">
@@ -522,7 +521,7 @@ const NavbarInteractive = (props) => {
                   id="eventi-scuole-link"
                   role="menuitem"
                   tabindex="0"
-                  className="navbar-interactive-link27"
+                  className="navbar-interactive-link29"
                 >
                   I prossimi appuntamenti
                 </a>
@@ -533,11 +532,11 @@ const NavbarInteractive = (props) => {
                   role="menuitem"
                   tabindex="0"
                   aria-label="A proposito di INFEAS"
-                  className="navbar-interactive-link28"
+                  className="navbar-interactive-link30"
                 >
                   {props.text1121 ?? (
                     <Fragment>
-                      <span className="navbar-interactive-text32">
+                      <span className="navbar-interactive-text31">
                         A proposito di INFEAS
                       </span>
                     </Fragment>
@@ -562,7 +561,7 @@ const NavbarInteractive = (props) => {
                   id="dashboard-link"
                   role="menuitem"
                   tabindex="0"
-                  className="navbar-interactive-link29"
+                  className="navbar-interactive-link31"
                 >
                   Dashboard INFEAS
                 </a>
@@ -580,7 +579,7 @@ const NavbarInteractive = (props) => {
                   id="notizie-rete-link"
                   role="menuitem"
                   tabindex="0"
-                  className="navbar-interactive-link30"
+                  className="navbar-interactive-link32"
                 >
                   Notizie della rete
                 </a>
@@ -943,7 +942,11 @@ const NavbarInteractive = (props) => {
             color: #ffffff;
             text-decoration: none;
           }
-          .navbar-interactive-link21 {
+          .navbar-interactive-link22 {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+          }
+          .navbar-interactive-link23 {
             color: #ffffff;
             text-decoration: none;
           }
@@ -980,12 +983,8 @@ const NavbarInteractive = (props) => {
             border-width: 1px;
             flex-direction: column;
           }
-          .navbar-interactive-link22 {
+          .navbar-interactive-link24 {
             color: rgb(255, 255, 255);
-            text-decoration: none;
-          }
-          .navbar-interactive-link23 {
-            color: #ffffff;
             text-decoration: none;
           }
           .navbar-interactive-link25 {
@@ -994,13 +993,17 @@ const NavbarInteractive = (props) => {
           }
           .navbar-interactive-link27 {
             color: #ffffff;
+            text-decoration: none;
+          }
+          .navbar-interactive-link29 {
+            color: #ffffff;
             transition: 0.3s;
             text-decoration: none;
           }
-          .navbar-interactive-link27:hover {
+          .navbar-interactive-link29:hover {
             cursor: pointer;
           }
-          .navbar-interactive-link28 {
+          .navbar-interactive-link30 {
             color: #ffffff;
             text-decoration: none;
           }
@@ -1037,12 +1040,12 @@ const NavbarInteractive = (props) => {
             border-width: 1px;
             flex-direction: column;
           }
-          .navbar-interactive-link29 {
+          .navbar-interactive-link31 {
             color: rgb(255, 255, 255);
             transition: 0.3s;
             text-decoration: none;
           }
-          .navbar-interactive-link29:hover {
+          .navbar-interactive-link31:hover {
             cursor: pointer;
           }
           .navbar-interactive-text23 {
@@ -1052,12 +1055,12 @@ const NavbarInteractive = (props) => {
           .navbar-interactive-text23:hover {
             cursor: pointer;
           }
-          .navbar-interactive-link30 {
+          .navbar-interactive-link32 {
             color: rgb(255, 255, 255);
             transition: 0.3s;
             text-decoration: none;
           }
-          .navbar-interactive-link30:hover {
+          .navbar-interactive-link32:hover {
             cursor: pointer;
           }
           .navbar-interactive-text24 {
@@ -1097,9 +1100,6 @@ const NavbarInteractive = (props) => {
             display: inline-block;
           }
           .navbar-interactive-text36 {
-            display: inline-block;
-          }
-          .navbar-interactive-text37 {
             display: inline-block;
           }
           .navbar-interactiveroot-class-name {
@@ -1282,7 +1282,6 @@ NavbarInteractive.defaultProps = {
   logoAlt: 'image',
   register1: undefined,
   text3: undefined,
-  text142: undefined,
   rootClassName: '',
   text1121: undefined,
   text: undefined,
@@ -1302,7 +1301,6 @@ NavbarInteractive.propTypes = {
   logoAlt: PropTypes.string,
   register1: PropTypes.element,
   text3: PropTypes.element,
-  text142: PropTypes.element,
   rootClassName: PropTypes.string,
   text1121: PropTypes.element,
   text: PropTypes.element,
