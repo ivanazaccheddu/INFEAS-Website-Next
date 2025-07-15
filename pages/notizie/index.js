@@ -13,7 +13,7 @@ import FilterbyProvince from '../../components/filterby-province'
 import NewsListingCard from '../../components/news-listing-card'
 import LoghiSponsor from '../../components/loghi-sponsor'
 import Footer from '../../components/footer'
-import notiziePageInitialPropsTqNFResource from '../../resources/notizie-page-initial-props-tq_n-f'
+import notiziePageInitialPropsTqWwResource from '../../resources/notizie-page-initial-props-tq_ww'
 
 const Notizie = (props) => {
   const router = useRouter()
@@ -253,7 +253,7 @@ export default Notizie
 
 export async function getStaticProps(context) {
   try {
-    const response = await notiziePageInitialPropsTqNFResource({
+    const response = await notiziePageInitialPropsTqWwResource({
       ...context?.params,
     })
     if (!response) {

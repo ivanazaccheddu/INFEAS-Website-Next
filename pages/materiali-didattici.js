@@ -168,10 +168,15 @@ const ScuoleMaterialiDidattici = (props) => {
                   locale: props?.locale ?? '',
                 }}
               />
-              <div>
-                <div className="scuole-materiali-didattici-container7">
-                  <React.Fragment>
-                    <Script>{`
+            </div>
+          </div>
+        </section>
+        <LoghiSponsor rootClassName="loghi-sponsorroot-class-name10"></LoghiSponsor>
+        <Footer rootClassName="footerroot-class-name11"></Footer>
+        <div>
+          <div className="scuole-materiali-didattici-container7">
+            <React.Fragment>
+              <Script>{`
 (function() {
     
     /**
@@ -358,14 +363,9 @@ const ScuoleMaterialiDidattici = (props) => {
     console.log('Document grouping and sorting function initialized');
 })();
 `}</Script>
-                  </React.Fragment>
-                </div>
-              </div>
-            </div>
+            </React.Fragment>
           </div>
-        </section>
-        <LoghiSponsor rootClassName="loghi-sponsorroot-class-name10"></LoghiSponsor>
-        <Footer rootClassName="footerroot-class-name11"></Footer>
+        </div>
       </main>
       <style jsx>
         {`
