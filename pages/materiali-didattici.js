@@ -182,7 +182,7 @@ const ScuoleMaterialiDidattici = (props) => {
     
     /**
      * Groups educational materials by organization name within each province
-     * and sorts organizations alphabetically
+     * and sorts organizations alphabetically. Hides provinces with no documents.
      */
     function groupAndSortDocumentsByOrganization() {
         // Get all province sections
@@ -197,6 +197,8 @@ const ScuoleMaterialiDidattici = (props) => {
             
             if (!provinceContainer) {
                 console.warn(\`No container found for province: \${provinceName}\`);
+                // Hide the province if no container is found
+                provinceArticle.style.display = 'none';
                 return;
             }
             
@@ -205,6 +207,8 @@ const ScuoleMaterialiDidattici = (props) => {
             
             if (ceasElements.length === 0) {
                 console.log(\`No CEAS elements found for province: \${provinceName}\`);
+                // Hide the province if no CEAS elements are found
+                provinceArticle.style.display = 'none';
                 return;
             }
             
@@ -233,6 +237,16 @@ const ScuoleMaterialiDidattici = (props) => {
             
             console.log(\`Sorted organizations for \${provinceName}:\`, sortedOrgNames);
             
+            // Hide province if no valid organizations found
+            if (sortedOrgNames.length === 0) {
+                console.log(\`No valid organizations found for province: \${provinceName}, hiding it\`);
+                provinceArticle.style.display = 'none';
+                return;
+            }
+            
+            // Show the province (in case it was previously hidden)
+            provinceArticle.style.display = '';
+            
             // Clear the container
             provinceContainer.innerHTML = '';
             
@@ -248,12 +262,6 @@ const ScuoleMaterialiDidattici = (props) => {
                     provinceContainer.appendChild(orgElements[0]);
                 }
             });
-            
-            // Add empty placeholder if no valid organizations found
-            if (sortedOrgNames.length === 0) {
-                const emptyPlaceholder = createEmptyPlaceholder();
-                provinceContainer.appendChild(emptyPlaceholder);
-            }
         });
     }
     
@@ -322,36 +330,87 @@ const ScuoleMaterialiDidattici = (props) => {
     }
     
     /**
-     * Creates an empty placeholder element
+     * Waits for all content to be loaded with multiple fallback strategies
      */
-    function createEmptyPlaceholder() {
-        const placeholder = document.createElement('div');
-        placeholder.className = 'empty-placeholder-container';
-        placeholder.innerHTML = \`
-            <span class="empty-placeholder-text1 paragraph_xl">
-                <span class="provincedocuments-text5 paragraph_xl">
-                    <span>Nessun documento disponibile per questa provincia</span>
-                    <br>
-                </span>
-            </span>
-            <span class="paragraph_xl">
-                <span class="provincedocuments-text2 paragraph_xl">
-                    <span>--</span>
-                    <br>
-                </span>
-            </span>
-        \`;
-        return placeholder;
+    function waitForContentAndExecute() {
+        // Strategy 1: Check if required elements exist
+        function checkForRequiredElements() {
+            const provinceArticles = document.querySelectorAll('article[id="materiali-didattici-provincia"]');
+            return provinceArticles.length > 0;
+        }
+        
+        // Strategy 2: Use MutationObserver to detect when content is added
+        function setupMutationObserver() {
+            const observer = new MutationObserver((mutations) => {
+                let contentAdded = false;
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        contentAdded = true;
+                    }
+                });
+                
+                if (contentAdded && checkForRequiredElements()) {
+                    observer.disconnect();
+                    // Add a small delay to ensure all JavaScript has finished executing
+                    setTimeout(() => {
+                        console.log('Content detected via MutationObserver, executing grouping...');
+                        groupAndSortDocumentsByOrganization();
+                    }, 100);
+                }
+            });
+            
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+            
+            // Disconnect observer after 30 seconds to prevent memory leaks
+            setTimeout(() => {
+                observer.disconnect();
+            }, 30000);
+        }
+        
+        // Strategy 3: Multiple delay-based attempts
+        function executeWithDelays() {
+            const delays = [500, 1000, 2000, 3000, 5000];
+            
+            delays.forEach(delay => {
+                setTimeout(() => {
+                    if (checkForRequiredElements()) {
+                        console.log(\`Content found after \${delay}ms, executing grouping...\`);
+                        groupAndSortDocumentsByOrganization();
+                    }
+                }, delay);
+            });
+        }
+        
+        // Execute immediately if content is already there
+        if (checkForRequiredElements()) {
+            console.log('Content already available, executing grouping...');
+            groupAndSortDocumentsByOrganization();
+        } else {
+            console.log('Content not ready, setting up observers and delays...');
+            setupMutationObserver();
+            executeWithDelays();
+        }
     }
     
     /**
-     * Initialize the grouping and sorting when DOM is ready
+     * Initialize the grouping and sorting when everything is fully loaded
      */
     function initialize() {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', groupAndSortDocumentsByOrganization);
+        // Wait for complete page load (including images, stylesheets, etc.)
+        if (document.readyState === 'complete') {
+            waitForContentAndExecute();
         } else {
-            groupAndSortDocumentsByOrganization();
+            window.addEventListener('load', waitForContentAndExecute);
+        }
+        
+        // Backup: also listen for DOMContentLoaded in case window.load doesn't fire
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(waitForContentAndExecute, 1000);
+            });
         }
     }
     
@@ -361,7 +420,7 @@ const ScuoleMaterialiDidattici = (props) => {
     // Expose function globally for manual triggering if needed
     window.groupAndSortDocumentsByOrganization = groupAndSortDocumentsByOrganization;
     
-    console.log('Document grouping and sorting function initialized');
+    console.log('Document grouping and sorting function initialized with enhanced loading detection');
 })();
 `}</Script>
             </React.Fragment>

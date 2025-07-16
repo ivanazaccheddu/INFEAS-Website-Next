@@ -14,8 +14,8 @@ import Headertipologiatarget from '../../components/headertipologiatarget'
 import Focusareacomponent from '../../components/focusareacomponent'
 import EmptyContainer from '../../components/empty-container'
 import Footer from '../../components/footer'
-import componentiPaginePageInitialPropsTqVlResource from '../../resources/componenti-pagine-page-initial-props-tq_vl'
-import componentiPaginePageInitialPathsTqU1Resource from '../../resources/componenti-pagine-page-initial-paths-tq_u1'
+import componentiPaginePageInitialPropsTqPcResource from '../../resources/componenti-pagine-page-initial-props-tq_pc'
+import componentiPaginePageInitialPathsTqZResource from '../../resources/componenti-pagine-page-initial-paths-tq_-z'
 
 const ComponentiPagine = (props) => {
   return (
@@ -242,7 +242,7 @@ export default ComponentiPagine
 
 export async function getStaticProps(context) {
   try {
-    const response = await componentiPaginePageInitialPropsTqVlResource({
+    const response = await componentiPaginePageInitialPropsTqPcResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -267,7 +267,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await componentiPaginePageInitialPathsTqU1Resource({})
+    const response = await componentiPaginePageInitialPathsTqZResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

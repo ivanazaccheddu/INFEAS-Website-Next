@@ -10,7 +10,7 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import Cardwithphoto from '../../components/cardwithphoto'
 import Footer from '../../components/footer'
-import progettiPageInitialPropsTq9qResource from '../../resources/progetti-page-initial-props-tq_9q'
+import progettiPageInitialPropsTqWAResource from '../../resources/progetti-page-initial-props-tq_w-a'
 
 const Progetti = (props) => {
   return (
@@ -220,7 +220,7 @@ export default Progetti
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettiPageInitialPropsTq9qResource({
+    const response = await progettiPageInitialPropsTqWAResource({
       ...context?.params,
     })
     if (!response) {
