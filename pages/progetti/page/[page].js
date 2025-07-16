@@ -10,8 +10,8 @@ import NavbarInteractive from '../../../components/navbar-interactive'
 import Headertipologiatarget from '../../../components/headertipologiatarget'
 import Cardwithphoto from '../../../components/cardwithphoto'
 import Footer from '../../../components/footer'
-import progettiPageInitialPropsTqUkResource from '../../../resources/progetti-page-initial-props-tq_uk'
-import progettiPageInitialPathsTqSHResource from '../../../resources/progetti-page-initial-paths-tq_s-h'
+import progettiPageInitialPropsTqAcResource from '../../../resources/progetti-page-initial-props-tq_ac'
+import progettiPageInitialPathsTqS1Resource from '../../../resources/progetti-page-initial-paths-tq_s1'
 
 const Progetti1 = (props) => {
   return (
@@ -221,7 +221,7 @@ export default Progetti1
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettiPageInitialPropsTqUkResource({
+    const response = await progettiPageInitialPropsTqAcResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -247,7 +247,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await progettiPageInitialPathsTqSHResource({})
+    const response = await progettiPageInitialPathsTqS1Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {

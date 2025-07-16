@@ -353,8 +353,8 @@ const ScuoleMaterialiDidattici = (props) => {
                     observer.disconnect();
                     // Add a small delay to ensure all JavaScript has finished executing
                     setTimeout(() => {
-                        console.log('Content detected via MutationObserver, executing grouping...');
-                        groupAndSortDocumentsByOrganization();
+                        console.log('Content detected via MutationObserver, executing initialization...');
+                        initializePageFunctionality();
                     }, 100);
                 }
             });
@@ -377,8 +377,8 @@ const ScuoleMaterialiDidattici = (props) => {
             delays.forEach(delay => {
                 setTimeout(() => {
                     if (checkForRequiredElements()) {
-                        console.log(\`Content found after \${delay}ms, executing grouping...\`);
-                        groupAndSortDocumentsByOrganization();
+                        console.log(\`Content found after \${delay}ms, executing initialization...\`);
+                        initializePageFunctionality();
                     }
                 }, delay);
             });
@@ -386,8 +386,8 @@ const ScuoleMaterialiDidattici = (props) => {
         
         // Execute immediately if content is already there
         if (checkForRequiredElements()) {
-            console.log('Content already available, executing grouping...');
-            groupAndSortDocumentsByOrganization();
+            console.log('Content already available, executing initialization...');
+            initializePageFunctionality();
         } else {
             console.log('Content not ready, setting up observers and delays...');
             setupMutationObserver();
@@ -414,13 +414,131 @@ const ScuoleMaterialiDidattici = (props) => {
         }
     }
     
+    /**
+     * Populates the province dropdown with available provinces
+     */
+    function populateProvinceDropdown() {
+        const dropdown = document.getElementById('select-provincia');
+        if (!dropdown) {
+            console.warn('Province dropdown not found');
+            return;
+        }
+        
+        // Get all visible province articles (those with documents)
+        const provinceArticles = document.querySelectorAll('article[id="materiali-didattici-provincia"]');
+        const provinces = [];
+        
+        provinceArticles.forEach(article => {
+            // Only include provinces that are visible (have documents)
+            if (article.style.display !== 'none') {
+                const provinceName = article.querySelector('#nome-provincia')?.textContent?.trim();
+                if (provinceName) {
+                    provinces.push(provinceName);
+                }
+            }
+        });
+        
+        // Sort provinces alphabetically
+        provinces.sort((a, b) => a.localeCompare(b, 'it', { sensitivity: 'base' }));
+        
+        // Clear existing options except the first one (default)
+        const defaultOption = dropdown.querySelector('option[value="Provincia"]');
+        dropdown.innerHTML = '';
+        if (defaultOption) {
+            dropdown.appendChild(defaultOption);
+        } else {
+            // Create default option if it doesn't exist
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = 'Provincia';
+            defaultOpt.textContent = 'Provincia';
+            defaultOpt.selected = true;
+            dropdown.appendChild(defaultOpt);
+        }
+        
+        // Add province options
+        provinces.forEach(province => {
+            const option = document.createElement('option');
+            option.value = province;
+            option.textContent = province;
+            dropdown.appendChild(option);
+        });
+        
+        console.log('Province dropdown populated with:', provinces);
+    }
+    
+    /**
+     * Filters provinces based on dropdown selection
+     */
+    function filterProvinces() {
+        const dropdown = document.getElementById('select-provincia');
+        if (!dropdown) return;
+        
+        const selectedProvince = dropdown.value;
+        const provinceArticles = document.querySelectorAll('article[id="materiali-didattici-provincia"]');
+        
+        provinceArticles.forEach(article => {
+            const provinceName = article.querySelector('#nome-provincia')?.textContent?.trim();
+            
+            if (selectedProvince === 'Provincia') {
+                // Show all provinces that have documents
+                // Only show if it wasn't originally hidden due to no documents
+                const hasDocuments = article.querySelector('[data-ceas-name]') !== null;
+                if (hasDocuments) {
+                    article.style.display = '';
+                }
+            } else if (provinceName === selectedProvince) {
+                // Show only the selected province
+                article.style.display = '';
+            } else {
+                // Hide all other provinces
+                article.style.display = 'none';
+            }
+        });
+        
+        console.log('Filtered provinces for:', selectedProvince);
+    }
+    
+    /**
+     * Sets up the province filter functionality
+     */
+    function setupProvinceFilter() {
+        const dropdown = document.getElementById('select-provincia');
+        if (!dropdown) {
+            console.warn('Province dropdown not found, retrying...');
+            // Retry after a short delay
+            setTimeout(setupProvinceFilter, 500);
+            return;
+        }
+        
+        // Populate the dropdown with available provinces
+        populateProvinceDropdown();
+        
+        // Add event listener for filtering
+        dropdown.addEventListener('change', filterProvinces);
+        
+        console.log('Province filter setup complete');
+    }
+    
+    /**
+     * Main function that handles both grouping and filter setup
+     */
+    function initializePageFunctionality() {
+        // First, group and sort documents
+        groupAndSortDocumentsByOrganization();
+        
+        // Then setup the province filter
+        setupProvinceFilter();
+    }
+    
     // Initialize the function
     initialize();
     
-    // Expose function globally for manual triggering if needed
+    // Expose functions globally for manual triggering if needed
     window.groupAndSortDocumentsByOrganization = groupAndSortDocumentsByOrganization;
+    window.setupProvinceFilter = setupProvinceFilter;
+    window.initializePageFunctionality = initializePageFunctionality;
     
-    console.log('Document grouping and sorting function initialized with enhanced loading detection');
+    console.log('Document grouping and province filter functionality initialized');
 })();
 `}</Script>
             </React.Fragment>

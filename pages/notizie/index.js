@@ -13,7 +13,7 @@ import FilterbyProvince from '../../components/filterby-province'
 import NewsListingCard from '../../components/news-listing-card'
 import LoghiSponsor from '../../components/loghi-sponsor'
 import Footer from '../../components/footer'
-import notiziePageInitialPropsTqRResource from '../../resources/notizie-page-initial-props-tq_r-'
+import notiziePageInitialPropsTqRResource from '../../resources/notizie-page-initial-props-tq_-r'
 
 const Notizie = (props) => {
   const router = useRouter()
