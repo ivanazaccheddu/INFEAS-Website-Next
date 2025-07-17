@@ -13,8 +13,8 @@ import FilterbyProvince from '../../../components/filterby-province'
 import NewsListingCard from '../../../components/news-listing-card'
 import LoghiSponsor from '../../../components/loghi-sponsor'
 import Footer from '../../../components/footer'
-import notiziePageInitialPropsTqLYResource from '../../../resources/notizie-page-initial-props-tq_l-y'
-import notiziePageInitialPathsTqMwResource from '../../../resources/notizie-page-initial-paths-tq_mw'
+import notiziePageInitialPropsTqMzResource from '../../../resources/notizie-page-initial-props-tq_mz'
+import notiziePageInitialPathsTqXAResource from '../../../resources/notizie-page-initial-paths-tq_x-a'
 
 const Notizie1 = (props) => {
   const router = useRouter()
@@ -254,7 +254,7 @@ export default Notizie1
 
 export async function getStaticProps(context) {
   try {
-    const response = await notiziePageInitialPropsTqLYResource({
+    const response = await notiziePageInitialPropsTqMzResource({
       ...context?.params,
       start: (context.params.page - 1) * 12,
     })
@@ -280,7 +280,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await notiziePageInitialPathsTqMwResource({})
+    const response = await notiziePageInitialPathsTqXAResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 12)
     return {

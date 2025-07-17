@@ -95,7 +95,7 @@ const MappaCEAS = (props) => {
           className="mappa-ceas-container2 padding-container"
         >
           <div className="mappa-ceas-container3 thq-section-max-width">
-            <div className="mappa-ceas-container4">
+            <div id="dynamic-ceas-map" className="mappa-ceas-container4">
               <div className="mappa-ceas-container5">
                 <div className="mappa-ceas-container6">
                   <React.Fragment>
@@ -182,9 +182,6 @@ const MappaCEAS = (props) => {
     // Since there's no visible reset button in this component, we need to trigger
     // the React state change to "*" manually. 
     
-    // The most reliable way is to modify the URL to remove any filters
-    // and trigger a page reload
-    
     const currentUrl = new URL(window.location);
     currentUrl.searchParams.delete('provincia'); // Remove any province parameters
     
@@ -219,7 +216,9 @@ const MappaCEAS = (props) => {
 
   // Map initialization
   async function initCeasMap() {
-    if (typeof window === 'undefined' || !window.L) {
+    // Wait for Leaflet to load
+    if (typeof L === 'undefined') {
+      console.log('Waiting for Leaflet to load...');
       setTimeout(initCeasMap, 100);
       return;
     }
@@ -267,45 +266,60 @@ const MappaCEAS = (props) => {
 
     // Initialize map centered on Sardinia
     const mapElement = document.getElementById('dynamic-ceas-map');
-    if (!mapElement) return;
-
-    ceasMap = L.map('dynamic-ceas-map').setView([40.1209, 9.0129], 8);
-
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 18,
-    }).addTo(ceasMap);
-
-    // Fetch and display CEAS organizations
-    const organizations = await fetchCeasData();
-    console.log('Loaded CEAS organizations:', organizations.length);
-
-    const group = new L.featureGroup();
-    let validMarkers = 0;
-
-    organizations.forEach(org => {
-      const marker = createMarker(org, ceasMap);
-      if (marker) {
-        ceasMarkers.push(marker);
-        group.addLayer(marker);
-        validMarkers++;
-      }
-    });
-
-    // Fit map to show all markers if we have valid coordinates
-    if (validMarkers > 0) {
-      ceasMap.fitBounds(group.getBounds(), {
-        padding: [20, 20],
-        maxZoom: 15
-      });
+    if (!mapElement) {
+      console.error('Map element not found!');
+      return;
     }
 
-    console.log('Map initialized with', validMarkers, 'markers');
+    try {
+      console.log('Initializing map...');
+      ceasMap = L.map('dynamic-ceas-map').setView([40.1209, 9.0129], 8);
+
+      // Add OpenStreetMap tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+      }).addTo(ceasMap);
+
+      console.log('Map initialized successfully');
+
+      // Fetch and display CEAS organizations
+      const organizations = await fetchCeasData();
+      console.log('Loaded CEAS organizations:', organizations.length);
+
+      const group = new L.featureGroup();
+      let validMarkers = 0;
+
+      organizations.forEach(org => {
+        const marker = createMarker(org, ceasMap);
+        if (marker) {
+          ceasMarkers.push(marker);
+          group.addLayer(marker);
+          validMarkers++;
+        }
+      });
+
+      // Fit map to show all markers if we have valid coordinates
+      if (validMarkers > 0) {
+        ceasMap.fitBounds(group.getBounds(), {
+          padding: [20, 20],
+          maxZoom: 15
+        });
+      }
+
+      console.log('Map initialized with', validMarkers, 'markers');
+    } catch (error) {
+      console.error('Error initializing map:', error);
+    }
   }
 
-  // Initialize both dropdown and map
-  initCeasMap();
+  // Wait for DOM to be ready, then initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCeasMap);
+  } else {
+    // DOM is already ready, wait a bit then initialize
+    setTimeout(initCeasMap, 500);
+  }
 
   // Watch and reinject dropdowns when necessary
   const interval = setInterval(() => {
@@ -521,6 +535,7 @@ const MappaCEAS = (props) => {
           .mappa-ceas-container4 {
             gap: 12px;
             width: 100%;
+            height: 700px;
             display: flex;
             align-items: center;
             flex-direction: column;
