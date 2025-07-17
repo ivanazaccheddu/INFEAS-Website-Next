@@ -775,6 +775,36 @@
  
 
  
+.image-fb {
+  background-size: cover;
+  background-image: url("/fb.svg");
+  background-repeat: no-repeat;
+}
+ 
+.image-ig {
+  background-size: cover;
+  background-image: url("/ig.svg");
+  background-repeat: no-repeat;
+}
+ 
+.image-yt {
+  background-size: cover;
+  background-image: url("/yt.svg");
+  background-repeat: no-repeat;
+}
+ 
+.image-x {
+  background-size: cover;
+  background-image: a58b08ab-aa4c-4fdd-9693-f4cf55f769c4;
+  background-repeat: no-repeat;
+}
+ 
+.image-linkedin {
+  background-size: fill;
+  background-image: c0808006-a27d-4122-a91e-9e610ae0cf37;
+  background-repeat: no-repeat;
+}
+ 
 .H4 {
   font-size: 30px;
   font-style: normal;

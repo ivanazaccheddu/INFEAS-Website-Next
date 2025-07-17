@@ -103,7 +103,6 @@ const Filterlabeldropdown = (props) => {
             padding-right: var(--dl-layout-space-unit);
             padding-bottom: var(--dl-layout-space-unit);
           }
-
           @media (max-width: 479px) {
             .filterlabeldropdown-container {
               gap: var(--dl-layout-space-halfunit);

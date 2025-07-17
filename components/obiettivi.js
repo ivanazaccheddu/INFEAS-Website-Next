@@ -16,7 +16,7 @@ const Obiettivi = (props) => {
         {props.descrizioneObiettivi !== '--' && (
           <div className="obiettivi-container1">
             <span className="heading4">Obiettivi  compiti</span>
-            <div>
+            <div className="paragraph_xl">
               <Markdown>{props?.descrizioneObiettivi}</Markdown>
             </div>
           </div>

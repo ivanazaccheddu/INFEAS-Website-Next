@@ -9,7 +9,7 @@ const LinkUtilicomponent = (props) => {
       <div className={`link-utilicomponent-container1 ${props.rootClassName} `}>
         <div className="link-utilicomponent-container2">
           <a
-            href={props.usefulLink}
+            href={props.linkURL}
             target="_blank"
             rel="noreferrer noopener"
             className="link-utilicomponent-link"
@@ -65,13 +65,13 @@ const LinkUtilicomponent = (props) => {
 LinkUtilicomponent.defaultProps = {
   rootClassName: '',
   nomeLink: 'Nome link',
-  usefulLink: 'https://www.teleporthq.io',
+  linkURL: 'https://www.teleporthq.io',
 }
 
 LinkUtilicomponent.propTypes = {
   rootClassName: PropTypes.string,
   nomeLink: PropTypes.string,
-  usefulLink: PropTypes.string,
+  linkURL: PropTypes.string,
 }
 
 export default LinkUtilicomponent

@@ -6,9 +6,7 @@ export default async function (params = {}) {
     populate: '*',
   }
   let data = await fetch(
-    `${process.env.CMS_URL}/api/Categorie-eventi?${new URLSearchParams(
-      urlParams
-    )}`,
+    `${process.env.CMS_URL}/api/Province?${new URLSearchParams(urlParams)}`,
     {
       method: 'GET',
       headers: {
@@ -22,9 +20,7 @@ export default async function (params = {}) {
       populate: '*',
     }
     data = await fetch(
-      `${process.env.CMS_URL}/api/Categorie-eventi?${new URLSearchParams(
-        urlParams
-      )}`,
+      `${process.env.CMS_URL}/api/Province?${new URLSearchParams(urlParams)}`,
       {
         method: 'GET',
         headers: {

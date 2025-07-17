@@ -7,8 +7,11 @@ export default async function (params = {}) {
       'pagination[start]': params['pagination[start]'],
     }),
     'filters[destinatari][id][$eq]': '1',
-    ...(params['categFilter'] && {
-      'filters[categoria_eventi][id][$eq]': params['categFilter'],
+    ...(params['categoryFilter'] && {
+      'filters[categoria_eventi][id][$eq]': params['categoryFilter'],
+    }),
+    ...(params['provinceFilter'] && {
+      'filters[provincia][id][$eq]': params['provinceFilter'],
     }),
     'populate[galleria][populate][id][populate]': '*',
     'populate[galleria][populate][immagini][populate]': '*',
@@ -22,6 +25,7 @@ export default async function (params = {}) {
     'populate[documenti][populate][createdAt][populate]': '*',
     'populate[documenti][populate][tipologia][populate]': '*',
     'populate[documenti][populate][updatedAt][populate]': '*',
+    'populate[provincia][populate]': '*',
     'populate[destinatari][populate]': '*',
     'populate[organizzazione][populate]': '*',
     'populate[categoria_eventi][populate]': '*',
@@ -42,8 +46,11 @@ export default async function (params = {}) {
         'pagination[start]': params['pagination[start]'],
       }),
       'filters[destinatari][id][$eq]': '1',
-      ...(params['categFilter'] && {
-        'filters[categoria_eventi][id][$eq]': params['categFilter'],
+      ...(params['categoryFilter'] && {
+        'filters[categoria_eventi][id][$eq]': params['categoryFilter'],
+      }),
+      ...(params['provinceFilter'] && {
+        'filters[provincia][id][$eq]': params['provinceFilter'],
       }),
       'populate[galleria][populate][id][populate]': '*',
       'populate[galleria][populate][immagini][populate]': '*',
@@ -57,6 +64,7 @@ export default async function (params = {}) {
       'populate[documenti][populate][createdAt][populate]': '*',
       'populate[documenti][populate][tipologia][populate]': '*',
       'populate[documenti][populate][updatedAt][populate]': '*',
+      'populate[provincia][populate]': '*',
       'populate[destinatari][populate]': '*',
       'populate[organizzazione][populate]': '*',
       'populate[categoria_eventi][populate]': '*',

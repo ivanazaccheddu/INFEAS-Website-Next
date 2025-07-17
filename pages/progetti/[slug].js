@@ -11,8 +11,8 @@ import ProgectDetails from '../../components/progect-details'
 import NewsSimple from '../../components/news-simple'
 import CardEvento from '../../components/card-evento'
 import Footer from '../../components/footer'
-import progettoDettaglioPageInitialPropsTqDAResource from '../../resources/progetto-dettaglio-page-initial-props-tq_d-a'
-import progettoDettaglioPageInitialPathsTq3nResource from '../../resources/progetto-dettaglio-page-initial-paths-tq_3n'
+import progettoDettaglioPageInitialPropsTqNtResource from '../../resources/progetto-dettaglio-page-initial-props-tq_nt'
+import progettoDettaglioPageInitialPathsTqTVResource from '../../resources/progetto-dettaglio-page-initial-paths-tq_t-v'
 
 const ProgettoDettaglio = (props) => {
   return (
@@ -149,7 +149,9 @@ const ProgettoDettaglio = (props) => {
                         <Fragment>
                           <NewsSimple
                             border="yes"
-                            tagName={notizie_progetti?.categoria_notizie?.nome}
+                            tagName={
+                              notizie_progetti?.categoria_notizie?.nome || '--'
+                            }
                             dataNews={notizie_progetti?.data_pubblicazione}
                             titoloNews={notizie_progetti?.nome}
                             rootClassName="news-simpleroot-class-name1"
@@ -192,7 +194,7 @@ const ProgettoDettaglio = (props) => {
                             logoAlt={eventi_progetti?.organizzazione?.logo?.alt}
                             logoORG={eventi_progetti?.organizzazione?.logo?.url}
                             idEvento={eventi_progetti?.slug}
-                            oraInizio={eventi_progetti?.data_inizio}
+                            oraInizio={eventi_progetti?.data_inizio || '--'}
                             dataEvento={eventi_progetti?.data_inizio}
                             fotoEvento={eventi_progetti?.immagine?.url}
                             nomeEvento={eventi_progetti?.nome}
@@ -378,7 +380,7 @@ export default ProgettoDettaglio
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettoDettaglioPageInitialPropsTqDAResource({
+    const response = await progettoDettaglioPageInitialPropsTqNtResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -403,7 +405,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await progettoDettaglioPageInitialPathsTq3nResource({})
+    const response = await progettoDettaglioPageInitialPathsTqTVResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

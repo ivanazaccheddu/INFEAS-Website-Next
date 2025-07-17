@@ -694,9 +694,82 @@ const Style = (props) => {
           <div className="style-container156">
             <HeaderVector></HeaderVector>
             <Headertipologiatarget></Headertipologiatarget>
+            <header
+              id="header-pagina"
+              className="style-header-scuoleeuniversit1"
+            >
+              <div className="style-header1 thq-section-max-width">
+                <p className="style-text188 paragraph_md">
+                  Home / Per Scuole e Universtità
+                </p>
+                <h1
+                  id="header-title"
+                  aria-labelledby="page-title"
+                  className="style-text189 heading1"
+                >
+                  Rete INFEAS
+                </h1>
+              </div>
+              <img
+                alt="immagine-background"
+                src="/headerimg-texture-1500w.png"
+                className="style-image20"
+              />
+            </header>
+            <header id="header-pagina" className="style-header-cittadini">
+              <div className="style-header2 thq-section-max-width">
+                <p className="style-text190 paragraph_md">
+                  Home / Per Scuole e Universtità
+                </p>
+                <h1
+                  id="header-title"
+                  aria-labelledby="page-title"
+                  className="style-text191 heading1"
+                >
+                  Per i cittadini
+                </h1>
+              </div>
+              <img
+                alt="immagine-background"
+                src="/headerimg-texture-1500w.png"
+                className="style-image21"
+              />
+              <img
+                alt="immagine-background"
+                src="/headerimg-texture-1500w.png"
+                className="style-image23"
+              />
+            </header>
+            <header
+              id="header-pagina"
+              className="style-header-scuoleeuniversit2"
+            >
+              <div className="style-header3 thq-section-max-width">
+                <p className="style-text192 paragraph_md">
+                  Home / Per Scuole e Universtità
+                </p>
+                <h1
+                  id="header-title"
+                  aria-labelledby="page-title"
+                  className="style-text193 heading1"
+                >
+                  Scuole e Università
+                </h1>
+              </div>
+              <img
+                alt="immagine-background"
+                src="/headerimg-texture-1500w.png"
+                className="style-image24"
+              />
+              <img
+                alt="immagine-background"
+                src="/headerimg-texture-1500w.png"
+                className="style-image25"
+              />
+            </header>
           </div>
           <div className="style-font18">
-            <span className="style-text188">News dalla rete</span>
+            <span className="style-text194">News dalla rete</span>
           </div>
           <div className="style-container157">
             <div className="style-news-rete3columns1"></div>
@@ -704,12 +777,12 @@ const Style = (props) => {
             <div className="style-news-rete3columns3"></div>
           </div>
           <div className="style-font19">
-            <span className="style-text189">News 3 column</span>
+            <span className="style-text195">News 3 column</span>
           </div>
           <div className="style-container158">
             <div className="style-container159">
-              <span className="style-text190 heading2">Notizie della rete</span>
-              <span className="style-text191 paragraph_xl">
+              <span className="style-text196 heading2">Notizie della rete</span>
+              <span className="style-text197 paragraph_xl">
                 Esplora le ultime notizie riguardanti la rete Infeas, inclusi
                 bandi, scadenze importanti e presentazioni di progetti
                 innovativi. Rimani aggiornato sulle opportunità e le iniziative
@@ -724,13 +797,13 @@ const Style = (props) => {
             <div className="style-news3columns"></div>
           </div>
           <div className="style-font20">
-            <span className="style-text192">Card Province</span>
+            <span className="style-text198">Card Province</span>
           </div>
           <div className="style-container160">
             <FilterbyProvince
               text={
                 <Fragment>
-                  <span className="style-text193">Filtra per</span>
+                  <span className="style-text199">Filtra per</span>
                 </Fragment>
               }
             ></FilterbyProvince>
@@ -751,20 +824,20 @@ const Style = (props) => {
             </div>
           </div>
           <div className="style-font21">
-            <span className="style-text194">Icon + Title + Paragraph</span>
+            <span className="style-text200">Icon + Title + Paragraph</span>
           </div>
           <div className="style-container164">
             <EducareSostenibilit
               text={
                 <Fragment>
-                  <span className="style-text195">
+                  <span className="style-text201">
                     Educare alla sostenibilità
                   </span>
                 </Fragment>
               }
               text1={
                 <Fragment>
-                  <span className="style-text196">
+                  <span className="style-text202">
                     Il Sistema Regionale INFEAS Sardegna promuove attività per
                     scuole e università attraverso i Centri di Educazione
                     Ambientale e alla Sostenibilità (CEAS). L&apos;obiettivo è
@@ -780,14 +853,14 @@ const Style = (props) => {
             <InsiemeAmbiente
               text={
                 <Fragment>
-                  <span className="style-text197">
+                  <span className="style-text203">
                     Insieme per un ambiente più sostenibile
                   </span>
                 </Fragment>
               }
               text1={
                 <Fragment>
-                  <span className="style-text198">
+                  <span className="style-text204">
                     INFEAS Sardegna promuove iniziative volte a sensibilizzare e
                     coinvolgere i cittadini nella tutela dell&apos;ambiente e
                     nella sostenibilità. Le attività si concentrano su eventi,
@@ -803,18 +876,18 @@ const Style = (props) => {
             ></InsiemeAmbiente>
           </div>
           <div className="style-font22">
-            <span className="style-text199">card_provincia</span>
+            <span className="style-text205">card_provincia</span>
           </div>
           <div className="style-container165">
             <Cardprovincelisting
               text1={
                 <Fragment>
-                  <span className="style-text200">Documenti utili</span>
+                  <span className="style-text206">Documenti utili</span>
                 </Fragment>
               }
               text2={
                 <Fragment>
-                  <span className="style-text201">
+                  <span className="style-text207">
                     Brochure attivitá formativa
                   </span>
                 </Fragment>
@@ -823,12 +896,12 @@ const Style = (props) => {
             <Cardprovincelisting
               text1={
                 <Fragment>
-                  <span className="style-text202">Documenti utili</span>
+                  <span className="style-text208">Documenti utili</span>
                 </Fragment>
               }
               text2={
                 <Fragment>
-                  <span className="style-text203">
+                  <span className="style-text209">
                     Brochure attivitá formativa
                   </span>
                 </Fragment>
@@ -837,12 +910,12 @@ const Style = (props) => {
             <Cardprovincelisting
               text1={
                 <Fragment>
-                  <span className="style-text204">Documenti utili</span>
+                  <span className="style-text210">Documenti utili</span>
                 </Fragment>
               }
               text2={
                 <Fragment>
-                  <span className="style-text205">
+                  <span className="style-text211">
                     Brochure attivitá formativa
                   </span>
                 </Fragment>
@@ -850,24 +923,24 @@ const Style = (props) => {
             ></Cardprovincelisting>
           </div>
           <div className="style-font23">
-            <span className="style-text206">CTA-Maps</span>
+            <span className="style-text212">CTA-Maps</span>
           </div>
           <div className="style-container166"></div>
           <div className="style-font24">
-            <span className="style-text207">dettaglio-cittadini</span>
+            <span className="style-text213">dettaglio-cittadini</span>
           </div>
           <div className="style-dettaglio-cittadini">
             <div className="style-container167">
               <img
                 alt="image"
                 src="/ceasaperti2024.jpg"
-                className="style-image20"
+                className="style-image26"
               />
             </div>
             <div className="style-container168">
               <div className="style-column-sx">
                 <div className="style-container169">
-                  <span className="style-text208">
+                  <span className="style-text214">
                     VAI A
                     <span
                       dangerouslySetInnerHTML={{
@@ -880,7 +953,7 @@ const Style = (props) => {
                       <img
                         alt="image"
                         src="/Icone/arrow-icon.svg"
-                        className="style-image21"
+                        className="style-image27"
                       />
                       <span>
                         CEAS Aperti: Un evento regionale per la sostenibilità
@@ -890,7 +963,7 @@ const Style = (props) => {
                       <img
                         alt="image"
                         src="/Icone/arrow-icon.svg"
-                        className="style-image23"
+                        className="style-image28"
                       />
                       <span>
                         CEAS Aperti: Un evento regionale per la sostenibilità
@@ -900,7 +973,7 @@ const Style = (props) => {
                       <img
                         alt="image"
                         src="/Icone/arrow-icon.svg"
-                        className="style-image24"
+                        className="style-image29"
                       />
                       <span>
                         CEAS Aperti: Un evento regionale per la sostenibilità
@@ -910,7 +983,7 @@ const Style = (props) => {
                       <img
                         alt="image"
                         src="/Icone/arrow-icon.svg"
-                        className="style-image25"
+                        className="style-image30"
                       />
                       <span>
                         CEAS Aperti: Un evento regionale per la sostenibilità
@@ -920,7 +993,7 @@ const Style = (props) => {
                       <img
                         alt="image"
                         src="/Icone/arrow-icon.svg"
-                        className="style-image26"
+                        className="style-image31"
                       />
                       <span>
                         CEAS Aperti: Un evento regionale per la sostenibilità
@@ -929,13 +1002,13 @@ const Style = (props) => {
                   </div>
                 </div>
                 <div className="style-container170">
-                  <span className="style-text214">TAG</span>
+                  <span className="style-text220">TAG</span>
                   <Tag></Tag>
                 </div>
               </div>
               <div className="style-column-dx-paragrafo">
                 <div className="style-container171">
-                  <span className="style-text215">
+                  <span className="style-text221">
                     <span>
                       Dal 24 Settembre al 15 Ottobre torna CEAS Aperti, l’evento
                       di carattere regionale che coinvolge i nostri Centri di
@@ -994,7 +1067,7 @@ const Style = (props) => {
                   </span>
                 </div>
                 <div className="style-container172"></div>
-                <span className="style-text233">
+                <span className="style-text239">
                   CEAS Aperti 2024 – Insieme per le terre del futuro – è un
                   progetto sostenuto dalla Regione Sardegna (Assessorato
                   all’Ambiente SVASI) e coordinato nelle sue azioni dal Comune
@@ -1005,22 +1078,22 @@ const Style = (props) => {
             </div>
           </div>
           <div className="style-font25">
-            <span className="style-text234">dettaglio-ceas</span>
+            <span className="style-text240">dettaglio-ceas</span>
           </div>
           <Dettaglioceas
             text={
               <Fragment>
-                <span className="style-text235">Contatti</span>
+                <span className="style-text241">Contatti</span>
               </Fragment>
             }
             text5={
               <Fragment>
-                <span className="style-text236">Documenti Utili</span>
+                <span className="style-text242">Documenti Utili</span>
               </Fragment>
             }
           ></Dettaglioceas>
           <div className="style-font26">
-            <span className="style-text237">Filter by</span>
+            <span className="style-text243">Filter by</span>
           </div>
           <div className="style-filterby">
             <select name="Filter by" className="style-select1">
@@ -1035,13 +1108,13 @@ const Style = (props) => {
             </select>
           </div>
           <div className="style-font27">
-            <span className="style-text238">Accordion</span>
+            <span className="style-text244">Accordion</span>
           </div>
           <div data-thq="accordion" className="style-accordion1">
             <details data-thq="accordion-trigger" className="style-trigger1">
               <summary data-thq="accordion-summary" className="style-summary1">
                 <span className="heading4">
-                  <span className="style-text240">Locandine</span>
+                  <span className="style-text246">Locandine</span>
                   <span>
                     <span
                       dangerouslySetInnerHTML={{
@@ -1069,7 +1142,7 @@ const Style = (props) => {
           <div data-thq="accordion" className="style-accordion2">
             <details data-thq="accordion-trigger" className="style-trigger2">
               <summary data-thq="accordion-summary" className="style-summary2">
-                <span className="style-text242 heading4">Loghi</span>
+                <span className="style-text248 heading4">Loghi</span>
                 <div
                   data-thq="accordion-icon"
                   className="style-icon-container2"
@@ -1091,7 +1164,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image27"
+                    className="style-image32"
                   />
                   <span className="paragraph_xl">Locandina INFEAS 2024</span>
                 </div>
@@ -1099,7 +1172,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image28"
+                    className="style-image33"
                   />
                   <span className="paragraph_xl">Locandina Ceas Aperti</span>
                 </div>
@@ -1111,7 +1184,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image29"
+                    className="style-image34"
                   />
                   <span className="paragraph_xl">Locandina INFEAS 2024</span>
                 </div>
@@ -1119,7 +1192,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image30"
+                    className="style-image35"
                   />
                   <span className="paragraph_xl">Locandina Ceas Aperti</span>
                 </div>
@@ -1129,7 +1202,7 @@ const Style = (props) => {
           <div data-thq="accordion" className="style-accordion3">
             <details data-thq="accordion-trigger" className="style-trigger3">
               <summary data-thq="accordion-summary" className="style-summary3">
-                <span className="style-text247 heading4">Brochure</span>
+                <span className="style-text253 heading4">Brochure</span>
                 <div
                   data-thq="accordion-icon"
                   className="style-icon-container3"
@@ -1151,7 +1224,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image31"
+                    className="style-image36"
                   />
                   <span className="paragraph_xl">Locandina INFEAS 2024</span>
                 </div>
@@ -1159,7 +1232,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image32"
+                    className="style-image37"
                   />
                   <span className="paragraph_xl">Locandina Ceas Aperti</span>
                 </div>
@@ -1171,7 +1244,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image33"
+                    className="style-image38"
                   />
                   <span className="paragraph_xl">Locandina INFEAS 2024</span>
                 </div>
@@ -1179,7 +1252,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image34"
+                    className="style-image39"
                   />
                   <span className="paragraph_xl">Locandina Ceas Aperti</span>
                 </div>
@@ -1189,7 +1262,7 @@ const Style = (props) => {
           <div data-thq="accordion" className="style-accordion4">
             <details data-thq="accordion-trigger" className="style-trigger4">
               <summary data-thq="accordion-summary" className="style-summary4">
-                <span className="style-text252 heading4">
+                <span className="style-text258 heading4">
                   Comunicati stampa
                 </span>
                 <div
@@ -1213,7 +1286,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image35"
+                    className="style-image40"
                   />
                   <span className="paragraph_xl">Locandina INFEAS 2024</span>
                 </div>
@@ -1221,7 +1294,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image36"
+                    className="style-image41"
                   />
                   <span className="paragraph_xl">Locandina Ceas Aperti</span>
                 </div>
@@ -1233,7 +1306,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image37"
+                    className="style-image42"
                   />
                   <span className="paragraph_xl">Locandina INFEAS 2024</span>
                 </div>
@@ -1241,7 +1314,7 @@ const Style = (props) => {
                   <img
                     alt="image"
                     src="/icondownload.svg"
-                    className="style-image38"
+                    className="style-image43"
                   />
                   <span className="paragraph_xl">Locandina Ceas Aperti</span>
                 </div>
@@ -1260,122 +1333,122 @@ const Style = (props) => {
           </div>
         </div>
         <div className="style-font28">
-          <span className="style-text258">Filter by province</span>
+          <span className="style-text264">Filter by province</span>
         </div>
         <FilterbyProvince
           text={
             <Fragment>
-              <span className="style-text259">Filtra per</span>
+              <span className="style-text265">Filtra per</span>
             </Fragment>
           }
         ></FilterbyProvince>
         <div className="style-font29">
-          <span className="style-text260">Filter by eventi</span>
+          <span className="style-text266">Filter by eventi</span>
         </div>
         <FilterbyEventi
           text={
             <Fragment>
-              <span className="style-text261">Dedicato a</span>
+              <span className="style-text267">Dedicato a</span>
             </Fragment>
           }
           text1={
             <Fragment>
-              <span className="style-text262">Tipologia</span>
+              <span className="style-text268">Tipologia</span>
             </Fragment>
           }
           text2={
             <Fragment>
-              <span className="style-text263">Durata</span>
+              <span className="style-text269">Durata</span>
             </Fragment>
           }
           text3={
             <Fragment>
-              <span className="style-text264">Luogo</span>
+              <span className="style-text270">Luogo</span>
             </Fragment>
           }
         ></FilterbyEventi>
         <Footer rootClassName="footerroot-class-name"></Footer>
         <div className="style-font30">
-          <span className="style-text265">nav bar</span>
+          <span className="style-text271">nav bar</span>
         </div>
         <NavbarInteractive
           text={
             <Fragment>
-              <span className="style-text266">Per scuole e Università</span>
+              <span className="style-text272">Per scuole e Università</span>
             </Fragment>
           }
           login={
             <Fragment>
-              <span className="style-text267">Login</span>
+              <span className="style-text273">Login</span>
             </Fragment>
           }
           text1={
             <Fragment>
-              <span className="style-text268">Per tutti i cittadini</span>
+              <span className="style-text274">Per tutti i cittadini</span>
             </Fragment>
           }
           text2={
             <Fragment>
-              <span className="style-text269">Per i membri della Rete</span>
+              <span className="style-text275">Per i membri della Rete</span>
             </Fragment>
           }
           text3={
             <Fragment>
-              <span className="style-text270">Mappa CEAS</span>
+              <span className="style-text276">Mappa CEAS</span>
             </Fragment>
           }
           text4={
             <Fragment>
-              <span className="style-text271">Press Kit</span>
+              <span className="style-text277">Press Kit</span>
             </Fragment>
           }
           text5={
             <Fragment>
-              <span className="style-text272">Seguici su</span>
+              <span className="style-text278">Seguici su</span>
             </Fragment>
           }
           login1={
             <Fragment>
-              <span className="style-text273">Cerca</span>
+              <span className="style-text279">Cerca</span>
             </Fragment>
           }
           text51={
             <Fragment>
-              <span className="style-text274">Seguici su</span>
+              <span className="style-text280">Seguici su</span>
             </Fragment>
           }
           text122={
             <Fragment>
-              <span className="style-text275">Materiali didattici</span>
+              <span className="style-text281">Materiali didattici</span>
             </Fragment>
           }
           register={
             <Fragment>
-              <span className="style-text276">Register</span>
+              <span className="style-text282">Register</span>
             </Fragment>
           }
           text1121={
             <Fragment>
-              <span className="style-text277">A proposito di INFEAS</span>
+              <span className="style-text283">A proposito di INFEAS</span>
             </Fragment>
           }
           register1={
             <Fragment>
-              <span className="style-text278">Cerca</span>
+              <span className="style-text284">Cerca</span>
             </Fragment>
           }
           rootClassName="navbar-interactiveroot-class-name"
         ></NavbarInteractive>
         <div className="style-font31">
-          <span className="style-text279">I Prossimi appuntamenti</span>
+          <span className="style-text285">I Prossimi appuntamenti</span>
         </div>
         <div className="style-container192">
           <div className="style-two-colrightimage">
             <div className="style-container193">
-              <span className="style-text280 heading2">
+              <span className="style-text286 heading2">
                 I Prossimi Appuntamenti
               </span>
-              <span className="style-text281 paragraph_xl">
+              <span className="style-text287 paragraph_xl">
                 Non perdere i prossimi eventi e iniziative promossi da INFEAS!
                 Scopri date, luoghi e dettagli delle attività dedicate
                 all’educazione alla sostenibilità.
@@ -1402,26 +1475,26 @@ const Style = (props) => {
                 <img
                   alt="image"
                   src="/arrow-sx.svg"
-                  className="style-image39"
+                  className="style-image44"
                 />
                 <img
                   alt="image"
                   src="/arrow-dx.svg"
-                  className="style-image40"
+                  className="style-image45"
                 />
               </div>
             </div>
           </div>
         </div>
         <div className="style-font32">
-          <span className="style-text282">Ricerca risultati</span>
+          <span className="style-text288">Ricerca risultati</span>
         </div>
         <div className="style-dettaglioceas1">
           <div className="style-dettaglio-sx1">
             <div className="style-container199">
               <div className="style-filtra-per1">
                 <div className="style-container200">
-                  <span className="style-text283">Keyword di ricerca</span>
+                  <span className="style-text289">Keyword di ricerca</span>
                 </div>
               </div>
               <div className="style-container201">
@@ -1435,7 +1508,7 @@ const Style = (props) => {
             <div className="style-container202">
               <div className="style-filtra-per2">
                 <div className="style-container203">
-                  <span className="style-text284">Filtra per</span>
+                  <span className="style-text290">Filtra per</span>
                 </div>
               </div>
               <div className="style-container204">
@@ -1449,7 +1522,7 @@ const Style = (props) => {
             <div className="style-container205">
               <div className="style-filtra-per3">
                 <div className="style-container206">
-                  <span className="style-text285">Filtra per</span>
+                  <span className="style-text291">Filtra per</span>
                 </div>
               </div>
               <div className="style-container207">
@@ -1461,7 +1534,7 @@ const Style = (props) => {
               </div>
             </div>
             <div className="style-container208">
-              <span className="style-text286">TAG Selezionato</span>
+              <span className="style-text292">TAG Selezionato</span>
               <div className="style-container209">
                 <Tag></Tag>
                 <Tag></Tag>
@@ -1477,7 +1550,7 @@ const Style = (props) => {
                     <img
                       alt="image"
                       src="/Icone/icon_news.svg"
-                      className="style-image41"
+                      className="style-image46"
                     />
                   </div>
                   <span className="heading3">Notizie</span>
@@ -1506,7 +1579,7 @@ const Style = (props) => {
                     <img
                       alt="image"
                       src="/Icone/icon_eventi.svg"
-                      className="style-image42"
+                      className="style-image47"
                     />
                   </div>
                   <span className="heading3">Eventi</span>
@@ -1537,7 +1610,7 @@ const Style = (props) => {
                     <img
                       alt="image"
                       src="/Icone/icon_multimedia.svg"
-                      className="style-image43"
+                      className="style-image48"
                     />
                   </div>
                   <span className="heading3">Multimedia</span>
@@ -1549,18 +1622,18 @@ const Style = (props) => {
           </div>
         </div>
         <div className="style-font33">
-          <span className="style-text290">Paragrafo tematiche</span>
+          <span className="style-text296">Paragrafo tematiche</span>
         </div>
         <div className="style-paragrafodettaglioceas">
           <ParagrafoDettaglioCeas
             text3={
               <Fragment>
-                <span className="style-text291">Obiettivi e compiti</span>
+                <span className="style-text297">Obiettivi e compiti</span>
               </Fragment>
             }
             text4={
               <Fragment>
-                <span className="style-text292 paragraph_xl">
+                <span className="style-text298 paragraph_xl">
                   <span>
                     Il CEAS, ubicato nel compendio naturale della laguna di
                     Nora, ha tra i suoi obiettivi quello di aumentare la
@@ -1595,25 +1668,25 @@ const Style = (props) => {
             }
             text5={
               <Fragment>
-                <span className="style-text296">OFFERTA FORMATIVA</span>
+                <span className="style-text302">OFFERTA FORMATIVA</span>
               </Fragment>
             }
             text6={
               <Fragment>
-                <span className="style-text297">
+                <span className="style-text303">
                   Le attività didattiche rivolte al pubblico
                 </span>
               </Fragment>
             }
             text9={
               <Fragment>
-                <span className="style-text298">Ultimo aggiornamento:</span>
+                <span className="style-text304">Ultimo aggiornamento:</span>
               </Fragment>
             }
           ></ParagrafoDettaglioCeas>
         </div>
         <div className="style-font34">
-          <span className="style-text299">
+          <span className="style-text305">
             Dashboard Ceas | Dettaglio membri rete infeas
           </span>
         </div>
@@ -1622,7 +1695,7 @@ const Style = (props) => {
             <div className="style-container230">
               <div className="style-filtra-per4">
                 <div className="style-container231">
-                  <span className="style-text300">Keyword di ricerca</span>
+                  <span className="style-text306">Keyword di ricerca</span>
                 </div>
               </div>
               <div className="style-container232">
@@ -1636,7 +1709,7 @@ const Style = (props) => {
             <div className="style-container233">
               <div className="style-filtra-per5">
                 <div className="style-container234">
-                  <span className="style-text301">Filtra per</span>
+                  <span className="style-text307">Filtra per</span>
                 </div>
               </div>
               <div className="style-container235">
@@ -1650,7 +1723,7 @@ const Style = (props) => {
             <div className="style-container236">
               <div className="style-filtra-per6">
                 <div className="style-container237">
-                  <span className="style-text302">Filtra per</span>
+                  <span className="style-text308">Filtra per</span>
                 </div>
               </div>
               <div className="style-container238">
@@ -1662,7 +1735,7 @@ const Style = (props) => {
               </div>
             </div>
             <div className="style-container239">
-              <span className="style-text303">TAG Selezionato</span>
+              <span className="style-text309">TAG Selezionato</span>
               <div className="style-container240">
                 <Tag></Tag>
                 <Tag></Tag>
@@ -1696,7 +1769,7 @@ const Style = (props) => {
           </div>
         </div>
         <div className="style-font35">
-          <span className="style-text305">Padding Container</span>
+          <span className="style-text311">Padding Container</span>
         </div>
         <div className="padding-container style-container248"></div>
       </div>
@@ -3433,6 +3506,132 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
+          .style-header-scuoleeuniversit1 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: block;
+            position: relative;
+            align-self: center;
+            background-color: var(--dl-color-theme-secondary1);
+          }
+          .style-header1 {
+            gap: var(--dl-layout-space-twounits);
+            display: flex;
+            position: relative;
+            align-self: center;
+            min-height: 450px;
+            padding-top: 150px;
+            flex-direction: column;
+            padding-bottom: 150px;
+            justify-content: center;
+          }
+          .style-text188 {
+            color: rgb(255, 255, 255);
+            z-index: 1;
+          }
+          .style-text189 {
+            color: rgb(255, 255, 255);
+            z-index: 1;
+          }
+          .style-image20 {
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+            object-fit: cover;
+          }
+          .style-header-cittadini {
+            flex: 0 0 auto;
+            width: 100%;
+            display: block;
+            position: relative;
+            align-self: center;
+            background-color: var(--dl-color-theme-accent2);
+          }
+          .style-header2 {
+            gap: var(--dl-layout-space-twounits);
+            display: flex;
+            position: relative;
+            align-self: center;
+            min-height: 450px;
+            padding-top: 150px;
+            flex-direction: column;
+            padding-bottom: 150px;
+            justify-content: center;
+          }
+          .style-text190 {
+            color: rgb(255, 255, 255);
+            z-index: 1;
+          }
+          .style-text191 {
+            color: rgb(255, 255, 255);
+            z-index: 1;
+          }
+          .style-image21 {
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+            object-fit: cover;
+          }
+          .style-image23 {
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+            object-fit: cover;
+          }
+          .style-header-scuoleeuniversit2 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: block;
+            position: relative;
+            align-self: center;
+            background-color: #0f4eb3;
+          }
+          .style-header3 {
+            gap: var(--dl-layout-space-twounits);
+            display: flex;
+            position: relative;
+            align-self: center;
+            min-height: 450px;
+            padding-top: 150px;
+            flex-direction: column;
+            padding-bottom: 150px;
+            justify-content: center;
+          }
+          .style-text192 {
+            color: rgb(255, 255, 255);
+            z-index: 1;
+          }
+          .style-text193 {
+            color: rgb(255, 255, 255);
+            z-index: 1;
+          }
+          .style-image24 {
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+            object-fit: cover;
+          }
+          .style-image25 {
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+            object-fit: cover;
+          }
           .style-font18 {
             flex: 0 0 auto;
             width: 100%;
@@ -3445,7 +3644,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text188 {
+          .style-text194 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3497,7 +3696,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text189 {
+          .style-text195 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3518,11 +3717,11 @@ const Style = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .style-text190 {
+          .style-text196 {
             font-style: normal;
             font-weight: 400;
           }
-          .style-text191 {
+          .style-text197 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -3548,7 +3747,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text192 {
+          .style-text198 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3561,7 +3760,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-text193 {
+          .style-text199 {
             display: inline-block;
           }
           .style-container161 {
@@ -3600,7 +3799,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text194 {
+          .style-text200 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3613,16 +3812,16 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-text195 {
+          .style-text201 {
             display: inline-block;
           }
-          .style-text196 {
+          .style-text202 {
             display: inline-block;
           }
-          .style-text197 {
+          .style-text203 {
             display: inline-block;
           }
-          .style-text198 {
+          .style-text204 {
             display: inline-block;
           }
           .style-font22 {
@@ -3637,7 +3836,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text199 {
+          .style-text205 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3650,22 +3849,22 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-text200 {
+          .style-text206 {
             display: inline-block;
           }
-          .style-text201 {
+          .style-text207 {
             display: inline-block;
           }
-          .style-text202 {
+          .style-text208 {
             display: inline-block;
           }
-          .style-text203 {
+          .style-text209 {
             display: inline-block;
           }
-          .style-text204 {
+          .style-text210 {
             display: inline-block;
           }
-          .style-text205 {
+          .style-text211 {
             display: inline-block;
           }
           .style-font23 {
@@ -3680,7 +3879,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text206 {
+          .style-text212 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3705,7 +3904,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text207 {
+          .style-text213 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3726,7 +3925,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-image20 {
+          .style-image26 {
             width: 100%;
             height: 505px;
             object-fit: cover;
@@ -3757,7 +3956,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .style-text208 {
+          .style-text214 {
             font-style: normal;
             font-weight: 700;
           }
@@ -3775,7 +3974,7 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: flex-start;
           }
-          .style-image21 {
+          .style-image27 {
             width: var(--dl-layout-size-xsmall);
             object-fit: cover;
           }
@@ -3786,7 +3985,7 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: flex-start;
           }
-          .style-image23 {
+          .style-image28 {
             width: var(--dl-layout-size-xsmall);
             object-fit: cover;
           }
@@ -3797,7 +3996,7 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: flex-start;
           }
-          .style-image24 {
+          .style-image29 {
             width: var(--dl-layout-size-xsmall);
             object-fit: cover;
           }
@@ -3808,7 +4007,7 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: flex-start;
           }
-          .style-image25 {
+          .style-image30 {
             width: var(--dl-layout-size-xsmall);
             object-fit: cover;
           }
@@ -3819,7 +4018,7 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: flex-start;
           }
-          .style-image26 {
+          .style-image31 {
             width: var(--dl-layout-size-xsmall);
             object-fit: cover;
           }
@@ -3830,7 +4029,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .style-text214 {
+          .style-text220 {
             font-style: normal;
             font-weight: 700;
           }
@@ -3851,7 +4050,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-text215 {
+          .style-text221 {
             width: 100%;
           }
           .style-container172 {
@@ -3863,7 +4062,7 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: center;
           }
-          .style-text233 {
+          .style-text239 {
             width: 100%;
           }
           .style-font25 {
@@ -3878,16 +4077,16 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text234 {
+          .style-text240 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
             font-weight: 200;
           }
-          .style-text235 {
+          .style-text241 {
             display: inline-block;
           }
-          .style-text236 {
+          .style-text242 {
             display: inline-block;
           }
           .style-font26 {
@@ -3902,7 +4101,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text237 {
+          .style-text243 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3949,7 +4148,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text238 {
+          .style-text244 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -3977,7 +4176,7 @@ const Style = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .style-text240 {
+          .style-text246 {
             color: #ffffff;
           }
           .style-icon-container1 {
@@ -4008,7 +4207,7 @@ const Style = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .style-text242 {
+          .style-text248 {
             fill: #464957;
             color: #464957;
           }
@@ -4034,7 +4233,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image27 {
+          .style-image32 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4045,7 +4244,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image28 {
+          .style-image33 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4065,7 +4264,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image29 {
+          .style-image34 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4076,7 +4275,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image30 {
+          .style-image35 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4102,7 +4301,7 @@ const Style = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .style-text247 {
+          .style-text253 {
             fill: #464957;
             color: rgb(70, 73, 87);
           }
@@ -4128,7 +4327,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image31 {
+          .style-image36 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4139,7 +4338,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image32 {
+          .style-image37 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4159,7 +4358,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image33 {
+          .style-image38 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4170,7 +4369,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image34 {
+          .style-image39 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4196,7 +4395,7 @@ const Style = (props) => {
             align-items: center;
             justify-content: space-between;
           }
-          .style-text252 {
+          .style-text258 {
             fill: #464957;
             color: rgb(70, 73, 87);
           }
@@ -4222,7 +4421,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image35 {
+          .style-image40 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4233,7 +4432,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image36 {
+          .style-image41 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4253,7 +4452,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image37 {
+          .style-image42 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4264,7 +4463,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .style-image38 {
+          .style-image43 {
             width: 3vh;
             object-fit: cover;
           }
@@ -4294,13 +4493,13 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text258 {
+          .style-text264 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
             font-weight: 200;
           }
-          .style-text259 {
+          .style-text265 {
             display: inline-block;
           }
           .style-font29 {
@@ -4315,22 +4514,22 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text260 {
+          .style-text266 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
             font-weight: 200;
           }
-          .style-text261 {
+          .style-text267 {
             display: inline-block;
           }
-          .style-text262 {
+          .style-text268 {
             display: inline-block;
           }
-          .style-text263 {
+          .style-text269 {
             display: inline-block;
           }
-          .style-text264 {
+          .style-text270 {
             display: inline-block;
           }
           .style-font30 {
@@ -4345,29 +4544,11 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text265 {
+          .style-text271 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
             font-weight: 200;
-          }
-          .style-text266 {
-            display: inline-block;
-          }
-          .style-text267 {
-            display: inline-block;
-          }
-          .style-text268 {
-            display: inline-block;
-          }
-          .style-text269 {
-            display: inline-block;
-          }
-          .style-text270 {
-            display: inline-block;
-          }
-          .style-text271 {
-            display: inline-block;
           }
           .style-text272 {
             display: inline-block;
@@ -4390,6 +4571,24 @@ const Style = (props) => {
           .style-text278 {
             display: inline-block;
           }
+          .style-text279 {
+            display: inline-block;
+          }
+          .style-text280 {
+            display: inline-block;
+          }
+          .style-text281 {
+            display: inline-block;
+          }
+          .style-text282 {
+            display: inline-block;
+          }
+          .style-text283 {
+            display: inline-block;
+          }
+          .style-text284 {
+            display: inline-block;
+          }
           .style-font31 {
             flex: 0 0 auto;
             width: 100%;
@@ -4402,7 +4601,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text279 {
+          .style-text285 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4445,12 +4644,12 @@ const Style = (props) => {
             padding-bottom: 0px;
             justify-content: center;
           }
-          .style-text280 {
+          .style-text286 {
             align-self: flex-start;
             font-style: normal;
             font-weight: 400;
           }
-          .style-text281 {
+          .style-text287 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -4495,11 +4694,11 @@ const Style = (props) => {
             flex-direction: row;
             justify-content: flex-start;
           }
-          .style-image39 {
+          .style-image44 {
             width: 100%;
             object-fit: cover;
           }
-          .style-image40 {
+          .style-image45 {
             width: auto;
             object-fit: cover;
           }
@@ -4515,7 +4714,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text282 {
+          .style-text288 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4558,7 +4757,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text283 {
+          .style-text289 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -4600,7 +4799,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text284 {
+          .style-text290 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -4642,7 +4841,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text285 {
+          .style-text291 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -4671,7 +4870,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .style-text286 {
+          .style-text292 {
             font-style: normal;
             font-weight: 700;
           }
@@ -4726,7 +4925,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-image41 {
+          .style-image46 {
             width: 100%;
             object-fit: cover;
           }
@@ -4804,7 +5003,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-image42 {
+          .style-image47 {
             width: 100%;
             object-fit: cover;
           }
@@ -4877,7 +5076,7 @@ const Style = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .style-image43 {
+          .style-image48 {
             width: 100%;
             object-fit: cover;
           }
@@ -4910,7 +5109,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text290 {
+          .style-text296 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4925,19 +5124,19 @@ const Style = (props) => {
             flex-direction: row;
             background-color: #efeff2;
           }
-          .style-text291 {
-            display: inline-block;
-          }
-          .style-text292 {
-            display: inline-block;
-          }
-          .style-text296 {
-            display: inline-block;
-          }
           .style-text297 {
             display: inline-block;
           }
           .style-text298 {
+            display: inline-block;
+          }
+          .style-text302 {
+            display: inline-block;
+          }
+          .style-text303 {
+            display: inline-block;
+          }
+          .style-text304 {
             display: inline-block;
           }
           .style-font34 {
@@ -4952,7 +5151,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text299 {
+          .style-text305 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -4995,7 +5194,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text300 {
+          .style-text306 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -5037,7 +5236,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text301 {
+          .style-text307 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -5079,7 +5278,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: center;
           }
-          .style-text302 {
+          .style-text308 {
             font-size: 17px;
             font-weight: bold;
           }
@@ -5108,7 +5307,7 @@ const Style = (props) => {
             flex-direction: column;
             justify-content: flex-start;
           }
-          .style-text303 {
+          .style-text309 {
             font-style: normal;
             font-weight: 700;
           }
@@ -5204,7 +5403,7 @@ const Style = (props) => {
             justify-content: center;
             background-color: #262534;
           }
-          .style-text305 {
+          .style-text311 {
             color: rgb(255, 255, 255);
             font-size: 30px;
             font-style: normal;
@@ -5332,6 +5531,24 @@ const Style = (props) => {
             }
             .style-notizie2 {
               flex-direction: column;
+            }
+            .style-header1 {
+              min-height: 450px;
+              padding-top: var(--dl-layout-space-threeunits);
+              padding-left: var(--dl-layout-space-threeunits);
+              padding-bottom: var(--dl-layout-space-threeunits);
+            }
+            .style-header2 {
+              min-height: 450px;
+              padding-top: var(--dl-layout-space-threeunits);
+              padding-left: var(--dl-layout-space-threeunits);
+              padding-bottom: var(--dl-layout-space-threeunits);
+            }
+            .style-header3 {
+              min-height: 450px;
+              padding-top: var(--dl-layout-space-threeunits);
+              padding-left: var(--dl-layout-space-threeunits);
+              padding-bottom: var(--dl-layout-space-threeunits);
             }
             .style-news-rete3columns1 {
               display: flex;

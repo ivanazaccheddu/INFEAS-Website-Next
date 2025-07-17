@@ -24,7 +24,7 @@ const Headertipologiatarget = (props) => {
         </div>
         <img
           alt="immagine-background"
-          src="/background-shape.png"
+          src="/headerimg-texture1-1500w.png"
           className="headertipologiatarget-image"
         />
       </header>

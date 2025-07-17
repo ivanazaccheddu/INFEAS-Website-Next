@@ -167,7 +167,8 @@ const Home = (props) => {
                     <img
                       id="immagine-principale-home"
                       alt="immagine della natura con borgo, fiume, spiaggiam cascata"
-                      src="/hero-header-img.png"
+                      src="/hero-header-img-optimized-1752672801748.webp"
+                      loading="eager"
                       aria-labelledby="Immagine principale, natura, bosco con fiume, cascata, spiaggia"
                       className="home-image1"
                     />
@@ -879,7 +880,8 @@ const Home = (props) => {
             justify-content: center;
           }
           .home-image1 {
-            max-width: 100%;
+            min-width: 789px;
+            min-height: 789px;
           }
           .home-card-attivita1 {
             gap: var(--dl-layout-space-halfunit);

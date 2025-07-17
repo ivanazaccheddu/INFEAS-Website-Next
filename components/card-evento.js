@@ -75,13 +75,11 @@ const CardEvento = (props) => {
               ></Tag>
             )}
             <div className="card-evento-logo-container">
-              {props.logoORG !== '--' && (
-                <img
-                  alt={props.logoAlt}
-                  src={props.logoORG}
-                  className="card-evento-image22"
-                />
-              )}
+              <img
+                alt={props.logoAlt}
+                src={props.logoORG}
+                className="card-evento-image22"
+              />
             </div>
           </div>
         </div>
@@ -212,7 +210,6 @@ const CardEvento = (props) => {
           }
           .card-evento-logo-container {
             display: flex;
-            padding: 10px 0 10px 10px;
             max-height: 96px;
             align-items: flex-end;
             flex-shrink: 0;
@@ -471,13 +468,13 @@ const CardEvento = (props) => {
 
 CardEvento.defaultProps = {
   fotoEventoAlt: 'foto_evento_Alt',
-  logoORG: '/infeaslogo.svg',
+  logoORG: '/placeholder-logo.png',
   rootClassName: '',
   categoriaString: 'Cultura',
   dataEvento:
     'Tue May 27 2025 16:27:17 GMT+0200 (Central European Summer Time)',
   logoAlt: 'imgAlt',
-  fotoEvento: '/external/rectangle2086i159-spog-1500w.png',
+  fotoEvento: '/evento-immagine-placeholder-1500w.png',
   luogo: 'Casa Gioiosa',
   nomeEvento: 'nomeEvento',
   idEvento: '',

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 
+import Script from 'dangerous-html/react'
 import { useTranslations } from 'next-intl'
 
 import NavbarInteractive from '../components/navbar-interactive'
@@ -120,6 +121,94 @@ const ScuoleEventi = (props) => {
         </section>
         <LoghiSponsor rootClassName="loghi-sponsorroot-class-name23"></LoghiSponsor>
         <Footer rootClassName="footerroot-class-name33"></Footer>
+        <div>
+          <div className="scuole-eventi-container6">
+            <React.Fragment>
+              <React.Fragment>
+                <style
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '\n/* Hide the original clickable spans immediately */\n.eventilisting-container2 span,\n.eventilisting-container3 span {\n  display: none !important;\n}\n',
+                  }}
+                />
+
+                <Script>{`
+(function () {
+  function createDropdownFromSpans(spans, labelText) {
+    const select = document.createElement('select');
+    select.setAttribute('data-enhanced', 'true');
+
+    const defaultOption = document.createElement('option');
+    defaultOption.textContent = \`-- \${labelText} --\`;
+    defaultOption.value = '';
+    select.appendChild(defaultOption);
+
+    spans.forEach((span, index) => {
+      const text = span.textContent.trim();
+      if (!text) return; // Skip empty
+      const option = document.createElement('option');
+      option.textContent = text;
+      option.value = index;
+      select.appendChild(option);
+    });
+
+    select.addEventListener('change', (e) => {
+      const index = parseInt(e.target.value);
+      if (!isNaN(index)) {
+        spans[index].click(); // trigger original React filter
+      }
+    });
+
+    // Simple styling
+    Object.assign(select.style, {
+      padding: '8px',
+      borderRadius: '6px',
+      border: '1px solid #ccc',
+      fontSize: '14px',
+      marginBottom: '10px',
+    });
+
+    return select;
+  }
+
+  function injectDropdowns() {
+    const catContainer = document.querySelector('.eventilisting-container2');
+    const provContainer = document.querySelector('.eventilisting-container3');
+    if (!catContainer || !provContainer) return;
+
+    const catSpans = catContainer.querySelectorAll('span');
+    const provSpans = provContainer.querySelectorAll('span');
+
+    // Check if dropdown already exists
+    const catDropdownExists = catContainer.querySelector('select[data-enhanced]');
+    const provDropdownExists = provContainer.querySelector('select[data-enhanced]');
+
+    // Only inject if spans exist and dropdown not already present
+    if (catSpans.length && !catDropdownExists) {
+      const dropdown = createDropdownFromSpans(catSpans, 'Filtra per categoria');
+      catContainer.insertBefore(dropdown, catContainer.firstChild);
+    }
+
+    if (provSpans.length && !provDropdownExists) {
+      const dropdown = createDropdownFromSpans(provSpans, 'Filtra per provincia');
+      provContainer.insertBefore(dropdown, provContainer.firstChild);
+    }
+  }
+
+  // Watch and reinject when necessary
+  const interval = setInterval(() => {
+    try {
+      injectDropdowns();
+    } catch (err) {
+      console.error('Dropdown injection error:', err);
+    }
+  }, 300);
+})();
+`}</Script>
+              </React.Fragment>
+            </React.Fragment>
+          </div>
+        </div>
       </main>
       <style jsx>
         {`
@@ -192,6 +281,9 @@ const ScuoleEventi = (props) => {
             height: auto;
             align-self: center;
             text-align: left;
+          }
+          .scuole-eventi-container6 {
+            display: contents;
           }
         `}
       </style>

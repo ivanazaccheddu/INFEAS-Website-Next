@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 const Tag = (props) => {
   return (
     <>
-      <div className={`tag_category ${props.rootClassName} `}>
+      <div filterValue className={`tag_category ${props.rootClassName} `}>
         {props.nomeTag !== '--' && (
           <span id={props.idTag} className="tag-text paragraph_sm">
             {props.nomeTag}

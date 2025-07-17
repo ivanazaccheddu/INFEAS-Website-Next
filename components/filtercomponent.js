@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
+import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
 import Tag from './tag'
@@ -9,7 +10,7 @@ const Filtercomponent = (props) => {
   return (
     <>
       <div className="filtercomponent-filtercomponent">
-        <span>Text</span>
+        <span>{props.labelCategoria}</span>
         <DataProvider
           fetchData={(params) =>
             fetch(
@@ -27,14 +28,13 @@ const Filtercomponent = (props) => {
           }
           renderSuccess={(params) => (
             <Fragment>
-              <select></select>
-              <option>Option 1</option>
               <div className="filtercomponent-container">
                 <Repeater
                   items={params}
                   renderItem={(context_c0t43) => (
                     <Fragment>
                       <Tag
+                        idTag={context_c0t43?.id}
                         nomeTag={context_c0t43?.nome}
                         rootClassName="tagroot-class-name5"
                       ></Tag>
@@ -67,6 +67,14 @@ const Filtercomponent = (props) => {
       </style>
     </>
   )
+}
+
+Filtercomponent.defaultProps = {
+  labelCategoria: 'Categoria',
+}
+
+Filtercomponent.propTypes = {
+  labelCategoria: PropTypes.string,
 }
 
 export default Filtercomponent

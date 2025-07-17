@@ -26,14 +26,16 @@ const NewsSimple = (props) => {
             date={props.dataNews}
           ></DateTimePrimitive>
         </span>
-        <div className="news-simple-container">
-          {props.tagName !== '--' && (
-            <Tag
-              nomeTag={props.tagName}
-              rootClassName="tagroot-class-name2"
-            ></Tag>
-          )}
-        </div>
+        {props.tagName !== '--' && (
+          <div className="news-simple-container">
+            {props.tagName !== '--' && (
+              <Tag
+                nomeTag={props.tagName}
+                rootClassName="tagroot-class-name2"
+              ></Tag>
+            )}
+          </div>
+        )}
       </article>
       <style jsx>
         {`

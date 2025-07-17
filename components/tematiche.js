@@ -27,7 +27,7 @@ const Tematiche = (props) => {
               </h4>
               <div className="tematiche-container3"></div>
               <div className="tematiche-container4">
-                <div>
+                <div className="paragraph_xl">
                   <Markdown>{props?.descrizioneTematiche}</Markdown>
                 </div>
               </div>

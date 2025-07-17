@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -6,15 +6,89 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
-import Filterlabeldropdown from './filterlabeldropdown'
-import Filtercomponent from './filtercomponent'
 import CardEvento from './card-evento'
 
 const Eventilisting = (props) => {
   const router = useRouter()
+  const [categoryFilter, setCategoryFilter] = useState('*')
+  const [provinceFilter, setProvinceFilter] = useState('*')
   return (
     <>
-      <div className="eventilisting-container1">
+      <div className={`eventilisting-container1 ${props.rootClassName} `}>
+        <div className="eventilisting-container2">
+          <DataProvider
+            fetchData={(params) =>
+              fetch(
+                `/api/eventilisting1-resource-eventilisting1?${new URLSearchParams(
+                  params
+                )}`,
+                {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((data) => data)
+            }
+            renderSuccess={(params) => (
+              <Fragment>
+                <div className="eventilisting-container3">
+                  <Repeater
+                    items={params}
+                    renderItem={(province) => (
+                      <Fragment>
+                        <span onClick={() => setProvinceFilter(province?.id)}>
+                          {province?.nome}
+                        </span>
+                      </Fragment>
+                    )}
+                  />
+                </div>
+              </Fragment>
+            )}
+            params={{
+              locale: props?.locale ?? '',
+            }}
+          />
+          <DataProvider
+            fetchData={(params) =>
+              fetch(
+                `/api/eventilisting2-resource-eventilisting2?${new URLSearchParams(
+                  params
+                )}`,
+                {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                }
+              )
+                .then((res) => res.json())
+                .then((data) => data)
+            }
+            renderSuccess={(params) => (
+              <Fragment>
+                <div className="eventilisting-container4">
+                  <Repeater
+                    items={params}
+                    renderItem={(categ_eventi) => (
+                      <Fragment>
+                        <span
+                          onClick={() => setCategoryFilter(categ_eventi?.id)}
+                        >
+                          {categ_eventi?.nome}
+                        </span>
+                      </Fragment>
+                    )}
+                  />
+                </div>
+              </Fragment>
+            )}
+            params={{
+              locale: props?.locale ?? '',
+            }}
+          />
+        </div>
         <DataProvider
           fetchData={(params) =>
             fetch(
@@ -32,37 +106,6 @@ const Eventilisting = (props) => {
           }
           renderSuccess={(params) => (
             <Fragment>
-              <DataProvider
-                fetchData={(params) =>
-                  fetch(
-                    `/api/eventilisting1-resource-eventilisting1?${new URLSearchParams(
-                      params
-                    )}`,
-                    {
-                      headers: {
-                        'Content-Type': 'application/json',
-                      },
-                    }
-                  )
-                    .then((res) => res.json())
-                    .then((data) => data)
-                }
-                renderSuccess={(params) => (
-                  <Fragment>
-                    <div className="eventilisting-container2">
-                      <Repeater
-                        items={params}
-                        renderItem={(categ_eventi) => <Fragment></Fragment>}
-                      />
-                    </div>
-                    <Filterlabeldropdown rootClassName="filterlabeldropdownroot-class-name"></Filterlabeldropdown>
-                    <Filtercomponent></Filtercomponent>
-                  </Fragment>
-                )}
-                params={{
-                  locale: props?.locale ?? '',
-                }}
-              />
               <section
                 id="sezione-filtri-eventi-scuole"
                 className="eventilisting-sezione-filtri-scuole padding-container"
@@ -99,7 +142,7 @@ const Eventilisting = (props) => {
                               listing_eventi_scuole?.categoria_eventi?.nome ||
                               '--'
                             }
-                            className="eventilisting-component3"
+                            className="eventilisting-component"
                           ></CardEvento>
                         </a>
                       </Link>
@@ -113,7 +156,8 @@ const Eventilisting = (props) => {
           params={{
             'pagination[start]':
               (parseInt(router.query?.['cPage-s3gy0c'] ?? 1) - 1) * 15,
-            categFilter: props.categFilter,
+            categoryFilter: categoryFilter,
+            provinceFilter: provinceFilter,
             locale: props?.locale ?? '',
           }}
         />
@@ -123,13 +167,24 @@ const Eventilisting = (props) => {
           .eventilisting-container1 {
             gap: var(--dl-layout-space-twounits);
             flex: 0 0 auto;
-            width: 100%;
             display: flex;
             position: relative;
             align-items: center;
             flex-direction: column;
           }
           .eventilisting-container2 {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: flex-start;
+          }
+          .eventilisting-container3 {
+            width: auto;
+            display: flex;
+            padding-right: var(--dl-layout-space-sixunits);
+            flex-direction: column;
+          }
+          .eventilisting-container4 {
+            width: auto;
             display: flex;
             flex-direction: column;
           }
@@ -153,13 +208,14 @@ const Eventilisting = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .eventilisting-component3 {
+          .eventilisting-component {
             text-decoration: none;
           }
           .eventilisting-cms-pagination-node {
             gap: var(--dl-layout-space-twounits);
             display: flex;
           }
+
           @media (max-width: 767px) {
             .eventilisting-filterby-eventi {
               flex-wrap: wrap;
@@ -180,10 +236,12 @@ const Eventilisting = (props) => {
 }
 
 Eventilisting.defaultProps = {
+  rootClassName: '',
   categFilter: 'false',
 }
 
 Eventilisting.propTypes = {
+  rootClassName: PropTypes.string,
   categFilter: PropTypes.string,
 }
 

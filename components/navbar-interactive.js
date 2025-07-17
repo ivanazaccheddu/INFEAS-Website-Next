@@ -505,7 +505,7 @@ const NavbarInteractive = (props) => {
                   )}
                 </a>
               </Link>
-              <Link href="/scuole-notizie">
+              <Link href="/scuole-universita-notizie">
                 <a
                   id="notizie-scuole-link"
                   role="menuitem"
@@ -992,11 +992,10 @@ const NavbarInteractive = (props) => {
             text-decoration: none;
           }
           .navbar-interactive-link27 {
-            color: #ffffff;
-            text-decoration: none;
+            color: rgb(255, 255, 255);
           }
           .navbar-interactive-link29 {
-            color: #ffffff;
+            color: rgb(255, 255, 255);
             transition: 0.3s;
             text-decoration: none;
           }

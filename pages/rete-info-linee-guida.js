@@ -11,7 +11,6 @@ import { useTranslations } from 'next-intl'
 import NavbarInteractive from '../components/navbar-interactive'
 import Headertipologiatarget from '../components/headertipologiatarget'
 import Filelisting from '../components/filelisting'
-import Tag from '../components/tag'
 import LinkUtilicomponent from '../components/link-utilicomponent'
 import EmptyContainer from '../components/empty-container'
 import LoghiSponsor from '../components/loghi-sponsor'
@@ -533,18 +532,17 @@ const ReteInfoELineeGuida = (props) => {
                   <Fragment>
                     <Repeater
                       items={info_linee_guida?.componenti || []}
-                      renderItem={(componenti_pagine) => (
+                      renderItem={(cmp) => (
                         <Fragment>
                           <CMSMixedType
-                            itemData={info_linee_guida?.componenti}
+                            itemData={cmp}
                             mappingConfiguration={{
-                              'layout.logo': (cms_mixed_type) => <Tag></Tag>,
                               'componenti-di-inserimento.link-utili': (
                                 cms_mixed_type
                               ) => (
                                 <LinkUtilicomponent
-                                  nomeLink="44"
-                                  usefulLink="44"
+                                  linkURL={cmp?.link}
+                                  nomeLink={cmp?.name}
                                 ></LinkUtilicomponent>
                               ),
                             }}
@@ -558,6 +556,11 @@ const ReteInfoELineeGuida = (props) => {
                               </div>
                             )}
                           />
+                        </Fragment>
+                      )}
+                      renderEmpty={() => (
+                        <Fragment>
+                          <span>Text</span>
                         </Fragment>
                       )}
                     />

@@ -9,12 +9,13 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import HeaderDetailsceas from '../../components/header-detailsceas'
 import Contatticeas from '../../components/contatticeas'
 import Contattidinamici from '../../components/contattidinamici'
+import Linksocial from '../../components/linksocial'
 import Logoceasdettaglio from '../../components/logoceasdettaglio'
 import Filelisting from '../../components/filelisting'
 import Ultimoaggiornamento from '../../components/ultimoaggiornamento'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqAaResource from '../../resources/organizzazioni-page-initial-props-tq_aa'
-import organizzazioniPageInitialPathsTqUuResource from '../../resources/organizzazioni-page-initial-paths-tq_uu'
+import organizzazioniPageInitialPropsTq6yResource from '../../resources/organizzazioni-page-initial-props-tq_6y'
+import organizzazioniPageInitialPathsTqJpResource from '../../resources/organizzazioni-page-initial-paths-tq_jp'
 
 const Organizzazioni = (props) => {
   return (
@@ -145,6 +146,19 @@ const Organizzazioni = (props) => {
                           )}
                         />
                       </div>
+                      <div className="organizzazioni-container16">
+                        <Repeater
+                          items={OrganizzazioniEntity?.link_dinamici || []}
+                          renderItem={(contatti_dinamici) => (
+                            <Fragment>
+                              <Linksocial
+                                linkType={contatti_dinamici?.type}
+                                linkSocialUrl={contatti_dinamici?.link_url}
+                              ></Linksocial>
+                            </Fragment>
+                          )}
+                        />
+                      </div>
                     </div>
                     <div className="organizzazioni-dettaglio-dx">
                       <Logoceasdettaglio
@@ -152,106 +166,74 @@ const Organizzazioni = (props) => {
                         logoCEAS={OrganizzazioniEntity?.logo?.url || '--'}
                       ></Logoceasdettaglio>
                       <div className="organizzazioni-documenti-utili">
-                        <div
-                          data-thq="accordion"
-                          className="organizzazioni-accordion"
-                        >
-                          <details
-                            open
-                            data-thq="accordion-trigger"
-                            className="organizzazioni-trigger"
-                          >
-                            <summary
-                              data-thq="accordion-summary"
-                              className="organizzazioni-summary"
-                            >
-                              <span className="organizzazioni-text23 heading4">
-                                Documenti Utili
-                              </span>
-                              <div
-                                data-thq="accordion-icon"
-                                className="organizzazioni-icon-container"
-                              >
-                                <svg
-                                  width="32"
-                                  height="32"
-                                  viewBox="0 0 24 24"
-                                  className="organizzazioni-icon1"
-                                >
-                                  <path
-                                    d="m12 14l-4-4h8z"
-                                    fill="currentColor"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </summary>
-                          </details>
-                          <div data-thq="accordion-content">
-                            <div className="organizzazioni-container16">
-                              <DataProvider
-                                fetchData={(params) =>
-                                  fetch(
-                                    `/api/organizzazioni-resource-organizzazioni?${new URLSearchParams(
-                                      params
-                                    )}`,
-                                    {
-                                      headers: {
-                                        'Content-Type': 'application/json',
-                                      },
-                                    }
-                                  )
-                                    .then((res) => res.json())
-                                    .then((data) => data)
+                        <div className="organizzazioni-container17">
+                          <h4 className="organizzazioni-text23 heading4">
+                            Documenti Utili
+                          </h4>
+                        </div>
+                        <div className="organizzazioni-container18">
+                          <DataProvider
+                            fetchData={(params) =>
+                              fetch(
+                                `/api/organizzazioni-resource-organizzazioni?${new URLSearchParams(
+                                  params
+                                )}`,
+                                {
+                                  headers: {
+                                    'Content-Type': 'application/json',
+                                  },
                                 }
-                                renderSuccess={(params) => (
-                                  <Fragment>
-                                    <div className="organizzazioni-container17">
-                                      <Repeater
-                                        items={params}
-                                        renderItem={(documenti_org) => (
-                                          <Fragment>
-                                            <a
-                                              href={
-                                                documenti_org?.file?.url || '--'
-                                              }
-                                              target="_blank"
-                                              rel="noreferrer noopener"
-                                            >
-                                              <Filelisting
-                                                fileName={
-                                                  documenti_org?.nome || '--'
-                                                }
-                                                rootClassName="filelistingroot-class-name9"
-                                              ></Filelisting>
-                                            </a>
-                                          </Fragment>
-                                        )}
-                                        renderEmpty={() => (
-                                          <Fragment>
-                                            <div className="organizzazioni-container18">
-                                              <span className="organizzazioni-text24">
-                                                Nessun documento caricato
-                                              </span>
-                                            </div>
-                                          </Fragment>
-                                        )}
-                                      />
-                                    </div>
-                                  </Fragment>
-                                )}
-                                params={{
-                                  'OrganizzazioniEntity?.id':
-                                    OrganizzazioniEntity?.id,
-                                  locale: props?.locale ?? '',
-                                }}
-                              />
-                            </div>
-                          </div>
+                              )
+                                .then((res) => res.json())
+                                .then((data) => data)
+                            }
+                            renderSuccess={(params) => (
+                              <Fragment>
+                                <div className="organizzazioni-container19">
+                                  <Repeater
+                                    items={params}
+                                    renderItem={(documenti_org) => (
+                                      <Fragment>
+                                        <a
+                                          href={
+                                            documenti_org?.file?.url || '--'
+                                          }
+                                          target="_blank"
+                                          rel="noreferrer noopener"
+                                        >
+                                          <Filelisting
+                                            fileName={
+                                              documenti_org?.nome || '--'
+                                            }
+                                            rootClassName="filelistingroot-class-name9"
+                                          ></Filelisting>
+                                        </a>
+                                      </Fragment>
+                                    )}
+                                    renderEmpty={() => (
+                                      <Fragment>
+                                        <div className="organizzazioni-container20">
+                                          <span className="organizzazioni-text24">
+                                            Nessun documento caricato
+                                          </span>
+                                        </div>
+                                      </Fragment>
+                                    )}
+                                  />
+                                </div>
+                              </Fragment>
+                            )}
+                            params={{
+                              'OrganizzazioniEntity?.id':
+                                OrganizzazioniEntity?.id,
+                              locale: props?.locale ?? '',
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
-                  <section className="organizzazioni-container19"></section>
+                  <section className="organizzazioni-container21"></section>
                   <Ultimoaggiornamento
                     dateTime={OrganizzazioniEntity?.updatedAt}
                     rootClassName="ultimoaggiornamentoroot-class-name"
@@ -320,11 +302,11 @@ const Organizzazioni = (props) => {
             align-items: flex-start;
           }
           .organizzazioni-container12 {
+            gap: var(--dl-layout-space-fourunits);
             flex: 0 0 auto;
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            justify-content: space-between;
           }
           .organizzazioni-container13 {
             gap: var(--dl-layout-space-threeunits);
@@ -347,6 +329,14 @@ const Organizzazioni = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
+          .organizzazioni-container16 {
+            gap: var(--dl-layout-space-twounits);
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+          }
           .organizzazioni-dettaglio-dx {
             gap: var(--dl-layout-space-twounits);
             flex: 1;
@@ -363,38 +353,25 @@ const Organizzazioni = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .organizzazioni-accordion {
+          .organizzazioni-container17 {
+            flex: 0 0 auto;
             width: 100%;
             display: flex;
-            flex-direction: column;
-          }
-          .organizzazioni-trigger {
-            cursor: pointer;
-            padding-top: var(--dl-layout-space-oneandhalfunits);
+            min-height: 80px;
+            align-items: center;
             padding-left: var(--dl-layout-space-oneandhalfunits);
             border-radius: var(--dl-layout-radius-radius4);
-            padding-right: var(--dl-layout-space-unit);
-            padding-bottom: var(--dl-layout-space-oneandhalfunits);
+            justify-content: flex-start;
             background-color: var(--dl-color-theme-secondary1);
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-          }
-          .organizzazioni-summary {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            border-top-left-radius: var(--dl-layout-radius-inputradius);
+            border-top-right-radius: var(--dl-layout-radius-inputradius);
           }
           .organizzazioni-text23 {
-            fill: var(--dl-color-theme-neutral-light);
-            color: var(--dl-color-theme-neutral-light);
+            fill: white;
+            color: white;
           }
-          .organizzazioni-icon-container {
-            transition: transform 0.3s ease-in-out;
-          }
-          .organizzazioni-icon1 {
-            color: var(--dl-color-theme-neutral-light);
-          }
-          .organizzazioni-container16 {
+          .organizzazioni-container18 {
+            width: 100%;
             display: flex;
             padding-top: var(--dl-layout-space-halfunit);
             padding-left: var(--dl-layout-space-oneandhalfunits);
@@ -403,11 +380,11 @@ const Organizzazioni = (props) => {
             padding-bottom: var(--dl-layout-space-halfunit);
             background-color: #f1f0f0;
           }
-          .organizzazioni-container17 {
+          .organizzazioni-container19 {
             display: flex;
             flex-direction: column;
           }
-          .organizzazioni-container18 {
+          .organizzazioni-container20 {
             flex: 0 0 auto;
             display: flex;
             align-items: flex-start;
@@ -416,8 +393,8 @@ const Organizzazioni = (props) => {
             padding-top: var(--dl-layout-space-unit);
             padding-bottom: var(--dl-layout-space-unit);
           }
-          .organizzazioni-container19 {
-            gap: var(--dl-layout-space-halfunit);
+          .organizzazioni-container21 {
+            gap: var(--dl-layout-space-twounits);
             flex: 0 0 auto;
             display: flex;
             margin-top: var(--dl-layout-space-fiveunits);
@@ -431,17 +408,16 @@ const Organizzazioni = (props) => {
             .organizzazioni-container14 {
               width: 100%;
             }
+            .organizzazioni-dettaglio-dx {
+              width: 100%;
+            }
           }
           @media (max-width: 767px) {
             .organizzazioni-container13 {
               flex-direction: column;
             }
-            .organizzazioni-trigger {
-              background-color: var(--dl-color-theme-secondary1);
-            }
-            .organizzazioni-text23 {
-              fill: var(--dl-color-theme-neutral-light);
-              color: var(--dl-color-theme-neutral-light);
+            .organizzazioni-container17 {
+              min-height: 70px;
             }
           }
           @media (max-width: 479px) {
@@ -467,7 +443,7 @@ export default Organizzazioni
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqAaResource({
+    const response = await organizzazioniPageInitialPropsTq6yResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -492,7 +468,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTqUuResource({})
+    const response = await organizzazioniPageInitialPathsTqJpResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

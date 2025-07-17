@@ -20,7 +20,7 @@ const Offertaformativa = (props) => {
               Le attività didattiche rivolte al pubblico
             </h4>
             <div className="offertaformativa-container3"></div>
-            <div>
+            <div className="paragraph_xl">
               <Markdown>{props?.offertaFormativa}</Markdown>
             </div>
           </div>
