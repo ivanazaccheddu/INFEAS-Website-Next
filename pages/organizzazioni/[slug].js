@@ -14,8 +14,8 @@ import Logoceasdettaglio from '../../components/logoceasdettaglio'
 import Filelisting from '../../components/filelisting'
 import Ultimoaggiornamento from '../../components/ultimoaggiornamento'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTq6yResource from '../../resources/organizzazioni-page-initial-props-tq_6y'
-import organizzazioniPageInitialPathsTqJpResource from '../../resources/organizzazioni-page-initial-paths-tq_jp'
+import organizzazioniPageInitialPropsTqQkResource from '../../resources/organizzazioni-page-initial-props-tq_qk'
+import organizzazioniPageInitialPathsTqHfResource from '../../resources/organizzazioni-page-initial-paths-tq_hf'
 
 const Organizzazioni = (props) => {
   return (
@@ -443,7 +443,7 @@ export default Organizzazioni
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTq6yResource({
+    const response = await organizzazioniPageInitialPropsTqQkResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -468,7 +468,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTqJpResource({})
+    const response = await organizzazioniPageInitialPathsTqHfResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
