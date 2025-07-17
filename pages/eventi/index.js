@@ -11,7 +11,7 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import CardEvento from '../../components/card-evento'
 import Footer from '../../components/footer'
-import eventiPageInitialPropsTqOvResource from '../../resources/eventi-page-initial-props-tq_ov'
+import eventiPageInitialPropsTqCsResource from '../../resources/eventi-page-initial-props-tq_cs'
 
 const Eventi = (props) => {
   const router = useRouter()
@@ -232,7 +232,7 @@ export default Eventi
 
 export async function getStaticProps(context) {
   try {
-    const response = await eventiPageInitialPropsTqOvResource({
+    const response = await eventiPageInitialPropsTqCsResource({
       ...context?.params,
     })
     if (!response) {

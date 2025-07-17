@@ -88,6 +88,16 @@ const Eventilisting = (props) => {
               locale: props?.locale ?? '',
             }}
           />
+          <button
+            type="button"
+            onClick={() => {
+              setCategoryFilter('*')
+              setProvinceFilter('*')
+            }}
+            className="button"
+          >
+            {props.button}
+          </button>
         </div>
         <DataProvider
           fetchData={(params) =>
@@ -237,12 +247,12 @@ const Eventilisting = (props) => {
 
 Eventilisting.defaultProps = {
   rootClassName: '',
-  categFilter: 'false',
+  button: 'Reset',
 }
 
 Eventilisting.propTypes = {
   rootClassName: PropTypes.string,
-  categFilter: PropTypes.string,
+  button: PropTypes.string,
 }
 
 export default Eventilisting

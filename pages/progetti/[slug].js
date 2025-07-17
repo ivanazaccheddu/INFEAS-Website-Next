@@ -11,8 +11,8 @@ import ProgectDetails from '../../components/progect-details'
 import NewsSimple from '../../components/news-simple'
 import CardEvento from '../../components/card-evento'
 import Footer from '../../components/footer'
-import progettoDettaglioPageInitialPropsTq0hResource from '../../resources/progetto-dettaglio-page-initial-props-tq_0h'
-import progettoDettaglioPageInitialPathsTqFIResource from '../../resources/progetto-dettaglio-page-initial-paths-tq_f-i'
+import progettoDettaglioPageInitialPropsTqFqResource from '../../resources/progetto-dettaglio-page-initial-props-tq_fq'
+import progettoDettaglioPageInitialPathsTqGFResource from '../../resources/progetto-dettaglio-page-initial-paths-tq_g-f'
 
 const ProgettoDettaglio = (props) => {
   return (
@@ -380,7 +380,7 @@ export default ProgettoDettaglio
 
 export async function getStaticProps(context) {
   try {
-    const response = await progettoDettaglioPageInitialPropsTq0hResource({
+    const response = await progettoDettaglioPageInitialPropsTqFqResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -405,7 +405,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await progettoDettaglioPageInitialPathsTqFIResource({})
+    const response = await progettoDettaglioPageInitialPathsTqGFResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
