@@ -11,8 +11,8 @@ import NavbarInteractive from '../../../components/navbar-interactive'
 import Headertipologiatarget from '../../../components/headertipologiatarget'
 import CeasList from '../../../components/ceas-list'
 import Footer from '../../../components/footer'
-import organizzazioniPageInitialPropsTqOcResource from '../../../resources/organizzazioni-page-initial-props-tq_oc'
-import organizzazioniPageInitialPathsTqUvResource from '../../../resources/organizzazioni-page-initial-paths-tq_uv'
+import organizzazioniPageInitialPropsTqF2Resource from '../../../resources/organizzazioni-page-initial-props-tq_f2'
+import organizzazioniPageInitialPathsTqHiResource from '../../../resources/organizzazioni-page-initial-paths-tq_hi'
 
 const Organizzazioni11 = (props) => {
   const router = useRouter()
@@ -266,7 +266,7 @@ export default Organizzazioni11
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqOcResource({
+    const response = await organizzazioniPageInitialPropsTqF2Resource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -292,7 +292,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTqUvResource({})
+    const response = await organizzazioniPageInitialPathsTqHiResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {
