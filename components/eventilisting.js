@@ -94,7 +94,7 @@ const Eventilisting = (props) => {
               setCategoryFilter('*')
               setProvinceFilter('*')
             }}
-            className="button"
+            className="eventilisting-button button"
           >
             {props.button}
           </button>
@@ -197,6 +197,11 @@ const Eventilisting = (props) => {
             width: auto;
             display: flex;
             flex-direction: column;
+          }
+          .eventilisting-button {
+            margin-left: var(--dl-layout-space-sixunits);
+            padding-left: var(--dl-layout-space-unit);
+            padding-right: var(--dl-layout-space-unit);
           }
           .eventilisting-sezione-filtri-scuole {
             width: 100%;
