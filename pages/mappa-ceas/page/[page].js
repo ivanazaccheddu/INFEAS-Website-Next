@@ -13,8 +13,8 @@ import Headertipologiatarget from '../../../components/headertipologiatarget'
 import FilterbyProvince from '../../../components/filterby-province'
 import Cardprovince from '../../../components/cardprovince'
 import Footer from '../../../components/footer'
-import organizzazioniPageInitialPropsTqR3Resource from '../../../resources/organizzazioni-page-initial-props-tq_r3'
-import organizzazioniPageInitialPathsTqNoResource from '../../../resources/organizzazioni-page-initial-paths-tq_no'
+import organizzazioniPageInitialPropsTqFNResource from '../../../resources/organizzazioni-page-initial-props-tq_f-n'
+import organizzazioniPageInitialPathsTqS9Resource from '../../../resources/organizzazioni-page-initial-paths-tq_s9'
 
 const Organizzazioni11 = (props) => {
   const router = useRouter()
@@ -297,7 +297,7 @@ export default Organizzazioni11
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqR3Resource({
+    const response = await organizzazioniPageInitialPropsTqFNResource({
       ...context?.params,
       start: (context.params.page - 1) * 20,
     })
@@ -323,7 +323,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTqNoResource({})
+    const response = await organizzazioniPageInitialPathsTqS9Resource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 20)
     return {

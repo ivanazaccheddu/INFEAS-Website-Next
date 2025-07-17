@@ -128,15 +128,20 @@ const ScuoleEventi = (props) => {
                 <style
                   dangerouslySetInnerHTML={{
                     __html:
-                      '\n/* Hide the original clickable spans immediately */\n.eventilisting-container2 span,\n.eventilisting-container3 span {\n  display: none !important;\n}\n',
+                      '\n/* Hide the original clickable spans immediately */\n.eventilisting-container3 span,\n.eventilisting-container4 span {\n  display: none !important;\n}\n',
                   }}
                 />
 
                 <Script>{`
 (function () {
-  function createDropdownFromSpans(spans, labelText) {
+  // Store current selections to persist across re-renders
+  let currentCategorySelection = '';
+  let currentProvinceSelection = '';
+
+  function createDropdownFromSpans(spans, labelText, isCategory = false) {
     const select = document.createElement('select');
     select.setAttribute('data-enhanced', 'true');
+    select.setAttribute('data-type', isCategory ? 'category' : 'province');
 
     const defaultOption = document.createElement('option');
     defaultOption.textContent = \`-- \${labelText} --\`;
@@ -152,10 +157,36 @@ const ScuoleEventi = (props) => {
       select.appendChild(option);
     });
 
+    // Set the previously selected value if it exists
+    const currentSelection = isCategory ? currentCategorySelection : currentProvinceSelection;
+    if (currentSelection) {
+      // Find the option with matching text
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].textContent === currentSelection) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
     select.addEventListener('change', (e) => {
       const index = parseInt(e.target.value);
       if (!isNaN(index)) {
+        // Store the selected text for persistence
+        const selectedText = e.target.options[e.target.selectedIndex].textContent;
+        if (isCategory) {
+          currentCategorySelection = selectedText;
+        } else {
+          currentProvinceSelection = selectedText;
+        }
         spans[index].click(); // trigger original React filter
+      } else {
+        // Reset was selected
+        if (isCategory) {
+          currentCategorySelection = '';
+        } else {
+          currentProvinceSelection = '';
+        }
       }
     });
 
@@ -172,7 +203,7 @@ const ScuoleEventi = (props) => {
   }
 
   function injectDropdowns() {
-    const catContainer = document.querySelector('.eventilisting-container2');
+    const catContainer = document.querySelector('.eventilisting-container4');
     const provContainer = document.querySelector('.eventilisting-container3');
     if (!catContainer || !provContainer) return;
 
@@ -185,12 +216,12 @@ const ScuoleEventi = (props) => {
 
     // Only inject if spans exist and dropdown not already present
     if (catSpans.length && !catDropdownExists) {
-      const dropdown = createDropdownFromSpans(catSpans, 'Filtra per categoria');
+      const dropdown = createDropdownFromSpans(catSpans, 'Filtra per categoria', true);
       catContainer.insertBefore(dropdown, catContainer.firstChild);
     }
 
     if (provSpans.length && !provDropdownExists) {
-      const dropdown = createDropdownFromSpans(provSpans, 'Filtra per provincia');
+      const dropdown = createDropdownFromSpans(provSpans, 'Filtra per provincia', false);
       provContainer.insertBefore(dropdown, provContainer.firstChild);
     }
   }
