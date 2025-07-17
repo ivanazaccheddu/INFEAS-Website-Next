@@ -1,23 +1,19 @@
 import React, { useState, Fragment } from 'react'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import { DataProvider, Repeater } from '@teleporthq/react-components'
 import { useTranslations } from 'next-intl'
 
 import NavbarInteractive from '../components/navbar-interactive'
 import Headertipologiatarget from '../components/headertipologiatarget'
-import NewsSimple from '../components/news-simple'
-import EmptyPlaceholder from '../components/empty-placeholder'
+import SezioneNotizieScuole from '../components/sezione-notizie-scuole'
 import LoghiSponsor from '../components/loghi-sponsor'
 import Footer from '../components/footer'
 
 const ScuoleNotizie = (props) => {
-  const router = useRouter()
   const [categoria, setCategoria] = useState('*')
   return (
     <>
-      <div className="scuole-notizie-container1">
+      <div className="scuole-notizie-container">
         <Head>
           <title>Scuole-Notizie - INFEAS Website</title>
           <meta property="og:title" content="Scuole-Notizie - INFEAS Website" />
@@ -103,109 +99,13 @@ const ScuoleNotizie = (props) => {
           rootClassName="headertipologiatargetroot-class-name23"
           headerTitleName="Notizie"
         ></Headertipologiatarget>
-        <section className="padding-container">
-          <div className="scuole-notizie-container2 thq-section-max-width">
-            <div className="scuole-notizie-container3">
-              <span className="scuole-notizie-text23 paragraph_xl">
-                <span>
-                  Rimani aggiornato su eventi, programmi e iniziative dedicati a
-                  scuole e università.
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
-                </span>
-                <br></br>
-                <span>
-                  Scopri le ultime attività e opportunità per approfondire
-                  l&apos;educazione ambientale e promuovere la sostenibilità
-                  nelle nuove generazioni.
-                </span>
-              </span>
-            </div>
-            <div className="scuole-notizie-news3columns">
-              <DataProvider
-                fetchData={(params) =>
-                  fetch(
-                    `/api/scuole-notizie-resource-scuole-notizie?${new URLSearchParams(
-                      params
-                    )}`,
-                    {
-                      headers: {
-                        'Content-Type': 'application/json',
-                      },
-                    }
-                  )
-                    .then((res) => res.json())
-                    .then((data) => data)
-                }
-                renderSuccess={(params) => (
-                  <Fragment>
-                    <div className="grid-3">
-                      <Repeater
-                        items={params}
-                        renderItem={(news) => (
-                          <Fragment>
-                            <NewsSimple
-                              border="yes"
-                              tagName={news?.categoria_notizie?.nome || '--'}
-                              dataNews={news?.data_pubblicazione || '--'}
-                              titoloNews={news?.nome || '--'}
-                              rootClassName="news-simpleroot-class-name9"
-                              descrizioneBreve={news?.descrizione_breve || '--'}
-                            ></NewsSimple>
-                          </Fragment>
-                        )}
-                        renderEmpty={() => (
-                          <Fragment>
-                            <EmptyPlaceholder
-                              testo={
-                                <Fragment>
-                                  <span className="scuole-notizie-text27 paragraph_xl">
-                                    <span>
-                                      Torna a trovarci presto per restare
-                                      aggiornato con le ultime novità e
-                                      aggiornamenti.
-                                    </span>
-                                    <br></br>
-                                  </span>
-                                </Fragment>
-                              }
-                              titolo={
-                                <Fragment>
-                                  <span className="scuole-notizie-text30 paragraph_xl">
-                                    <span>
-                                      Nessuna notizia disponibile al momento
-                                    </span>
-                                    <br></br>
-                                  </span>
-                                </Fragment>
-                              }
-                              rootClassName="empty-placeholderroot-class-name1"
-                            ></EmptyPlaceholder>
-                          </Fragment>
-                        )}
-                      />
-                    </div>
-                    <div className="scuole-notizie-cms-pagination-node"></div>
-                  </Fragment>
-                )}
-                params={{
-                  'pagination[start]':
-                    (parseInt(router.query?.['cPage-3hdq2'] ?? 1) - 1) * 15,
-                  locale: props?.locale ?? '',
-                }}
-              />
-            </div>
-          </div>
-        </section>
+        <SezioneNotizieScuole></SezioneNotizieScuole>
         <LoghiSponsor rootClassName="loghi-sponsorroot-class-name20"></LoghiSponsor>
         <Footer rootClassName="footerroot-class-name26"></Footer>
       </div>
       <style jsx>
         {`
-          .scuole-notizie-container1 {
+          .scuole-notizie-container {
             width: 100%;
             display: flex;
             min-height: 100vh;
@@ -250,56 +150,6 @@ const ScuoleNotizie = (props) => {
           }
           .scuole-notizie-text22 {
             display: inline-block;
-          }
-          .scuole-notizie-container2 {
-            gap: var(--dl-layout-space-fiveunits);
-            width: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-          }
-          .scuole-notizie-container3 {
-            gap: var(--dl-layout-space-twounits);
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-          }
-          .scuole-notizie-text23 {
-            fill: #252330;
-            color: rgb(37, 35, 48);
-            height: auto;
-            text-align: center;
-          }
-          .scuole-notizie-news3columns {
-            flex: 0 0 auto;
-            width: 100%;
-            display: flex;
-            position: relative;
-            flex-wrap: wrap;
-          }
-          .scuole-notizie-text27 {
-            display: inline-block;
-          }
-          .scuole-notizie-text30 {
-            display: inline-block;
-            font-weight: 600;
-          }
-          .scuole-notizie-cms-pagination-node {
-            gap: var(--dl-layout-space-threeunits);
-            width: 100%;
-            display: flex;
-            justify-content: center;
-          }
-          @media (max-width: 767px) {
-            .scuole-notizie-news3columns {
-              display: flex;
-              flex-direction: column;
-            }
-          }
-          @media (max-width: 479px) {
-            .scuole-notizie-news3columns {
-              gap: var(--dl-layout-space-fourunits);
-            }
           }
         `}
       </style>

@@ -10,8 +10,8 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import Tag from '../../components/tag'
 import Footer from '../../components/footer'
-import dettaglionotiziePageInitialPropsTqI5Resource from '../../resources/dettaglionotizie-page-initial-props-tq_i5'
-import dettaglionotiziePageInitialPathsTqPzResource from '../../resources/dettaglionotizie-page-initial-paths-tq_pz'
+import dettaglionotiziePageInitialPropsTqKaResource from '../../resources/dettaglionotizie-page-initial-props-tq_ka'
+import dettaglionotiziePageInitialPathsTqWGResource from '../../resources/dettaglionotizie-page-initial-paths-tq_w-g'
 
 const DettaglioNotizie = (props) => {
   return (
@@ -281,7 +281,7 @@ export default DettaglioNotizie
 
 export async function getStaticProps(context) {
   try {
-    const response = await dettaglionotiziePageInitialPropsTqI5Resource({
+    const response = await dettaglionotiziePageInitialPropsTqKaResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -306,7 +306,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await dettaglionotiziePageInitialPathsTqPzResource({})
+    const response = await dettaglionotiziePageInitialPathsTqWGResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {
