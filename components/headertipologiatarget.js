@@ -150,9 +150,6 @@ const Headertipologiatarget = (props) => {
           .headertipologiatargetroot-class-name27 {
             background-color: var(--dl-color-theme-secondary1);
           }
-          .headertipologiatargetroot-class-name28 {
-            background-color: #0f4eb3;
-          }
           .headertipologiatargetroot-class-name29 {
             background-color: var(--dl-color-theme-secondary1);
           }
@@ -161,6 +158,9 @@ const Headertipologiatarget = (props) => {
           }
           .headertipologiatargetroot-class-name31 {
             background-color: var(--dl-color-theme-secondary1);
+          }
+          .headertipologiatargetroot-class-name28 {
+            background-color: #0f4eb3;
           }
           @media (max-width: 767px) {
             .headertipologiatarget-header {

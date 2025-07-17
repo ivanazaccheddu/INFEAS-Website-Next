@@ -105,16 +105,6 @@ const ScuoleEventi = (props) => {
         >
           <div className="scuole-eventi-container3 thq-section-max-width">
             <div className="scuole-eventi-container4">
-              <span className="scuole-eventi-text23 paragraph_xl">
-                Non perdere i prossimi eventi e iniziative promossi da INFEAS!
-                Scopri date, luoghi e dettagli delle attività dedicate
-                all’educazione alla sostenibilità.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
               <Eventilisting></Eventilisting>
             </div>
           </div>
@@ -344,13 +334,6 @@ const ScuoleEventi = (props) => {
             display: flex;
             align-items: center;
             flex-direction: column;
-          }
-          .scuole-eventi-text23 {
-            fill: #252330;
-            color: rgb(37, 35, 48);
-            height: auto;
-            align-self: center;
-            text-align: left;
           }
           .scuole-eventi-container6 {
             display: contents;

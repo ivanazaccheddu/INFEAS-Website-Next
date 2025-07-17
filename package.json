@@ -18,8 +18,8 @@
     "@teleporthq/cms-mappers": "latest",
     "next-intl": "2.10.0",
     "@teleporthq/react-components": "latest",
-    "markdown-to-jsx": "latest",
     "dangerous-html": "0.1.13",
+    "markdown-to-jsx": "latest",
     "prop-types": "15.7.2"
   },
   "engines": {

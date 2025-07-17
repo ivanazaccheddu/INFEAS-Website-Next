@@ -14,7 +14,11 @@ const Eventilisting = (props) => {
   const [provinceFilter, setProvinceFilter] = useState('*')
   return (
     <>
-      <div className={`eventilisting-container1 ${props.rootClassName} `}>
+      <div
+        destinatario={props.eventiListingDestinatario}
+        descrizione={props.eventiListingDescrizione}
+        className={`eventilisting-container1 ${props.rootClassName} `}
+      >
         <div className="eventilisting-container2">
           <DataProvider
             fetchData={(params) =>
@@ -116,14 +120,9 @@ const Eventilisting = (props) => {
           }
           renderSuccess={(params) => (
             <Fragment>
-              <section
-                id="sezione-filtri-eventi-scuole"
-                className="eventilisting-sezione-filtri-scuole padding-container"
-              >
-                <div className="eventilisting-filterby-eventi">
-                  <div className="eventilisting-filtra-per"></div>
-                </div>
-              </section>
+              <span className="eventilisting-text3 paragraph_xl">
+                {props.eventiListingDescrizione}
+              </span>
               <div className="grid-3">
                 <Repeater
                   items={params}
@@ -168,6 +167,7 @@ const Eventilisting = (props) => {
               (parseInt(router.query?.['cPage-s3gy0c'] ?? 1) - 1) * 15,
             categoryFilter: categoryFilter,
             provinceFilter: provinceFilter,
+            eventiListingDestinatario: props.eventiListingDestinatario,
             locale: props?.locale ?? '',
           }}
         />
@@ -209,25 +209,12 @@ const Eventilisting = (props) => {
             padding-left: var(--dl-layout-space-unit);
             padding-right: var(--dl-layout-space-unit);
           }
-          .eventilisting-sezione-filtri-scuole {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            background-color: #ffffff;
-          }
-          .eventilisting-filterby-eventi {
-            width: 100%;
-            display: block;
-            position: relative;
-          }
-          .eventilisting-filtra-per {
-            gap: var(--dl-layout-space-unit);
-            width: 100%;
-            border: 2px dashed rgba(120, 120, 120, 0.4);
-            display: flex;
-            align-items: flex-start;
-            flex-direction: row;
+          .eventilisting-text3 {
+            fill: #252330;
+            color: rgb(37, 35, 48);
+            height: auto;
+            align-self: center;
+            text-align: left;
           }
           .eventilisting-component {
             text-decoration: none;
@@ -237,18 +224,12 @@ const Eventilisting = (props) => {
             display: flex;
           }
 
-          @media (max-width: 767px) {
-            .eventilisting-filterby-eventi {
-              flex-wrap: wrap;
-            }
-            .eventilisting-filtra-per {
-              flex-wrap: wrap;
-            }
-          }
-          @media (max-width: 479px) {
-            .eventilisting-sezione-filtri-scuole {
-              background-color: #efeeeb;
-            }
+          .eventilistingroot-class-name1 {
+            padding-top: var(--dl-layout-space-sixunits);
+            padding-left: var(--dl-layout-space-sixunits);
+            padding-right: var(--dl-layout-space-sixunits);
+            padding-bottom: var(--dl-layout-space-sixunits);
+            background-color: #dbeae3;
           }
         `}
       </style>
@@ -259,11 +240,16 @@ const Eventilisting = (props) => {
 Eventilisting.defaultProps = {
   button: 'Reset',
   rootClassName: '',
+  eventiListingDestinatario: '*',
+  eventiListingDescrizione:
+    'Non perdere i prossimi eventi e iniziative promossi da INFEAS! Scopri date, luoghi e dettagli delle attività dedicate all’educazione alla sostenibilità.',
 }
 
 Eventilisting.propTypes = {
   button: PropTypes.string,
   rootClassName: PropTypes.string,
+  eventiListingDestinatario: PropTypes.string,
+  eventiListingDescrizione: PropTypes.string,
 }
 
 export default Eventilisting

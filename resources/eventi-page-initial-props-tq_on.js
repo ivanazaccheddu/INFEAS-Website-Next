@@ -2,18 +2,10 @@ import { normalize } from '@teleporthq/cms-mappers/strapi'
 
 export default async function (params = {}) {
   let urlParams = {
-    'pagination[limit]': 15,
-    ...(params['pagination[start]'] && {
-      'pagination[start]': params['pagination[start]'],
-    }),
-    ...(params['categoryFilter'] && {
-      'filters[categoria_eventi][id][$eq]': params['categoryFilter'],
-    }),
-    ...(params['provinceFilter'] && {
-      'filters[provincia][id][$eq]': params['provinceFilter'],
-    }),
-    ...(params['eventiListingDestinatario'] && {
-      'filters[destinatari][slug][$eq]': params['eventiListingDestinatario'],
+    'sort[0]': 'data_inizio:desc',
+    'pagination[limit]': 10,
+    ...(params['start'] && {
+      'pagination[start]': params['start'],
     }),
     'populate[galleria][populate][id][populate]': '*',
     'populate[galleria][populate][immagini][populate]': '*',
@@ -43,18 +35,10 @@ export default async function (params = {}) {
   )
   if (data.status !== 200) {
     urlParams = {
-      'pagination[limit]': 15,
-      ...(params['pagination[start]'] && {
-        'pagination[start]': params['pagination[start]'],
-      }),
-      ...(params['categoryFilter'] && {
-        'filters[categoria_eventi][id][$eq]': params['categoryFilter'],
-      }),
-      ...(params['provinceFilter'] && {
-        'filters[provincia][id][$eq]': params['provinceFilter'],
-      }),
-      ...(params['eventiListingDestinatario'] && {
-        'filters[destinatari][slug][$eq]': params['eventiListingDestinatario'],
+      'sort[0]': 'data_inizio:desc',
+      'pagination[limit]': 10,
+      ...(params['start'] && {
+        'pagination[start]': params['start'],
       }),
       'populate[galleria][populate][id][populate]': '*',
       'populate[galleria][populate][immagini][populate]': '*',

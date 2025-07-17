@@ -1,20 +1,16 @@
 import React, { Fragment } from 'react'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Head from 'next/head'
 
-import { DataProvider, Repeater } from '@teleporthq/react-components'
+import Script from 'dangerous-html/react'
 import { useTranslations } from 'next-intl'
 
 import NavbarInteractive from '../components/navbar-interactive'
 import Headertipologiatarget from '../components/headertipologiatarget'
-import FilterbyEventi from '../components/filterby-eventi'
-import CardEvento from '../components/card-evento'
+import Eventilisting from '../components/eventilisting'
 import LoghiSponsor from '../components/loghi-sponsor'
 import Footer from '../components/footer'
 
 const CittadiniTuttiEventi = (props) => {
-  const router = useRouter()
   return (
     <>
       <div className="cittadini-tutti-eventi-container1">
@@ -108,119 +104,167 @@ const CittadiniTuttiEventi = (props) => {
           rootClassName="headertipologiatargetroot-class-name20"
           headerTitleName="Eventi"
         ></Headertipologiatarget>
-        <section
-          id="sezione-filtri-eventi-cittadini"
-          className="cittadini-tutti-eventi-sezione-filtri-cittadini padding-container"
-        >
-          <FilterbyEventi
-            text={
-              <Fragment>
-                <span className="cittadini-tutti-eventi-text23">
-                  Dedicato a
-                </span>
-              </Fragment>
-            }
-            text1={
-              <Fragment>
-                <span className="cittadini-tutti-eventi-text24">Tipologia</span>
-              </Fragment>
-            }
-            text2={
-              <Fragment>
-                <span className="cittadini-tutti-eventi-text25">Durata</span>
-              </Fragment>
-            }
-            text3={
-              <Fragment>
-                <span className="cittadini-tutti-eventi-text26">Luogo</span>
-              </Fragment>
-            }
-            rootClassName="filterby-eventiroot-class-name2"
-          ></FilterbyEventi>
-        </section>
-        <section
-          id="elenco-eventi-per-cittadini"
-          className="cittadini-tutti-eventi-eventi-cittadini padding-container"
-        >
-          <div className="thq-section-max-width">
-            <div className="cittadini-tutti-eventi-container3">
-              <span className="cittadini-tutti-eventi-text27 paragraph_xl">
-                Non perdere i prossimi eventi e iniziative promossi da INFEAS!
-                Scopri date, luoghi e dettagli delle attività dedicate
-                all’educazione alla sostenibilità.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <div className="cittadini-tutti-eventi-container4">
-                <DataProvider
-                  fetchData={(params) =>
-                    fetch(
-                      `/api/cittadini-tutti-eventi-resource-cittadini-tutti-eventi?${new URLSearchParams(
-                        params
-                      )}`,
-                      {
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                      }
-                    )
-                      .then((res) => res.json())
-                      .then((data) => data)
-                  }
-                  renderSuccess={(params) => (
-                    <Fragment>
-                      <div className="grid-3">
-                        <Repeater
-                          items={params}
-                          renderItem={(eventi) => (
-                            <Fragment>
-                              <Link href={`/eventi/${eventi?.slug}`}>
-                                <a>
-                                  <CardEvento
-                                    luogo={eventi?.luogo || '--'}
-                                    logoAlt={eventi?.immagine?.alt || '--'}
-                                    logoORG={
-                                      eventi?.organizzazione?.logo?.url ||
-                                      'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/6870e192-5a0c-4ce0-92db-78cbb3e943f6/82d7ddad-37a0-4cbe-b3a1-b517a202640e?org_if_sml=1&force_format=original'
-                                    }
-                                    idEvento={eventi?.nome || '--'}
-                                    oraInizio={eventi?.data_inizio || '--'}
-                                    dataEvento={eventi?.data_inizio || '--'}
-                                    fotoEvento={eventi?.immagine?.url || '--'}
-                                    nomeEvento={eventi?.nome || '--'}
-                                    fotoEventoAlt={
-                                      eventi?.immagine?.alt || '--'
-                                    }
-                                    rootClassName="card-eventoroot-class-name37"
-                                    categoriaString={
-                                      eventi?.categoria_eventi?.nome || '--'
-                                    }
-                                    className="cittadini-tutti-eventi-component3"
-                                  ></CardEvento>
-                                </a>
-                              </Link>
-                            </Fragment>
-                          )}
-                        />
-                      </div>
-                      <div className="cittadini-tutti-eventi-cms-pagination-node"></div>
-                    </Fragment>
-                  )}
-                  params={{
-                    'pagination[start]':
-                      (parseInt(router.query?.['cPage-ur2vkt'] ?? 1) - 1) * 3,
-                    locale: props?.locale ?? '',
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <Eventilisting rootClassName="eventilistingroot-class-name1"></Eventilisting>
         <LoghiSponsor rootClassName="loghi-sponsorroot-class-name17"></LoghiSponsor>
         <Footer rootClassName="footerroot-class-name23"></Footer>
+        <div>
+          <div className="cittadini-tutti-eventi-container3">
+            <React.Fragment>
+              <React.Fragment>
+                <style
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '\n/* Hide the original clickable spans immediately */\n.eventilisting-container3 span,\n.eventilisting-container4 span {\n  display: none !important;\n}\n',
+                  }}
+                />
+
+                <Script>{`
+(function () {
+  // Store current selections to persist across re-renders
+  let currentCategorySelection = '';
+  let currentProvinceSelection = '';
+
+  function createDropdownFromSpans(spans, labelText, isCategory = false) {
+    const select = document.createElement('select');
+    select.setAttribute('data-enhanced', 'true');
+    select.setAttribute('data-type', isCategory ? 'category' : 'province');
+
+    const defaultOption = document.createElement('option');
+    defaultOption.textContent = \`-- \${labelText} --\`;
+    defaultOption.value = '';
+    select.appendChild(defaultOption);
+
+    spans.forEach((span, index) => {
+      const text = span.textContent.trim();
+      if (!text) return; // Skip empty
+      const option = document.createElement('option');
+      option.textContent = text;
+      option.value = index;
+      select.appendChild(option);
+    });
+
+    // Set the previously selected value if it exists
+    const currentSelection = isCategory ? currentCategorySelection : currentProvinceSelection;
+    if (currentSelection && !isResetState()) {
+      // Find the option with matching text
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].textContent === currentSelection) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    } else {
+      // Reset to placeholder if state is "*" or no selection
+      select.selectedIndex = 0;
+    }
+
+    select.addEventListener('change', (e) => {
+      const index = parseInt(e.target.value);
+      if (!isNaN(index)) {
+        // Store the selected text for persistence
+        const selectedText = e.target.options[e.target.selectedIndex].textContent;
+        if (isCategory) {
+          currentCategorySelection = selectedText;
+        } else {
+          currentProvinceSelection = selectedText;
+        }
+        spans[index].click(); // trigger original React filter
+      } else {
+        // Reset was selected
+        if (isCategory) {
+          currentCategorySelection = '';
+        } else {
+          currentProvinceSelection = '';
+        }
+      }
+    });
+
+    // Simple styling
+    Object.assign(select.style, {
+      padding: '8px',
+      borderRadius: '6px',
+      border: '1px solid #ccc',
+      fontSize: '14px',
+      marginBottom: '10px',
+    });
+
+    return select;
+  }
+
+    function isResetState() {
+    // Check if React reset button was clicked by looking for Reset button existence
+    // and checking URL params that might indicate reset state
+    const resetButton = document.querySelector('.eventilisting-button');
+    if (resetButton) {
+      // If we can access the button, we can try to detect reset state
+      // Reset state would be when both filters should show placeholder
+      return false; // For now, let's rely on the click detection
+    }
+    return false;
+  }
+
+  function detectResetAndClearSelections() {
+    // Watch for reset button clicks
+    const resetButton = document.querySelector('.eventilisting-button');
+    if (resetButton && !resetButton.hasAttribute('data-listener-added')) {
+      resetButton.setAttribute('data-listener-added', 'true');
+      resetButton.addEventListener('click', () => {
+        // Clear our stored selections when reset is clicked
+        currentCategorySelection = '';
+        currentProvinceSelection = '';
+        
+        // Reset dropdowns to placeholder
+        setTimeout(() => {
+          const catDropdown = document.querySelector('select[data-type="category"]');
+          const provDropdown = document.querySelector('select[data-type="province"]');
+          if (catDropdown) catDropdown.selectedIndex = 0;
+          if (provDropdown) provDropdown.selectedIndex = 0;
+        }, 100);
+      });
+    }
+  }
+
+  function injectDropdowns() {
+    const catContainer = document.querySelector('.eventilisting-container4');
+    const provContainer = document.querySelector('.eventilisting-container3');
+    if (!catContainer || !provContainer) return;
+
+    const catSpans = catContainer.querySelectorAll('span');
+    const provSpans = provContainer.querySelectorAll('span');
+
+    // Check if dropdown already exists
+    const catDropdownExists = catContainer.querySelector('select[data-enhanced]');
+    const provDropdownExists = provContainer.querySelector('select[data-enhanced]');
+
+    // Only inject if spans exist and dropdown not already present
+    if (catSpans.length && !catDropdownExists) {
+      const dropdown = createDropdownFromSpans(catSpans, 'Filtra per categoria', true);
+      catContainer.insertBefore(dropdown, catContainer.firstChild);
+    }
+
+    if (provSpans.length && !provDropdownExists) {
+      const dropdown = createDropdownFromSpans(provSpans, 'Filtra per provincia', false);
+      provContainer.insertBefore(dropdown, provContainer.firstChild);
+    }
+
+    // Add reset button listener
+    detectResetAndClearSelections();
+  }
+
+  // Watch and reinject when necessary
+  const interval = setInterval(() => {
+    try {
+      injectDropdowns();
+    } catch (err) {
+      console.error('Dropdown injection error:', err);
+    }
+  }, 300);
+})();
+`}</Script>
+              </React.Fragment>
+            </React.Fragment>
+          </div>
+        </div>
       </div>
       <style jsx>
         {`
@@ -270,115 +314,8 @@ const CittadiniTuttiEventi = (props) => {
           .cittadini-tutti-eventi-text22 {
             display: inline-block;
           }
-          .cittadini-tutti-eventi-sezione-filtri-cittadini {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            background-color: #ffffff;
-          }
-          .cittadini-tutti-eventi-text23 {
-            display: inline-block;
-          }
-          .cittadini-tutti-eventi-text24 {
-            display: inline-block;
-          }
-          .cittadini-tutti-eventi-text25 {
-            display: inline-block;
-          }
-          .cittadini-tutti-eventi-text26 {
-            display: inline-block;
-          }
-          .cittadini-tutti-eventi-eventi-cittadini {
-            gap: var(--dl-layout-space-fourunits);
-            flex: 1;
-            width: 100%;
-            display: flex;
-            position: relative;
-            align-self: center;
-            align-items: center;
-            padding-top: var(--dl-layout-space-sixunits);
-            padding-left: var(--dl-layout-space-sixunits);
-            padding-right: var(--dl-layout-space-sixunits);
-            flex-direction: column;
-            padding-bottom: var(--dl-layout-space-sixunits);
-            justify-content: center;
-            background-color: #dbeae3;
-          }
           .cittadini-tutti-eventi-container3 {
-            gap: var(--dl-layout-space-twounits);
-            flex: 1;
-            width: 100%;
-            display: flex;
-            align-self: center;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-          }
-          .cittadini-tutti-eventi-text27 {
-            fill: #252330;
-            color: rgb(37, 35, 48);
-            height: auto;
-            align-self: center;
-            text-align: left;
-          }
-          .cittadini-tutti-eventi-container4 {
-            gap: var(--dl-layout-space-twounits);
-            flex: 0 0 auto;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            overflow: hidden;
-            flex-direction: column;
-          }
-          .cittadini-tutti-eventi-component3 {
-            text-decoration: none;
-          }
-          .cittadini-tutti-eventi-cms-pagination-node {
-            gap: var(--dl-layout-space-threeunits);
-            display: flex;
-            justify-content: center;
-          }
-          @media (max-width: 1200px) {
-            .cittadini-tutti-eventi-container3 {
-              gap: var(--dl-layout-space-threeunits);
-              flex-direction: column;
-            }
-            .cittadini-tutti-eventi-container4 {
-              display: grid;
-            }
-          }
-          @media (max-width: 991px) {
-            .cittadini-tutti-eventi-eventi-cittadini {
-              flex-direction: column;
-            }
-          }
-          @media (max-width: 767px) {
-            .cittadini-tutti-eventi-container3 {
-              align-self: center;
-            }
-            .cittadini-tutti-eventi-container4 {
-              width: auto;
-              height: auto;
-              display: flex;
-              align-self: center;
-              flex-direction: column;
-            }
-          }
-          @media (max-width: 479px) {
-            .cittadini-tutti-eventi-sezione-filtri-cittadini {
-              background-color: #efeeeb;
-            }
-            .cittadini-tutti-eventi-eventi-cittadini {
-              width: 100%;
-              padding: var(--dl-layout-space-oneandhalfunits);
-            }
-            .cittadini-tutti-eventi-container3 {
-              width: auto;
-            }
-            .cittadini-tutti-eventi-container4 {
-              display: flex;
-            }
+            display: contents;
           }
         `}
       </style>

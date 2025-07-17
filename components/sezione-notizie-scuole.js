@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react'
 import { useRouter } from 'next/router'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
+import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
 import NewsSimple from './news-simple'
@@ -12,7 +13,11 @@ const SezioneNotizieScuole = (props) => {
   const [categoria, setCategoria] = useState('*')
   return (
     <>
-      <section className="sezione-notizie-scuole-sezione-notizie-scuole padding-container">
+      <section
+        destinatario={props.destinatario}
+        descrizione={props.descrizione}
+        className={`sezione-notizie-scuole-sezione-notizie-scuole padding-container ${props.rootClassName} `}
+      >
         <div className="sezione-notizie-scuole-container1 thq-section-max-width">
           <div className="sezione-notizie-scuole-containerfiltri">
             <DataProvider
@@ -202,6 +207,10 @@ const SezioneNotizieScuole = (props) => {
             display: flex;
             justify-content: center;
           }
+          .sezione-notizie-scuoleroot-class-name {
+            background-color: #dbeae3;
+          }
+
           @media (max-width: 767px) {
             .sezione-notizie-scuole-news3columns {
               display: flex;
@@ -217,6 +226,19 @@ const SezioneNotizieScuole = (props) => {
       </style>
     </>
   )
+}
+
+SezioneNotizieScuole.defaultProps = {
+  rootClassName: '',
+  destinatario: 'cittadini',
+  descrizione:
+    "Rimani aggiornato su eventi, programmi e iniziative dedicati a scuole e università. Scopri le ultime attività e opportunità per approfondire l'educazione ambientale e promuovere la sostenibilità nelle nuove generazioni.",
+}
+
+SezioneNotizieScuole.propTypes = {
+  rootClassName: PropTypes.string,
+  destinatario: PropTypes.string,
+  descrizione: PropTypes.string,
 }
 
 export default SezioneNotizieScuole
