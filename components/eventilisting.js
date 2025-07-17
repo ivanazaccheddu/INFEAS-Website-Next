@@ -184,7 +184,13 @@ const Eventilisting = (props) => {
           }
           .eventilisting-container2 {
             flex: 0 0 auto;
+            width: var(--dl-layout-size-maxwidth);
+            height: 100%;
             display: flex;
+            max-width: var(--dl-layout-size-maxwidth);
+            min-width: var(--dl-layout-size-maxwidth);
+            max-height: 100%;
+            min-height: 100%;
             align-items: flex-start;
           }
           .eventilisting-container3 {
@@ -251,13 +257,13 @@ const Eventilisting = (props) => {
 }
 
 Eventilisting.defaultProps = {
-  rootClassName: '',
   button: 'Reset',
+  rootClassName: '',
 }
 
 Eventilisting.propTypes = {
-  rootClassName: PropTypes.string,
   button: PropTypes.string,
+  rootClassName: PropTypes.string,
 }
 
 export default Eventilisting

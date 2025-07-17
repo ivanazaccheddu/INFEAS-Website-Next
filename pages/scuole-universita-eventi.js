@@ -159,7 +159,7 @@ const ScuoleEventi = (props) => {
 
     // Set the previously selected value if it exists
     const currentSelection = isCategory ? currentCategorySelection : currentProvinceSelection;
-    if (currentSelection) {
+    if (currentSelection && !isResetState()) {
       // Find the option with matching text
       for (let i = 0; i < select.options.length; i++) {
         if (select.options[i].textContent === currentSelection) {
@@ -167,6 +167,9 @@ const ScuoleEventi = (props) => {
           break;
         }
       }
+    } else {
+      // Reset to placeholder if state is "*" or no selection
+      select.selectedIndex = 0;
     }
 
     select.addEventListener('change', (e) => {
@@ -202,6 +205,39 @@ const ScuoleEventi = (props) => {
     return select;
   }
 
+    function isResetState() {
+    // Check if React reset button was clicked by looking for Reset button existence
+    // and checking URL params that might indicate reset state
+    const resetButton = document.querySelector('.eventilisting-button');
+    if (resetButton) {
+      // If we can access the button, we can try to detect reset state
+      // Reset state would be when both filters should show placeholder
+      return false; // For now, let's rely on the click detection
+    }
+    return false;
+  }
+
+  function detectResetAndClearSelections() {
+    // Watch for reset button clicks
+    const resetButton = document.querySelector('.eventilisting-button');
+    if (resetButton && !resetButton.hasAttribute('data-listener-added')) {
+      resetButton.setAttribute('data-listener-added', 'true');
+      resetButton.addEventListener('click', () => {
+        // Clear our stored selections when reset is clicked
+        currentCategorySelection = '';
+        currentProvinceSelection = '';
+        
+        // Reset dropdowns to placeholder
+        setTimeout(() => {
+          const catDropdown = document.querySelector('select[data-type="category"]');
+          const provDropdown = document.querySelector('select[data-type="province"]');
+          if (catDropdown) catDropdown.selectedIndex = 0;
+          if (provDropdown) provDropdown.selectedIndex = 0;
+        }, 100);
+      });
+    }
+  }
+
   function injectDropdowns() {
     const catContainer = document.querySelector('.eventilisting-container4');
     const provContainer = document.querySelector('.eventilisting-container3');
@@ -224,6 +260,9 @@ const ScuoleEventi = (props) => {
       const dropdown = createDropdownFromSpans(provSpans, 'Filtra per provincia', false);
       provContainer.insertBefore(dropdown, provContainer.firstChild);
     }
+
+    // Add reset button listener
+    detectResetAndClearSelections();
   }
 
   // Watch and reinject when necessary
