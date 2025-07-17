@@ -207,7 +207,7 @@ const NavbarInteractive = (props) => {
                     </div>
                     <div className="navbar-interactive-container18">
                       <Link
-                        href="/cittadini-notizie1"
+                        href="/mappa-ceas"
                         onClick={() => setActiveLink('mappaceas')}
                       >
                         <a
@@ -432,7 +432,7 @@ const NavbarInteractive = (props) => {
                   INFEAS per tutti i cittadini
                 </a>
               </Link>
-              <Link href="/mappa-ceas">
+              <Link href="/mappa-ceas-old">
                 <a className="navbar-interactive-link17">
                   <p
                     id="mappa-ceas"

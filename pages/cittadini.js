@@ -139,7 +139,7 @@ const CittadiniPerICittadini = (props) => {
           <h3 className="cittadini-per-i-cittadini-text23 heading3">
             Mappa Ceas
           </h3>
-          <Link href="/mappa-ceas">
+          <Link href="/mappa-ceas-old">
             <a className="cittadini-per-i-cittadini-link1">
               <ButtonComponent
                 button="APRI LA MAPPA"

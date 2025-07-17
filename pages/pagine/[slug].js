@@ -5,8 +5,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
-import paginePageInitialPropsTqMeResource from '../../resources/pagine-page-initial-props-tq_me'
-import paginePageInitialPathsTqLkResource from '../../resources/pagine-page-initial-paths-tq_lk'
+import paginePageInitialPropsTqCFResource from '../../resources/pagine-page-initial-props-tq_c-f'
+import paginePageInitialPathsTq5xResource from '../../resources/pagine-page-initial-paths-tq_5x'
 
 const Pagine = (props) => {
   return (
@@ -50,7 +50,7 @@ export default Pagine
 
 export async function getStaticProps(context) {
   try {
-    const response = await paginePageInitialPropsTqMeResource({
+    const response = await paginePageInitialPropsTqCFResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -75,7 +75,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await paginePageInitialPathsTqLkResource({})
+    const response = await paginePageInitialPathsTq5xResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

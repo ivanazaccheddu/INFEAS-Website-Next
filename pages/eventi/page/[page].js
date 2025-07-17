@@ -11,8 +11,8 @@ import NavbarInteractive from '../../../components/navbar-interactive'
 import Headertipologiatarget from '../../../components/headertipologiatarget'
 import CardEvento from '../../../components/card-evento'
 import Footer from '../../../components/footer'
-import eventiPageInitialPropsTqDfResource from '../../../resources/eventi-page-initial-props-tq_df'
-import eventiPageInitialPathsTq40Resource from '../../../resources/eventi-page-initial-paths-tq_40'
+import eventiPageInitialPropsTqJhResource from '../../../resources/eventi-page-initial-props-tq_jh'
+import eventiPageInitialPathsTqBEResource from '../../../resources/eventi-page-initial-paths-tq_b-e'
 
 const Eventi1 = (props) => {
   const router = useRouter()
@@ -236,7 +236,7 @@ export default Eventi1
 
 export async function getStaticProps(context) {
   try {
-    const response = await eventiPageInitialPropsTqDfResource({
+    const response = await eventiPageInitialPropsTqJhResource({
       ...context?.params,
       start: (context.params.page - 1) * 10,
     })
@@ -262,7 +262,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await eventiPageInitialPathsTq40Resource({})
+    const response = await eventiPageInitialPathsTqBEResource({})
     const totalCount = response?.meta?.pagination?.total
     const pagesCount = Math.ceil(totalCount / 10)
     return {

@@ -41,7 +41,7 @@ const Footer = (props) => {
                   Nodi territoriali INFEAS
                 </a>
               </Link>
-              <Link href="/mappa-ceas">
+              <Link href="/mappa-ceas-old">
                 <a className="footer-link15 paragraph_sm">Mappa dei CEAS</a>
               </Link>
               <Link href="/sistema-regionale-infeas">

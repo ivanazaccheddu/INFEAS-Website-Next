@@ -260,7 +260,7 @@ const Home = (props) => {
                           ></Cardwithicon>
                         </a>
                       </Link>
-                      <Link href="/mappa-ceas">
+                      <Link href="/mappa-ceas-old">
                         <a>
                           <Cardwithicon
                             iconCard="/Icone/icon-vedimappa.svg"
