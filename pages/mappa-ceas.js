@@ -116,6 +116,134 @@ const MappaCEAS = (props) => {
           </div>
         </section>
         <Footer rootClassName="footerroot-class-name38"></Footer>
+        <div>
+          <div className="mappa-ceas-container8">
+            <React.Fragment>
+              <React.Fragment>
+                <style
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '\n/* Hide the original clickable spans immediately */\n.ceas-list-container2 span {\n  display: none !important;\n}\n',
+                  }}
+                />
+
+                <Script>{`
+(function () {
+  // Store current selection to persist across re-renders
+  let currentProvinceSelection = '';
+
+  function createDropdownFromSpans(spans, labelText) {
+    const select = document.createElement('select');
+    select.setAttribute('data-enhanced', 'true');
+    select.setAttribute('data-type', 'province');
+
+    const defaultOption = document.createElement('option');
+    defaultOption.textContent = \`-- \${labelText} --\`;
+    defaultOption.value = '';
+    select.appendChild(defaultOption);
+
+    spans.forEach((span, index) => {
+      const text = span.textContent.trim();
+      if (!text) return; // Skip empty
+      const option = document.createElement('option');
+      option.textContent = text;
+      option.value = index;
+      select.appendChild(option);
+    });
+
+    // Set the previously selected value if it exists and state is not "*"
+    if (currentProvinceSelection) {
+      // Find the option with matching text
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].textContent === currentProvinceSelection) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    } else {
+      // Reset to placeholder if state is "*" or no selection
+      select.selectedIndex = 0;
+    }
+
+    select.addEventListener('change', (e) => {
+      const index = parseInt(e.target.value);
+      if (!isNaN(index)) {
+        // Store the selected text for persistence
+        const selectedText = e.target.options[e.target.selectedIndex].textContent;
+        currentProvinceSelection = selectedText;
+        spans[index].click(); // trigger original React filter
+      } else {
+        // Reset was selected - need to trigger React state to go back to "*"
+        currentProvinceSelection = '';
+        triggerResetState();
+      }
+    });
+
+    // Simple styling
+    Object.assign(select.style, {
+      padding: '8px',
+      borderRadius: '6px',
+      border: '1px solid #ccc',
+      fontSize: '14px',
+      marginBottom: '10px',
+    });
+
+    return select;
+  }
+
+  function triggerResetState() {
+    // Since there's no visible reset button in this component, we need to trigger
+    // the React state change to "*" manually. 
+    
+    // The most reliable way is to modify the URL to remove any filters
+    // and trigger a page reload
+    
+    const currentUrl = new URL(window.location);
+    currentUrl.searchParams.delete('provincia'); // Remove any province parameters
+    
+    // Clear our stored selection
+    currentProvinceSelection = '';
+    
+    // Update the URL and reload if necessary
+    if (currentUrl.toString() !== window.location.toString()) {
+      window.history.pushState({}, '', currentUrl);
+      window.location.reload();
+    } else {
+      // If URL is already clean, just reload to reset React state
+      window.location.reload();
+    }
+  }
+
+  function injectDropdowns() {
+    const provinceContainer = document.querySelector('.ceas-list-container2');
+    if (!provinceContainer) return;
+
+    const provinceSpans = provinceContainer.querySelectorAll('span');
+
+    // Check if dropdown already exists
+    const provinceDropdownExists = provinceContainer.querySelector('select[data-enhanced]');
+
+    // Only inject if spans exist and dropdown not already present
+    if (provinceSpans.length && !provinceDropdownExists) {
+      const dropdown = createDropdownFromSpans(provinceSpans, 'Filtra per provincia');
+      provinceContainer.insertBefore(dropdown, provinceContainer.firstChild);
+    }
+  }
+
+  // Watch and reinject when necessary
+  const interval = setInterval(() => {
+    try {
+      injectDropdowns();
+    } catch (err) {
+      console.error('Dropdown injection error:', err);
+    }
+  }, 300);
+})();
+`}</Script>
+              </React.Fragment>
+            </React.Fragment>
+          </div>
+        </div>
       </div>
       <style jsx>
         {`
@@ -191,6 +319,9 @@ const MappaCEAS = (props) => {
             width: 100%;
           }
           .mappa-ceas-container6 {
+            display: contents;
+          }
+          .mappa-ceas-container8 {
             display: contents;
           }
         `}

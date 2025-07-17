@@ -26,7 +26,7 @@ const Cardprovince = (props) => {
               data-province={props.provincia}
               className="cardprovince-text3 paragraph_xl"
             >
-              Sini
+              {props.provincia}
             </span>
           </div>
         )}

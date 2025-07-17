@@ -4,9 +4,7 @@ export default async function (params = {}) {
   let urlParams = {
     'sort[0]': 'data_inizio:desc',
     'pagination[limit]': 10,
-    ...(params['start'] && {
-      'pagination[start]': params['start'],
-    }),
+    'pagination[start]': 0,
     'populate[galleria][populate][id][populate]': '*',
     'populate[galleria][populate][immagini][populate]': '*',
     'populate[galleria][populate][immagini]': '*',
@@ -37,9 +35,7 @@ export default async function (params = {}) {
     urlParams = {
       'sort[0]': 'data_inizio:desc',
       'pagination[limit]': 10,
-      ...(params['start'] && {
-        'pagination[start]': params['start'],
-      }),
+      'pagination[start]': 0,
       'populate[galleria][populate][id][populate]': '*',
       'populate[galleria][populate][immagini][populate]': '*',
       'populate[galleria][populate][immagini]': '*',

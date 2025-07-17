@@ -2,10 +2,8 @@ import { normalize } from '@teleporthq/cms-mappers/strapi'
 
 export default async function (params = {}) {
   let urlParams = {
-    'sort[0]': 'data_inizio:desc',
-    'pagination[limit]': 10,
-    ...(params['start'] && {
-      'pagination[start]': params['start'],
+    ...(params['slug'] && {
+      'filters[slug][$eq]': params['slug'],
     }),
     'populate[galleria][populate][id][populate]': '*',
     'populate[galleria][populate][immagini][populate]': '*',
@@ -35,10 +33,8 @@ export default async function (params = {}) {
   )
   if (data.status !== 200) {
     urlParams = {
-      'sort[0]': 'data_inizio:desc',
-      'pagination[limit]': 10,
-      ...(params['start'] && {
-        'pagination[start]': params['start'],
+      ...(params['slug'] && {
+        'filters[slug][$eq]': params['slug'],
       }),
       'populate[galleria][populate][id][populate]': '*',
       'populate[galleria][populate][immagini][populate]': '*',
