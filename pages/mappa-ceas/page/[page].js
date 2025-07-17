@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -13,11 +12,10 @@ import Headertipologiatarget from '../../../components/headertipologiatarget'
 import FilterbyProvince from '../../../components/filterby-province'
 import Cardprovince from '../../../components/cardprovince'
 import Footer from '../../../components/footer'
-import organizzazioniPageInitialPropsTqWoResource from '../../../resources/organizzazioni-page-initial-props-tq_wo'
-import organizzazioniPageInitialPathsTqKZResource from '../../../resources/organizzazioni-page-initial-paths-tq_k-z'
+import organizzazioniPageInitialPropsTqCyResource from '../../../resources/organizzazioni-page-initial-props-tq_cy'
+import organizzazioniPageInitialPathsTqMeResource from '../../../resources/organizzazioni-page-initial-paths-tq_me'
 
 const Organizzazioni11 = (props) => {
-  const router = useRouter()
   return (
     <>
       <main className="organizzazioni11-container1">
@@ -166,7 +164,6 @@ const Organizzazioni11 = (props) => {
                       )}
                     />
                   </div>
-                  <div className="organizzazioni11-cms-pagination-node"></div>
                 </Fragment>
               )}
               initialData={props.organizzazioniEntities}
@@ -264,10 +261,6 @@ const Organizzazioni11 = (props) => {
           .organizzazioni11-component4 {
             text-decoration: none;
           }
-          .organizzazioni11-cms-pagination-node {
-            gap: var(--dl-layout-space-threeunits);
-            display: flex;
-          }
           @media (max-width: 991px) {
             .organizzazioni11-container7 {
               grid-template-columns: 1fr 1fr;
@@ -297,9 +290,9 @@ export default Organizzazioni11
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqWoResource({
+    const response = await organizzazioniPageInitialPropsTqCyResource({
       ...context?.params,
-      start: (context.params.page - 1) * 20,
+      start: (context.params.page - 1) * 1000,
     })
     if (!response) {
       return {
@@ -323,9 +316,9 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await organizzazioniPageInitialPathsTqKZResource({})
+    const response = await organizzazioniPageInitialPathsTqMeResource({})
     const totalCount = response?.meta?.pagination?.total
-    const pagesCount = Math.ceil(totalCount / 20)
+    const pagesCount = Math.ceil(totalCount / 1000)
     return {
       paths: Array.from(
         {

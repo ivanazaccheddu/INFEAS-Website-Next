@@ -15,8 +15,8 @@ const Eventilisting = (props) => {
   return (
     <>
       <div
-        destinatario={props.eventiListingDestinatario}
         descrizione={props.eventiListingDescrizione}
+        destinatario={props.eventiListingDestinatario}
         className={`eventilisting-container1 ${props.rootClassName} `}
       >
         <div className="eventilisting-container2">
@@ -231,6 +231,13 @@ const Eventilisting = (props) => {
             padding-bottom: var(--dl-layout-space-sixunits);
             background-color: #dbeae3;
           }
+          .eventilistingroot-class-name2 {
+            padding-top: var(--dl-layout-space-sixunits);
+            padding-left: var(--dl-layout-space-sixunits);
+            padding-right: var(--dl-layout-space-sixunits);
+            padding-bottom: var(--dl-layout-space-sixunits);
+            background-color: #dbeae3;
+          }
         `}
       </style>
     </>
@@ -239,17 +246,17 @@ const Eventilisting = (props) => {
 
 Eventilisting.defaultProps = {
   button: 'Reset',
-  rootClassName: '',
   eventiListingDestinatario: '*',
   eventiListingDescrizione:
     'Non perdere i prossimi eventi e iniziative promossi da INFEAS! Scopri date, luoghi e dettagli delle attività dedicate all’educazione alla sostenibilità.',
+  rootClassName: '',
 }
 
 Eventilisting.propTypes = {
   button: PropTypes.string,
-  rootClassName: PropTypes.string,
   eventiListingDestinatario: PropTypes.string,
   eventiListingDescrizione: PropTypes.string,
+  rootClassName: PropTypes.string,
 }
 
 export default Eventilisting

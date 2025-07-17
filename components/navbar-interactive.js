@@ -1189,6 +1189,9 @@ const NavbarInteractive = (props) => {
             width: 100%;
           }
 
+          .navbar-interactiveroot-class-name39 {
+            width: 100%;
+          }
           @media (max-width: 1200px) {
             .navbar-interactive-container22 {
               gap: var(--dl-layout-space-oneandhalfunits);

@@ -124,6 +124,7 @@ const LoghiSponsor = (props) => {
           .loghi-sponsorroot-class-name26 {
             padding: var(--dl-layout-space-threeunits);
           }
+
           @media (max-width: 1200px) {
             .loghi-sponsor-container1 {
               gap: var(--dl-layout-space-unit);
@@ -202,6 +203,9 @@ const LoghiSponsor = (props) => {
               padding: var(--dl-layout-space-threeunits);
             }
             .loghi-sponsorroot-class-name26 {
+              padding: var(--dl-layout-space-threeunits);
+            }
+            .loghi-sponsorroot-class-name27 {
               padding: var(--dl-layout-space-threeunits);
             }
           }

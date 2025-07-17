@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -13,10 +12,9 @@ import Headertipologiatarget from '../../components/headertipologiatarget'
 import FilterbyProvince from '../../components/filterby-province'
 import Cardprovince from '../../components/cardprovince'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqA4Resource from '../../resources/organizzazioni-page-initial-props-tq_a4'
+import organizzazioniPageInitialPropsTqBzResource from '../../resources/organizzazioni-page-initial-props-tq_bz'
 
 const Organizzazioni1 = (props) => {
-  const router = useRouter()
   return (
     <>
       <main className="organizzazioni1-container1">
@@ -165,7 +163,6 @@ const Organizzazioni1 = (props) => {
                       )}
                     />
                   </div>
-                  <div className="organizzazioni1-cms-pagination-node"></div>
                 </Fragment>
               )}
               initialData={props.organizzazioniEntities}
@@ -263,10 +260,6 @@ const Organizzazioni1 = (props) => {
           .organizzazioni1-component4 {
             text-decoration: none;
           }
-          .organizzazioni1-cms-pagination-node {
-            gap: var(--dl-layout-space-threeunits);
-            display: flex;
-          }
           @media (max-width: 991px) {
             .organizzazioni1-container7 {
               grid-template-columns: 1fr 1fr;
@@ -296,7 +289,7 @@ export default Organizzazioni1
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqA4Resource({
+    const response = await organizzazioniPageInitialPropsTqBzResource({
       ...context?.params,
     })
     if (!response) {

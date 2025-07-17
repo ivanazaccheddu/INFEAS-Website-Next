@@ -14,8 +14,8 @@ const SezioneNotizieScuole = (props) => {
   return (
     <>
       <section
-        destinatario={props.destinatario}
         descrizione={props.descrizione}
+        destinatario={props.destinatario}
         className={`sezione-notizie-scuole-sezione-notizie-scuole padding-container ${props.rootClassName} `}
       >
         <div className="sezione-notizie-scuole-container1 thq-section-max-width">
