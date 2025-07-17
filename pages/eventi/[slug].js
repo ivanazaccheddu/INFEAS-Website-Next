@@ -11,8 +11,8 @@ import DettaglioEventiCompleto from '../../components/dettaglio-eventi-completo'
 import Galleriaimmagginislot from '../../components/galleriaimmagginislot'
 import Imagecontainercomponent from '../../components/imagecontainercomponent'
 import Footer from '../../components/footer'
-import eventiPageInitialPropsTqFsResource from '../../resources/eventi-page-initial-props-tq_fs'
-import eventiPageInitialPathsTqWdResource from '../../resources/eventi-page-initial-paths-tq_wd'
+import eventiPageInitialPropsTqXkResource from '../../resources/eventi-page-initial-props-tq_xk'
+import eventiPageInitialPathsTqDtResource from '../../resources/eventi-page-initial-paths-tq_dt'
 
 const Eventi11 = (props) => {
   return (
@@ -224,7 +224,7 @@ export default Eventi11
 
 export async function getStaticProps(context) {
   try {
-    const response = await eventiPageInitialPropsTqFsResource({
+    const response = await eventiPageInitialPropsTqXkResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -249,7 +249,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await eventiPageInitialPathsTqWdResource({})
+    const response = await eventiPageInitialPathsTqDtResource({})
     return {
       paths: (response?.data || []).map((item) => {
         return {

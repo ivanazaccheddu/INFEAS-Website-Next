@@ -100,13 +100,223 @@ const MappaCEAS = (props) => {
                 <div className="mappa-ceas-container6">
                   <React.Fragment>
                     <React.Fragment>
-                      <iframe
-                        src="https://www.google.com/maps/d/embed?mid=1H9iCa0FfFqi0OffyjrXv-din_ddUFAU"
-                        width="100%"
-                        height="700px"
-                        style={{ border: '0' }}
-                        allowFullScreen={true}
-                      ></iframe>
+                      <link
+                        rel="stylesheet"
+                        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                      />
+
+                      <style
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            '\n/* Hide the original clickable spans immediately */\n.ceas-list-container2 span {\n  display: none !important;\n}\n',
+                        }}
+                      />
+
+                      <Script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" />
+
+                      <Script>{`
+(function () {
+  // Store current selection to persist across re-renders
+  let currentProvinceSelection = '';
+
+  function createDropdownFromSpans(spans, labelText) {
+    const select = document.createElement('select');
+    select.setAttribute('data-enhanced', 'true');
+    select.setAttribute('data-type', 'province');
+
+    const defaultOption = document.createElement('option');
+    defaultOption.textContent = \`-- \${labelText} --\`;
+    defaultOption.value = '';
+    select.appendChild(defaultOption);
+
+    spans.forEach((span, index) => {
+      const text = span.textContent.trim();
+      if (!text) return; // Skip empty
+      const option = document.createElement('option');
+      option.textContent = text;
+      option.value = index;
+      select.appendChild(option);
+    });
+
+    // Set the previously selected value if it exists and state is not "*"
+    if (currentProvinceSelection) {
+      // Find the option with matching text
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].textContent === currentProvinceSelection) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    } else {
+      // Reset to placeholder if state is "*" or no selection
+      select.selectedIndex = 0;
+    }
+
+    select.addEventListener('change', (e) => {
+      const index = parseInt(e.target.value);
+      if (!isNaN(index)) {
+        // Store the selected text for persistence
+        const selectedText = e.target.options[e.target.selectedIndex].textContent;
+        currentProvinceSelection = selectedText;
+        spans[index].click(); // trigger original React filter
+      } else {
+        // Reset was selected - need to trigger React state to go back to "*"
+        currentProvinceSelection = '';
+        triggerResetState();
+      }
+    });
+
+    // Simple styling
+    Object.assign(select.style, {
+      padding: '8px',
+      borderRadius: '6px',
+      border: '1px solid #ccc',
+      fontSize: '14px',
+      marginBottom: '10px',
+    });
+
+    return select;
+  }
+
+  function triggerResetState() {
+    // Since there's no visible reset button in this component, we need to trigger
+    // the React state change to "*" manually. 
+    
+    // The most reliable way is to modify the URL to remove any filters
+    // and trigger a page reload
+    
+    const currentUrl = new URL(window.location);
+    currentUrl.searchParams.delete('provincia'); // Remove any province parameters
+    
+    // Clear our stored selection
+    currentProvinceSelection = '';
+    
+    // Update the URL and reload if necessary
+    if (currentUrl.toString() !== window.location.toString()) {
+      window.history.pushState({}, '', currentUrl);
+      window.location.reload();
+    } else {
+      // If URL is already clean, just reload to reset React state
+      window.location.reload();
+    }
+  }
+
+  function injectDropdowns() {
+    const provinceContainer = document.querySelector('.ceas-list-container2');
+    if (!provinceContainer) return;
+
+    const provinceSpans = provinceContainer.querySelectorAll('span');
+
+    // Check if dropdown already exists
+    const provinceDropdownExists = provinceContainer.querySelector('select[data-enhanced]');
+
+    // Only inject if spans exist and dropdown not already present
+    if (provinceSpans.length && !provinceDropdownExists) {
+      const dropdown = createDropdownFromSpans(provinceSpans, 'Filtra per provincia');
+      provinceContainer.insertBefore(dropdown, provinceContainer.firstChild);
+    }
+  }
+
+  // Map initialization
+  async function initCeasMap() {
+    if (typeof window === 'undefined' || !window.L) {
+      setTimeout(initCeasMap, 100);
+      return;
+    }
+
+    let ceasMap;
+    let ceasMarkers = [];
+
+    async function fetchCeasData() {
+      try {
+        const response = await fetch('https://infeas.dbs.agency/api/organizzazioni');
+        const data = await response.json();
+        return data.data || [];
+      } catch (error) {
+        console.error('Error fetching CEAS data:', error);
+        return [];
+      }
+    }
+
+    function createMarker(organization, map) {
+      const lat = parseFloat(organization.attributes.latitudine);
+      const lng = parseFloat(organization.attributes.longitudine);
+      
+      if (isNaN(lat) || isNaN(lng)) {
+        console.warn('Invalid coordinates for:', organization.attributes.nome);
+        return null;
+      }
+
+      const popupContent = \`
+        <div style="max-width: 300px;">
+          <h3 style="margin: 0 0 10px 0; color: #333; font-size: 16px;">\${organization.attributes.nome}</h3>
+          <p style="margin: 5px 0; font-size: 14px;"><strong>Luogo:</strong> \${organization.attributes.luogo || 'N/A'}</p>
+          \${organization.attributes.indirizzo ? \`<p style="margin: 5px 0; font-size: 14px;"><strong>Indirizzo:</strong> \${organization.attributes.indirizzo}</p>\` : ''}
+          \${organization.attributes.telefono ? \`<p style="margin: 5px 0; font-size: 14px;"><strong>Telefono:</strong> \${organization.attributes.telefono}</p>\` : ''}
+          \${organization.attributes.email ? \`<p style="margin: 5px 0; font-size: 14px;"><strong>Email:</strong> <a href="mailto:\${organization.attributes.email}">\${organization.attributes.email}</a></p>\` : ''}
+          \${organization.attributes.sito ? \`<p style="margin: 5px 0; font-size: 14px;"><strong>Sito:</strong> <a href="\${organization.attributes.sito}" target="_blank">\${organization.attributes.sito}</a></p>\` : ''}
+        </div>
+      \`;
+
+      const marker = L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(popupContent);
+
+      return marker;
+    }
+
+    // Initialize map centered on Sardinia
+    const mapElement = document.getElementById('dynamic-ceas-map');
+    if (!mapElement) return;
+
+    ceasMap = L.map('dynamic-ceas-map').setView([40.1209, 9.0129], 8);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(ceasMap);
+
+    // Fetch and display CEAS organizations
+    const organizations = await fetchCeasData();
+    console.log('Loaded CEAS organizations:', organizations.length);
+
+    const group = new L.featureGroup();
+    let validMarkers = 0;
+
+    organizations.forEach(org => {
+      const marker = createMarker(org, ceasMap);
+      if (marker) {
+        ceasMarkers.push(marker);
+        group.addLayer(marker);
+        validMarkers++;
+      }
+    });
+
+    // Fit map to show all markers if we have valid coordinates
+    if (validMarkers > 0) {
+      ceasMap.fitBounds(group.getBounds(), {
+        padding: [20, 20],
+        maxZoom: 15
+      });
+    }
+
+    console.log('Map initialized with', validMarkers, 'markers');
+  }
+
+  // Initialize both dropdown and map
+  initCeasMap();
+
+  // Watch and reinject dropdowns when necessary
+  const interval = setInterval(() => {
+    try {
+      injectDropdowns();
+    } catch (err) {
+      console.error('Dropdown injection error:', err);
+    }
+  }, 300);
+})();
+`}</Script>
                     </React.Fragment>
                   </React.Fragment>
                 </div>

@@ -11,7 +11,7 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import CeasList from '../../components/ceas-list'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqCfResource from '../../resources/organizzazioni-page-initial-props-tq_cf'
+import organizzazioniPageInitialPropsTqSCResource from '../../resources/organizzazioni-page-initial-props-tq_s-c'
 
 const Organizzazioni1 = (props) => {
   const router = useRouter()
@@ -265,7 +265,7 @@ export default Organizzazioni1
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqCfResource({
+    const response = await organizzazioniPageInitialPropsTqSCResource({
       ...context?.params,
     })
     if (!response) {
