@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
@@ -14,6 +14,7 @@ import Footer from '../components/footer'
 
 const ScuoleNotizie = (props) => {
   const router = useRouter()
+  const [categoria, setCategoria] = useState('*')
   return (
     <>
       <div className="scuole-notizie-container1">

@@ -11,7 +11,7 @@ import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
 import CardEvento from '../../components/card-evento'
 import Footer from '../../components/footer'
-import eventiPageInitialPropsTqRoResource from '../../resources/eventi-page-initial-props-tq_ro'
+import eventiPageInitialPropsTqQJResource from '../../resources/eventi-page-initial-props-tq_q-j'
 
 const Eventi = (props) => {
   const router = useRouter()
@@ -115,12 +115,15 @@ const Eventi = (props) => {
                                 logoAlt={EventiEntities?.immagine?.alt}
                                 logoORG={
                                   EventiEntities?.organizzazione?.logo?.url ||
-                                  'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/6870e192-5a0c-4ce0-92db-78cbb3e943f6/82d7ddad-37a0-4cbe-b3a1-b517a202640e?org_if_sml=1&force_format=original'
+                                  'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/6870e192-5a0c-4ce0-92db-78cbb3e943f6/9774874c-4a87-4327-b196-4da9decc828b?org_if_sml=1&force_format=original'
                                 }
                                 idEvento={EventiEntities?.slug || '--'}
                                 oraInizio={EventiEntities?.data_inizio || '--'}
                                 dataEvento={EventiEntities?.data_inizio || '--'}
-                                fotoEvento={EventiEntities?.immagine?.url}
+                                fotoEvento={
+                                  EventiEntities?.immagine?.url ||
+                                  'https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/6870e192-5a0c-4ce0-92db-78cbb3e943f6/dc6fc4e5-45d5-4c52-86f7-d8543582657a?org_if_sml=1&force_format=original'
+                                }
                                 nomeEvento={EventiEntities?.nome || '--'}
                                 fotoEventoAlt={
                                   EventiEntities?.immagine?.alt || '--'
@@ -232,7 +235,7 @@ export default Eventi
 
 export async function getStaticProps(context) {
   try {
-    const response = await eventiPageInitialPropsTqRoResource({
+    const response = await eventiPageInitialPropsTqQJResource({
       ...context?.params,
     })
     if (!response) {
