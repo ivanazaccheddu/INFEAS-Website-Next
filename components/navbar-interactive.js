@@ -207,7 +207,7 @@ const NavbarInteractive = (props) => {
                     </div>
                     <div className="navbar-interactive-container18">
                       <Link
-                        href="/mappa-ceas"
+                        href="/cittadini-notizie1"
                         onClick={() => setActiveLink('mappaceas')}
                       >
                         <a
@@ -1190,6 +1190,9 @@ const NavbarInteractive = (props) => {
           }
 
           .navbar-interactiveroot-class-name39 {
+            width: 100%;
+          }
+          .navbar-interactiveroot-class-name40 {
             width: 100%;
           }
           @media (max-width: 1200px) {

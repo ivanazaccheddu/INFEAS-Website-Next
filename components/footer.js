@@ -513,6 +513,13 @@ const Footer = (props) => {
             color: #ffffff;
             background-color: #303633;
           }
+          .footerroot-class-name38 {
+            fill: var(--dl-color-theme-neutral-dark);
+            color: #ffffff;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            background-color: #303633;
+          }
           @media (max-width: 991px) {
             .footer-column1 {
               max-width: 100%;

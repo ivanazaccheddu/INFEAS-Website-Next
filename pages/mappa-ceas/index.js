@@ -1,22 +1,23 @@
 import React, { Fragment } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import Script from 'dangerous-html/react'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
+import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 import { useTranslations } from 'next-intl'
 
 import NavbarInteractive from '../../components/navbar-interactive'
 import Headertipologiatarget from '../../components/headertipologiatarget'
-import Cardprovince from '../../components/cardprovince'
+import CeasList from '../../components/ceas-list'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqXcResource from '../../resources/organizzazioni-page-initial-props-tq_xc'
+import organizzazioniPageInitialPropsTqFzResource from '../../resources/organizzazioni-page-initial-props-tq_fz'
 
 const Organizzazioni1 = (props) => {
+  const router = useRouter()
   return (
     <>
-      <main className="organizzazioni1-container10">
+      <main className="organizzazioni1-container1">
         <Head>
           <title>Organizzazioni1 - INFEAS Website</title>
           <meta
@@ -102,6 +103,22 @@ const Organizzazioni1 = (props) => {
           }
           rootClassName="navbar-interactiveroot-class-name22"
         ></NavbarInteractive>
+        <DataProvider
+          renderSuccess={(params) => (
+            <Fragment>
+              <div className="organizzazioni1-container2">
+                <Repeater
+                  items={params}
+                  renderItem={(OrganizzazioniEntities) => <Fragment></Fragment>}
+                />
+              </div>
+              <div className="organizzazioni1-cms-pagination-node"></div>
+            </Fragment>
+          )}
+          initialData={props.organizzazioniEntities}
+          persistDataDuringLoading={true}
+          key={props?.pagination?.page}
+        />
         <Headertipologiatarget
           breadcrumb="Home / Mappa CEAS"
           rootClassName="headertipologiatargetroot-class-name17"
@@ -109,12 +126,12 @@ const Organizzazioni1 = (props) => {
         ></Headertipologiatarget>
         <section
           id="elenco-ceas-mappa"
-          className="organizzazioni1-container11 padding-container"
+          className="organizzazioni1-container3 padding-container"
         >
-          <div className="organizzazioni1-container12 thq-section-max-width">
-            <div className="organizzazioni1-container13">
-              <div className="organizzazioni1-container14">
-                <div className="organizzazioni1-container15">
+          <div className="organizzazioni1-container4 thq-section-max-width">
+            <div className="organizzazioni1-container5">
+              <div className="organizzazioni1-container6">
+                <div className="organizzazioni1-container7">
                   <React.Fragment>
                     <React.Fragment>
                       <iframe
@@ -129,223 +146,14 @@ const Organizzazioni1 = (props) => {
                 </div>
               </div>
             </div>
-            <DataProvider
-              fetchData={(params) =>
-                fetch(
-                  `/api/organizzazioni1-resource-organizzazioni1?${new URLSearchParams(
-                    params
-                  )}`,
-                  {
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                  }
-                )
-                  .then((res) => res.json())
-                  .then((data) => data)
-              }
-              renderSuccess={(params) => (
-                <Fragment>
-                  <div className="organizzazioni1-container16">
-                    <Repeater
-                      items={params}
-                      renderItem={(provinces) => (
-                        <Fragment>
-                          <span>{provinces?.nome}</span>
-                        </Fragment>
-                      )}
-                    />
-                  </div>
-                </Fragment>
-              )}
-              params={{
-                locale: props?.locale ?? '',
-              }}
-            />
-            <DataProvider
-              renderSuccess={(params) => (
-                <Fragment>
-                  <div className="organizzazioni1-container17">
-                    <Repeater
-                      items={params}
-                      renderItem={(OrganizzazioniEntities) => (
-                        <Fragment>
-                          <Link
-                            href={`/organizzazioni/${OrganizzazioniEntities?.slug}`}
-                          >
-                            <a>
-                              <Cardprovince
-                                nomeCeas={OrganizzazioniEntities?.nome}
-                                provincia={
-                                  OrganizzazioniEntities?.provincia?.nome
-                                }
-                                rootClassName="cardprovinceroot-class-name"
-                                className="organizzazioni1-component3"
-                              ></Cardprovince>
-                            </a>
-                          </Link>
-                        </Fragment>
-                      )}
-                    />
-                  </div>
-                </Fragment>
-              )}
-              initialData={props.organizzazioniEntities}
-              persistDataDuringLoading={true}
-              key={props?.pagination?.page}
-            />
+            <CeasList rootClassName="ceas-listroot-class-name"></CeasList>
           </div>
         </section>
         <Footer rootClassName="footerroot-class-name20"></Footer>
-        <div>
-          <div className="organizzazioni1-container19">
-            <React.Fragment>
-              <React.Fragment>
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      '\n/* Hide the original static select */\n#select-provincia {\n  display: none !important;\n}\n',
-                  }}
-                />
-
-                <Script>{`
-(function () {
-  // Store current selection to persist across re-renders
-  let currentProvinceSelection = '';
-
-  function createProvinceDropdown() {
-    // Get all organization cards to extract province data
-    const orgCards = document.querySelectorAll('.cardprovinceroot-class-name');
-    const provinces = new Set();
-    
-    // Extract unique provinces from the cards
-    orgCards.forEach(card => {
-      const provinceElement = card.querySelector('[class*="provincia"]') || 
-                             card.querySelector('span:last-child') ||
-                             card.querySelector('span:nth-child(2)');
-      if (provinceElement && provinceElement.textContent.trim()) {
-        provinces.add(provinceElement.textContent.trim());
-      }
-    });
-
-    const select = document.createElement('select');
-    select.setAttribute('data-enhanced', 'true');
-    select.setAttribute('id', 'select-provincia-enhanced');
-    select.className = 'filterby-province-select';
-
-    const defaultOption = document.createElement('option');
-    defaultOption.textContent = 'Tutte le province';
-    defaultOption.value = '';
-    select.appendChild(defaultOption);
-
-    // Sort provinces alphabetically and add to select
-    Array.from(provinces).sort().forEach(province => {
-      const option = document.createElement('option');
-      option.textContent = province;
-      option.value = province;
-      select.appendChild(option);
-    });
-
-    // Set the previously selected value if it exists
-    if (currentProvinceSelection) {
-      select.value = currentProvinceSelection;
-    }
-
-    select.addEventListener('change', (e) => {
-      const selectedProvince = e.target.value;
-      currentProvinceSelection = selectedProvince;
-      filterOrganizationsByProvince(selectedProvince);
-    });
-
-    return select;
-  }
-
-  function filterOrganizationsByProvince(selectedProvince) {
-    const orgCards = document.querySelectorAll('.cardprovinceroot-class-name');
-    
-    orgCards.forEach(card => {
-      const cardParent = card.closest('a') || card.parentElement;
-      
-      if (!selectedProvince) {
-        // Show all cards
-        cardParent.style.display = '';
-        return;
-      }
-
-      const provinceElement = card.querySelector('[class*="provincia"]') || 
-                             card.querySelector('span:last-child') ||
-                             card.querySelector('span:nth-child(2)');
-      
-      if (provinceElement) {
-        const cardProvince = provinceElement.textContent.trim();
-        if (cardProvince === selectedProvince) {
-          cardParent.style.display = '';
-        } else {
-          cardParent.style.display = 'none';
-        }
-      } else {
-        // Hide cards without province info when filtering
-        cardParent.style.display = 'none';
-      }
-    });
-
-    // Update grid layout after filtering
-    updateGridLayout();
-  }
-
-  function updateGridLayout() {
-    const container = document.querySelector('.organizzazioni11-container7');
-    if (container) {
-      // Force grid recalculation
-      container.style.display = 'none';
-      setTimeout(() => {
-        container.style.display = 'grid';
-      }, 10);
-    }
-  }
-
-  function injectProvinceDropdown() {
-    const filterContainer = document.querySelector('.filterby-province-container2');
-    const originalSelect = document.querySelector('#select-provincia');
-    
-    if (!filterContainer || !originalSelect) return;
-
-    // Check if we already enhanced this
-    const existingEnhanced = document.querySelector('#select-provincia-enhanced');
-    if (existingEnhanced) return;
-
-    // Wait for organization cards to be loaded
-    const orgCards = document.querySelectorAll('.cardprovinceroot-class-name');
-    if (orgCards.length === 0) return;
-
-    // Create and inject the new dropdown
-    const newSelect = createProvinceDropdown();
-    filterContainer.appendChild(newSelect);
-  }
-
-  // Watch for content changes and inject dropdown when ready
-  const interval = setInterval(() => {
-    try {
-      injectProvinceDropdown();
-    } catch (err) {
-      console.error('Province dropdown injection error:', err);
-    }
-  }, 500);
-
-  // Stop checking after 30 seconds to avoid infinite polling
-  setTimeout(() => {
-    clearInterval(interval);
-  }, 30000);
-})();
-`}</Script>
-              </React.Fragment>
-            </React.Fragment>
-          </div>
-        </div>
       </main>
       <style jsx>
         {`
-          .organizzazioni1-container10 {
+          .organizzazioni1-container1 {
             width: 100%;
             display: flex;
             min-height: 100vh;
@@ -391,36 +199,7 @@ const Organizzazioni1 = (props) => {
           .organizzazioni1-text22 {
             display: inline-block;
           }
-          .organizzazioni1-container11 {
-            flex: 0 0 auto;
-            display: flex;
-            align-items: flex-start;
-          }
-          .organizzazioni1-container12 {
-            gap: var(--dl-layout-space-fourunits);
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-          }
-          .organizzazioni1-container13 {
-            gap: 12px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-          }
-          .organizzazioni1-container14 {
-            width: 100%;
-          }
-          .organizzazioni1-container15 {
-            display: contents;
-          }
-          .organizzazioni1-container16 {
-            display: flex;
-            flex-direction: column;
-          }
-          .organizzazioni1-container17 {
+          .organizzazioni1-container2 {
             gap: var(--dl-layout-space-fourunits);
             width: 100%;
             display: grid;
@@ -428,19 +207,42 @@ const Organizzazioni1 = (props) => {
             padding-bottom: var(--dl-layout-space-fourunits);
             grid-template-columns: 1fr 1fr 1fr;
           }
-          .organizzazioni1-component3 {
-            text-decoration: none;
+          .organizzazioni1-cms-pagination-node {
+            gap: var(--dl-layout-space-threeunits);
+            display: flex;
           }
-          .organizzazioni1-container19 {
+          .organizzazioni1-container3 {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: flex-start;
+          }
+          .organizzazioni1-container4 {
+            gap: var(--dl-layout-space-fourunits);
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+          }
+          .organizzazioni1-container5 {
+            gap: 12px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+          }
+          .organizzazioni1-container6 {
+            width: 100%;
+          }
+          .organizzazioni1-container7 {
             display: contents;
           }
           @media (max-width: 991px) {
-            .organizzazioni1-container17 {
+            .organizzazioni1-container2 {
               grid-template-columns: 1fr 1fr;
             }
           }
           @media (max-width: 767px) {
-            .organizzazioni1-container17 {
+            .organizzazioni1-container2 {
               display: flex;
               flex-direction: column;
             }
@@ -463,7 +265,7 @@ export default Organizzazioni1
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqXcResource({
+    const response = await organizzazioniPageInitialPropsTqFzResource({
       ...context?.params,
     })
     if (!response) {

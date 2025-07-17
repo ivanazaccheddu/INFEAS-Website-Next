@@ -106,8 +106,8 @@ const ReteNotizieDellaRete = (props) => {
         ></Headertipologiatarget>
         <SezioneNotizieScuole
           descrizione=" "
-          rootClassName="sezione-notizie-scuoleroot-class-name1"
           destinatario="enti-e-organizzazione-della-rete-infeas"
+          rootClassName="sezione-notizie-scuoleroot-class-name1"
         ></SezioneNotizieScuole>
         <LoghiSponsor rootClassName="loghi-sponsorroot-class-name2"></LoghiSponsor>
         <Footer rootClassName="footerroot-class-name3"></Footer>

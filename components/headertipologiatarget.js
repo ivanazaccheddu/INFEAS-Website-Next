@@ -165,6 +165,9 @@ const Headertipologiatarget = (props) => {
           .headertipologiatargetroot-class-name32 {
             background-color: var(--dl-color-theme-secondary1);
           }
+          .headertipologiatargetroot-class-name33 {
+            background-color: var(--dl-color-theme-accent2);
+          }
           @media (max-width: 767px) {
             .headertipologiatarget-header {
               min-height: 450px;

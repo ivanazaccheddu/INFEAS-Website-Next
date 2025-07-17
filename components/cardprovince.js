@@ -75,9 +75,6 @@ const Cardprovince = (props) => {
             align-self: flex-start;
             text-align: left;
           }
-          .cardprovinceroot-class-name {
-            width: 100%;
-          }
 
           .cardprovinceroot-class-name3 {
             height: 100%;
