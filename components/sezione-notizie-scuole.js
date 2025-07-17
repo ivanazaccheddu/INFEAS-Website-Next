@@ -14,8 +14,47 @@ const SezioneNotizieScuole = (props) => {
     <>
       <section className="sezione-notizie-scuole-sezione-notizie-scuole padding-container">
         <div className="sezione-notizie-scuole-container1 thq-section-max-width">
-          <div className="sezione-notizie-scuole-container2">
-            <span className="sezione-notizie-scuole-text10 paragraph_xl">
+          <div className="sezione-notizie-scuole-containerfiltri">
+            <DataProvider
+              fetchData={(params) =>
+                fetch(
+                  `/api/sezione-notizie-scuole-resource-sezione-notizie-scuole?${new URLSearchParams(
+                    params
+                  )}`,
+                  {
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                  }
+                )
+                  .then((res) => res.json())
+                  .then((data) => data)
+              }
+              renderSuccess={(params) => (
+                <Fragment>
+                  <div className="sezione-notizie-scuole-container2">
+                    <Repeater
+                      items={params}
+                      renderItem={(categorie_notizie) => (
+                        <Fragment>
+                          <span
+                            onClick={() => setCategoria(categorie_notizie?.id)}
+                          >
+                            {categorie_notizie?.nome}
+                          </span>
+                        </Fragment>
+                      )}
+                    />
+                  </div>
+                </Fragment>
+              )}
+              params={{
+                locale: props?.locale ?? '',
+              }}
+            />
+          </div>
+          <div className="sezione-notizie-scuole-containerdescrizione">
+            <span className="sezione-notizie-scuole-text11 paragraph_xl">
               <span>
                 Rimani aggiornato su eventi, programmi e iniziative dedicati a
                 scuole e università.
@@ -37,7 +76,7 @@ const SezioneNotizieScuole = (props) => {
             <DataProvider
               fetchData={(params) =>
                 fetch(
-                  `/api/sezione-notizie-scuole-resource-sezione-notizie-scuole?${new URLSearchParams(
+                  `/api/sezione-notizie-scuole1-resource-sezione-notizie-scuole1?${new URLSearchParams(
                     params
                   )}`,
                   {
@@ -71,7 +110,7 @@ const SezioneNotizieScuole = (props) => {
                           <EmptyPlaceholder
                             testo={
                               <Fragment>
-                                <span className="sezione-notizie-scuole-text14 paragraph_xl">
+                                <span className="sezione-notizie-scuole-text15 paragraph_xl">
                                   <span>
                                     Torna a trovarci presto per restare
                                     aggiornato con le ultime novità e
@@ -83,7 +122,7 @@ const SezioneNotizieScuole = (props) => {
                             }
                             titolo={
                               <Fragment>
-                                <span className="sezione-notizie-scuole-text17 paragraph_xl">
+                                <span className="sezione-notizie-scuole-text18 paragraph_xl">
                                   <span>
                                     Nessuna notizia disponibile al momento
                                   </span>
@@ -122,13 +161,22 @@ const SezioneNotizieScuole = (props) => {
             align-items: center;
             flex-direction: column;
           }
+          .sezione-notizie-scuole-containerfiltri {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: flex-start;
+          }
           .sezione-notizie-scuole-container2 {
+            display: flex;
+            flex-direction: column;
+          }
+          .sezione-notizie-scuole-containerdescrizione {
             gap: var(--dl-layout-space-twounits);
             display: flex;
             align-items: center;
             flex-direction: column;
           }
-          .sezione-notizie-scuole-text10 {
+          .sezione-notizie-scuole-text11 {
             fill: #252330;
             color: rgb(37, 35, 48);
             height: auto;
@@ -141,10 +189,10 @@ const SezioneNotizieScuole = (props) => {
             position: relative;
             flex-wrap: wrap;
           }
-          .sezione-notizie-scuole-text14 {
+          .sezione-notizie-scuole-text15 {
             display: inline-block;
           }
-          .sezione-notizie-scuole-text17 {
+          .sezione-notizie-scuole-text18 {
             display: inline-block;
             font-weight: 600;
           }

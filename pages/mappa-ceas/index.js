@@ -13,7 +13,7 @@ import Headertipologiatarget from '../../components/headertipologiatarget'
 import FilterbyProvince from '../../components/filterby-province'
 import Cardprovince from '../../components/cardprovince'
 import Footer from '../../components/footer'
-import organizzazioniPageInitialPropsTqEgResource from '../../resources/organizzazioni-page-initial-props-tq_eg'
+import organizzazioniPageInitialPropsTq5dResource from '../../resources/organizzazioni-page-initial-props-tq_5d'
 
 const Organizzazioni1 = (props) => {
   const router = useRouter()
@@ -296,7 +296,7 @@ export default Organizzazioni1
 
 export async function getStaticProps(context) {
   try {
-    const response = await organizzazioniPageInitialPropsTqEgResource({
+    const response = await organizzazioniPageInitialPropsTq5dResource({
       ...context?.params,
     })
     if (!response) {

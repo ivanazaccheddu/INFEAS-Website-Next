@@ -1,14 +1,9 @@
-import { normalize } from '@teleporthq/cms-mappers/strapi'
-
 export default async function (params = {}) {
   let urlParams = {
-    'pagination[limit]': 100,
-    populate: '*',
+    'pagination[pageSize]': 1,
   }
   let data = await fetch(
-    `${process.env.CMS_URL}/api/Categorie-notizie?${new URLSearchParams(
-      urlParams
-    )}`,
+    `${process.env.CMS_URL}/api/Notizie?${new URLSearchParams(urlParams)}`,
     {
       method: 'GET',
       headers: {
@@ -18,13 +13,10 @@ export default async function (params = {}) {
   )
   if (data.status !== 200) {
     urlParams = {
-      'pagination[limit]': 100,
-      populate: '*',
+      'pagination[pageSize]': 1,
     }
     data = await fetch(
-      `${process.env.CMS_URL}/api/Categorie-notizie?${new URLSearchParams(
-        urlParams
-      )}`,
+      `${process.env.CMS_URL}/api/Notizie?${new URLSearchParams(urlParams)}`,
       {
         method: 'GET',
         headers: {
@@ -34,5 +26,5 @@ export default async function (params = {}) {
     )
   }
   const response = await data.json()
-  return normalize(response)
+  return response
 }

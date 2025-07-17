@@ -2,13 +2,14 @@ import { normalize } from '@teleporthq/cms-mappers/strapi'
 
 export default async function (params = {}) {
   let urlParams = {
-    'pagination[limit]': 100,
-    populate: '*',
+    'pagination[limit]': 10,
+    'pagination[start]': 0,
+    'populate[eventi][populate]': '*',
+    'populate[notizie][populate]': '*',
+    'populate[immagine][populate]': '*',
   }
   let data = await fetch(
-    `${process.env.CMS_URL}/api/Categorie-notizie?${new URLSearchParams(
-      urlParams
-    )}`,
+    `${process.env.CMS_URL}/api/Progetti?${new URLSearchParams(urlParams)}`,
     {
       method: 'GET',
       headers: {
@@ -18,13 +19,14 @@ export default async function (params = {}) {
   )
   if (data.status !== 200) {
     urlParams = {
-      'pagination[limit]': 100,
-      populate: '*',
+      'pagination[limit]': 10,
+      'pagination[start]': 0,
+      'populate[eventi][populate]': '*',
+      'populate[notizie][populate]': '*',
+      'populate[immagine][populate]': '*',
     }
     data = await fetch(
-      `${process.env.CMS_URL}/api/Categorie-notizie?${new URLSearchParams(
-        urlParams
-      )}`,
+      `${process.env.CMS_URL}/api/Progetti?${new URLSearchParams(urlParams)}`,
       {
         method: 'GET',
         headers: {
